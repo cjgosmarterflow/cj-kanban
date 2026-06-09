@@ -7,9 +7,9 @@
           {
             "type": "command",
             "shell": "powershell",
-            "command": "$data = $input | ConvertFrom-Json; $fp = $data.tool_input.file_path; if ($fp -like '*SmarterFlow\\index.html') { Set-Location 'c:\\Users\\Carl Salamida\\OneDrive\\Desktop\\Clawd Projects\\SmarterFlow'; vercel --prod --yes }",
-            "timeout": 120,
-            "statusMessage": "Deploying to Vercel...",
+            "command": "$data = $input | ConvertFrom-Json; $fp = $data.tool_input.file_path; if ($fp -like '*SmarterFlow\\index.html') { Set-Location 'c:\\Users\\Carl Salamida\\OneDrive\\Desktop\\Clawd Projects\\SmarterFlow'; git add index.html; git commit -m 'auto: update index.html'; git push }",
+            "timeout": 60,
+            "statusMessage": "Pushing to GitHub...",
             "async": true
           }
         ]
