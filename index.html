@@ -204,7 +204,29 @@ body::after {
 
 .tab-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-4); flex-shrink: 0; }
 .tab.has-urgent .tab-dot { background: var(--high); }
-.tab.active:not(.has-urgent) .tab-dot { background: var(--ink); }
+.tab.is-good .tab-dot { background: var(--done); }
+.tab.active:not(.has-urgent):not(.is-good) .tab-dot { background: var(--ink); }
+
+.tab-status-menu {
+  position: fixed;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+.tab-status-menu button {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform 0.1s, border-color 0.1s;
+}
+.tab-status-menu button:hover { transform: scale(1.2); border-color: var(--border-strong); }
+.tab-status-menu .s-default { background: var(--ink-4); }
+.tab-status-menu .s-urgent  { background: var(--high); }
+.tab-status-menu .s-good    { background: var(--done); }
 
 /* PANEL */
 .tab-panel { display: none; padding: 24px 28px 80px; position: relative; z-index: 1; }
@@ -832,26 +854,67 @@ function setBadge(state) {
 
 // ── TABS ──────────────────────────────────────────────────────────
 
+function getClientStatuses() {
+  try { return JSON.parse(localStorage.getItem('sf-client-status') || '{}'); } catch { return {}; }
+}
+function setClientStatus(cid, status) {
+  const s = getClientStatuses();
+  s[cid] = status;
+  localStorage.setItem('sf-client-status', JSON.stringify(s));
+}
+
+function applyTabStatus(tab, cid) {
+  const status = getClientStatuses()[cid] || 'default';
+  tab.classList.toggle('has-urgent', status === 'urgent');
+  tab.classList.toggle('is-good',    status === 'good');
+}
+
+let _statusMenu = null;
+function openStatusMenu(e, cid) {
+  e.preventDefault();
+  e.stopPropagation();
+  closeStatusMenu();
+  const menu = document.createElement('div');
+  menu.className = 'tab-status-menu';
+  menu.innerHTML = `
+    <button class="s-default" title="Default" onclick="pickStatus('${cid}','default')"></button>
+    <button class="s-urgent"  title="Urgent"  onclick="pickStatus('${cid}','urgent')"></button>
+    <button class="s-good"    title="Good"    onclick="pickStatus('${cid}','good')"></button>
+  `;
+  menu.style.left = e.clientX + 'px';
+  menu.style.top  = e.clientY + 'px';
+  document.body.appendChild(menu);
+  _statusMenu = menu;
+  setTimeout(() => document.addEventListener('click', closeStatusMenu, { once: true }), 0);
+}
+function closeStatusMenu() {
+  if (_statusMenu) { _statusMenu.remove(); _statusMenu = null; }
+}
+function pickStatus(cid, status) {
+  setClientStatus(cid, status);
+  const tab = document.querySelector(`.tab[data-id="${cid}"]`);
+  if (tab) applyTabStatus(tab, cid);
+  closeStatusMenu();
+}
+
 function buildTabs() {
   const wrap = document.getElementById('tabs');
   CLIENTS.forEach(c => {
-    const data = loadClient(c.id);
-    const urgent = [...data.todo, ...data.inprogress].some(x => x.pri === 'high');
     const tab = document.createElement('div');
-    tab.className = `tab${c.id === active ? ' active' : ''}${urgent ? ' has-urgent' : ''}`;
+    tab.className = `tab${c.id === active ? ' active' : ''}`;
     tab.dataset.id = c.id;
     tab.innerHTML = `<span class="tab-dot"></span>${esc(c.name)}`;
     tab.onclick = () => switchTab(c.id);
+    tab.oncontextmenu = e => openStatusMenu(e, c.id);
+    applyTabStatus(tab, c.id);
     wrap.appendChild(tab);
   });
 }
 
 function refreshTab(cid) {
-  const data = loadClient(cid);
-  const urgent = [...data.todo, ...data.inprogress].some(x => x.pri === 'high');
   const tab = document.querySelector(`.tab[data-id="${cid}"]`);
   if (tab) {
-    tab.classList.toggle('has-urgent', urgent);
+    applyTabStatus(tab, cid);
     if (cid === active) tab.classList.add('active');
   }
 }
