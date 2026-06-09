@@ -644,7 +644,7 @@ const COLS = ['todo','inprogress','done'];
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 8,
+  _rev: 9,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -666,20 +666,20 @@ const EMBEDDED_DATA = {
     ]
   },
   'tate-smith': {
-    todo: [
-      { id: 'ts-001', title: 'Limit 2.9% surcharge to credit cards only — exclude ACH', note: 'HOW: GHL → Payments → Integrations → Stripe → find surcharge / convenience fee settings. Configure so the 2.9% processing fee only applies when customer selects a credit card payment method. ACH / bank transfer must be excluded from the surcharge rule. ACH actual cost is ~0.8% capped at $5 — passing 2.9% to ACH customers is wrong. VERIFY: Place a test order using ACH — confirm no surcharge line item. Place a test order using credit card — confirm 2.9% surcharge appears. BLOCKED IF: GHL Stripe integration does not support per-method surcharge rules natively — may need to split payment options into two separate order forms or use Stripe directly.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-    ],
+    todo: [],
     inprogress: [],
-    done: []
+    done: [
+      { id: 'ts-001', title: 'Limit 2.9% surcharge to credit cards only — exclude ACH', note: 'HOW: GHL → Payments → Integrations → Stripe → find surcharge / convenience fee settings. Configure so the 2.9% processing fee only applies when customer selects a credit card payment method. ACH / bank transfer must be excluded from the surcharge rule. ACH actual cost is ~0.8% capped at $5 — passing 2.9% to ACH customers is wrong. VERIFY: Place a test order using ACH — confirm no surcharge line item. Place a test order using credit card — confirm 2.9% surcharge appears. BLOCKED IF: GHL Stripe integration does not support per-method surcharge rules natively — may need to split payment options into two separate order forms or use Stripe directly.\n\n--\n\nSolution: GHL Limitation, not possible for granular like credit cards only, discard ACH for surcharges. Not possible.', pri: 'high', start_date: 'June 10', start_time: '11:50 AM', end_date: 'June 10', end_time: '12:18 AM' },
+    ]
   },
   'nacho': {
-    todo: [
-      { id: 'na-001', title: 'Hide 7 nav items — Alberto de Blas', note: 'ACCOUNT: Alberto de Blas | Location ID: q7QWcqB3q81Kq4KLw2vs. HOW: Agency → Sub-accounts → Alberto de Blas → Edit → Left Nav customization. HIDE: Ask AI, Reporting, App Marketplace, Support Calls, Community, Mobile App, Settings. VERIFY: Log into the sub-account and confirm all 7 items are gone from the left menu.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'na-002', title: 'Disable voicemail at backend — Asesoria Inmobiliaria León', note: 'ACCOUNT: Asesoria Inmobiliaria León | Location ID: AmIpeBd5n4gZ2V183CeW | Phone: +1 507-516-9800. HOW: This requires a backend support ticket to GHL — not available in the UI. Submit ticket requesting voicemail disabled at backend level for this number. Include Location ID and phone number. Current greeting: "We are unable to take your call right now. Please leave a message after the beep." VERIFY: After confirmation from GHL support, test by letting a call ring out — Call Report should show "Missed" not "Voicemail".', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'na-003', title: 'Optimize GHL timeout settings — Asesoria Inmobiliaria León', note: 'ACCOUNT: Asesoria Inmobiliaria León | Location ID: AmIpeBd5n4gZ2V183CeW. HOW: Phone System → Number Settings → +1 507-516-9800. Goal: incoming timeout must be SHORT enough that GHL never reaches voicemail before Zadarma cuts the call (Zadarma is set to 30s hang up). Recommended: set GHL incoming call timeout to 25s (below Zadarma\'s 30s). This way Zadarma always cuts first. VERIFY: Let a call ring through the full chain — check Call Report shows "Missed". Current settings: incoming 50s, outgoing 40s — both too high.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+    todo: [],
+    inprogress: [
+      { id: 'na-002', title: 'Disable voicemail at backend — Asesoria Inmobiliaria León', note: 'ACCOUNT: Asesoria Inmobiliaria León | Location ID: AmIpeBd5n4gZ2V183CeW | Phone: +1 507-516-9800. HOW: This requires a backend support ticket to GHL — not available in the UI. Submit ticket requesting voicemail disabled at backend level for this number. Include Location ID and phone number. Current greeting: "We are unable to take your call right now. Please leave a message after the beep." VERIFY: After confirmation from GHL support, test by letting a call ring out — Call Report should show "Missed" not "Voicemail".', pri: 'high', start_date: 'June 10', start_time: '12:23', end_date: 'June 10', end_time: '12:35' },
     ],
-    inprogress: [],
-    done: []
+    done: [
+      { id: 'na-001', title: 'Hide 7 nav items — Alberto de Blas', note: 'ACCOUNT: Alberto de Blas | Location ID: q7QWcqB3q81Kq4KLw2vs. HOW: Agency → Sub-accounts → Alberto de Blas → Edit → Left Nav customization. HIDE: Ask AI, Reporting, App Marketplace, Support Calls, Community, Mobile App, Settings. VERIFY: Log into the sub-account and confirm all 7 items are gone from the left menu.', pri: 'high', start_date: 'June 10', start_time: '12:32 PM', end_date: 'June 10', end_time: '01:05 PM' },
+    ]
   }
 };
 
