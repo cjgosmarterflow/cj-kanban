@@ -687,7 +687,7 @@ const CLIENTS = [
 ];
 
 const COLS = ['todo','inprogress','done'];
-const SOLO_CLIENT = 'leo'; // set to null to restore all client tabs
+const SOLO_CLIENT = null;
 
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
@@ -770,7 +770,7 @@ const STARTER_TASKS = [
 
 function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
 
-let active = SOLO_CLIENT || CLIENTS[0].id;
+let active = CLIENTS[0].id;
 let dragCard = null, dragFrom = null, dragCid = null;
 
 // ── PERSISTENCE ──────────────────────────────────────────────────
