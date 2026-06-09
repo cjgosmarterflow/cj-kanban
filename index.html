@@ -645,7 +645,7 @@ const COLS = ['todo','inprogress','done'];
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 10,
+  _rev: 11,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -655,8 +655,6 @@ const EMBEDDED_DATA = {
     done: [
       { id: 'dg-001', title: 'Reviewed all Loom walkthroughs from Nica (4 videos)', note: 'Full context on 3-phase system: Untouched, Interested/Warm, Hot Agents tag removal. Phase logic and gotchas documented.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-002', title: 'Built full GHL workflow system map (Mermaid diagram)', note: 'Maps all 3 phases, A-G batch routing, FU sequences, loop after FU-15 back to FU-4.', pri: 'med', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
-      { id: 'dg-003', title: 'Created consultant handoff document — all 3 phases', note: 'Full HANDOFF.md and CLAUDE.md: automation phases, tag system, phone batches, critical rules, billing history.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
-      { id: 'dg-004', title: 'Updated handoff doc with transition call context', note: 'Logged 2026-06-09 call: David, Jonathan, CJ. Root causes documented — old trigger tags, DND/DNC gap, smart list confusion.', pri: 'med', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-005', title: 'Built: Excl — All Exclusions smart list', note: 'Josh: 5,674 | Christina: 5,444. Filters (OR logic): Tag is dnc | Tag is stop | Tag is wrong number | Tag is not interested | Tag is error | SMS Do Not Disturb is Enabled.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-006', title: 'Built: Active — Untouched smart list', note: 'Josh: 13,336 | Christina: 5,682. Filters: Tag is untouched AND Tag is added to new 2026 workflow AND Phone is not empty AND First Name is not empty AND Last Name is not empty AND NOT dnc AND NOT stop AND NOT wrong number AND NOT not interested AND NOT error AND SMS DND is Disabled.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-007', title: 'Built: Active — Interested / Warm smart list', note: 'Josh: 2,576 | Christina: 5,829. Filters: (Tag is interested OR Tag is needs follow-up workflow) AND NOT dnc AND NOT stop AND NOT wrong number AND NOT not interested AND NOT error AND SMS DND is Disabled.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
