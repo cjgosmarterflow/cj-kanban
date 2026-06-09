@@ -1,0 +1,92 @@
+flowchart TD
+    A([📥 Import Contacts]) --> B[Add Tag: AddedToNew2026]
+
+    %% ─── UNTOUCHED MAIN ───
+    B --> C[[Untouched Automation Main\nTrigger: AddedToNew2026 tag added]]
+    C --> D{Both tags active?\nUntouched + AddedToNew2026}
+    D -- ❌ One missing --> E[Add alert tag\nAssign to Josh]
+    E --> F[⏳ Wait 1 hour]
+    F --> D
+    D -- ✅ Both active --> G[Split equally\nPaths A – G]
+
+    %% ─── UNTOUCHED A–G ───
+    G --> H[[Untouched Automation A–G\nDrip: 10/day · 1/min]]
+    H --> I{First name present?}
+    I -- ✅ Has name --> J[Send personalized\nUntouched SMS 1]
+    I -- ❌ No name --> K[Send generic\n'My name is Josh, Orlando']
+    J & K --> L[⏳ Wait 21 days]
+    L --> M{Reply received?}
+    M -- ✅ Reply --> N([🎯 Contact Replied\nTeam handles])
+    M -- ❌ No reply --> O{Disqualifying tags\nactive?}
+    O -- ✅ Tag active --> N
+    O -- ❌ None active --> P[Send Follow-Up 1–8\nEvery 21 days]
+    P --> Q{Reached\nFollow-Up 8?}
+    Q -- ❌ No --> L
+    Q -- ✅ Yes → loop back --> L
+
+    %% ─── INTERESTED TAG ───
+    N --> R{Team adds\nInterested tag?}
+    R -- ✅ Yes --> S[[Needs Follow-Up\nTrigger: Interested or NF tag]]
+
+    %% ─── NEEDS FOLLOW-UP ───
+    S --> T[Remove Untouched tag\nRemove from A–G Untouched workflows\nAdd: Interested + NF tags]
+    T --> U[⏳ Wait 21 days]
+    U --> V{Disqualifying tags?\nHot Agent · Flipper · Buyer · DNC}
+    V -- ✅ Tag found --> W([🚫 Exit flow])
+    V -- ❌ None active --> X[Find existing opportunity]
+    X --> Y{Which Batch tag?\nA · B · C · D · E · F · G}
+    Y --> Z[[Batch A–G\nInterested NF Workflows\n15 follow-ups · 21-day cadence\nSame phone number per batch]]
+    Z --> AA{Hot Agent tag\nadded mid-flow?}
+    AA -- ✅ Yes --> AB[⏳ Loop: Wait 21 days\nRecheck hot agent tag]
+    AB --> AA
+    AA -- ❌ Cleared --> Z
+    Z --> AC{Reached\nFollow-Up 15?}
+    AC -- ❌ No --> Z
+    AC -- ✅ Yes --> AD[[Hot Agents Tag Removal\nWorkflows 1 & 2]]
+
+    %% ─── HOT AGENTS TAG REMOVAL ───
+    AD --> AE{Hot Agent tag\nstill present?}
+    AE -- ✅ Yes active --> AF[⏳ Wait 21 days]
+    AF --> AE
+    AE -- ❌ Removed + no DNC/Error --> AG[Find opportunity\nCheck pipeline stage 1–15]
+    AG --> AH{Pipeline\nStage 1–10?}
+    AH -- ✅ Yes --> AI[Remove from current\nA–G batch workflow\nAdvance pipeline stage\nRe-enter same batch]
+    AH -- ❌ Stage 11–15\nWorkflow 2 --> AJ[Same process\nStages 11–15]
+    AJ --> AK{Reached\nStage 15?}
+    AK -- ❌ No --> AI
+    AK -- ✅ Yes --> AL[Loop back to\nFollow-Up 4]
+    AL --> Z
+
+    AI --> Z
+
+    %% ─── OPT OUT ───
+    Z --> AM{Opt-out?\nDNC · STOP tag}
+    AM -- ✅ Yes --> AN([🛑 Exit All Flows])
+    AM -- ❌ No --> Z
+
+    %% ─── PHONE NUMBERS NOTE ───
+    subgraph PHONE [📞 Phone Number Assignment]
+        PH1[Batch A → Phone #1]
+        PH2[Batch B → Phone #2]
+        PH3[Batch C → Phone #3]
+        PH4[Batch D → Phone #4]
+        PH5[Batch E → Phone #5]
+        PH6[Batch F → Phone #6]
+        PH7[Batch G → Phone #7]
+        PH8[Phone #8 → Direct Communication]
+    end
+
+    %% ─── STYLES ───
+    classDef trigger fill:#4A90D9,color:#fff,stroke:#2c6fad
+    classDef workflow fill:#6C5CE7,color:#fff,stroke:#4a3db5
+    classDef condition fill:#F39C12,color:#fff,stroke:#c47d0e
+    classDef action fill:#27AE60,color:#fff,stroke:#1a7a43
+    classDef endpoint fill:#E74C3C,color:#fff,stroke:#b03a2e
+    classDef wait fill:#95A5A6,color:#fff,stroke:#707b7c
+
+    class A,B trigger
+    class C,H,S,Z,AD workflow
+    class D,I,M,O,Q,R,V,Y,AA,AC,AE,AH,AK,AM condition
+    class E,G,J,K,P,T,X,AG,AI,AJ,AL action
+    class N,W,AN,AC endpoint
+    class F,L,U,AB,AF wait

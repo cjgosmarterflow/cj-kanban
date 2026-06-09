@@ -1,0 +1,40 @@
+﻿Project Handoff: David Giraldo (Flipside Investments)
+Prepared for CJ to take over while Nica is out of office. Source: email + billing history. Last updated 2026-06-08.
+Client
+* Name: David Giraldo
+* Company: Flipside Investments LLC (real estate / investments; also operates as DEO Homes LLC)
+* Email: flipside.cfl@gmail.com
+* Mobile: 239-287-5420   |   Office: 407-456-8862
+* Website: flipsideinvestmentsllc.com   |   Instagram: @deohomesllc
+* Timezone: EST
+* Engaged since: late March 2026 (first call 3/31)
+* Previous consultant: Nica Dapac (out of office)
+What the project is (original scope, Nica's 3/31 outline)
+* Troubleshoot and fix workflow logic issues: tag filtering, exclusions, and unintended / wrong messages going out.
+* Audit and optimize existing automations to stop message flooding after pauses or holidays.
+* Duplicate and rebuild the optimized system across his second account.
+Account structure (more than one sub-account)
+* Sub-accounts named Flipside Investments LLC - A / B / C (referred to as Josh's / Joshua's account).
+* A separate account referred to as Christina's, which Nica started on around 5/18.
+* David has confirmed work was completed across "both sub-accounts."
+Nica's Loom walkthroughs of the work done:
+* Flipside A: https://www.loom.com/share/54eeb25182334a2c9c38af0925f89f98
+* Flipside B: https://www.loom.com/share/030e5a87dfe4463b913c39e9ed5613f5
+* Flipside C: https://www.loom.com/share/988370579dc641ad816e69bdfdda369e
+* Summary: https://www.loom.com/share/ac189ef740dd498eae5f466cc80c4a58
+Billing
+Rate: $55/hr, Pay-As-You-Go. Work Mon-Fri is billed the following Monday to the card on file.
+* Week 4/13-4/18: 2 hrs ($110)
+* 4/15: $605 paid
+* 4/27: $55 review credit applied (David left a positive review)
+* 5/5: $55 paid
+* Week 5/11-5/15: 6.5 hrs ($357.50, paid 5/20)
+* Week 5/18-5/22: 3.5 hrs ($192.50, paid 6/1). David confirmed the ~10 hr running total looked right.
+Detailed hour-by-hour breakdowns live in the billing email screenshots; the totals above are accurate.
+Watch-outs going into the call
+* He is urgent and time-sensitive. Business was "on complete pause," and he hired a new employee waiting on this system. Set realistic timelines; we don't work weekends.
+* Open issue (5/28): David flagged an urgent problem with one of the accounts that had been worked on. Confirm whether it was resolved; it may be what today's call is about.
+* Scheduling friction: history of no-shows on both sides (including a missed 11am today). Lock the next step in writing.
+Current state (6/8)
+David showed up for an 11am consultation, nobody was there, Jonathan re-engaged and David confirmed he still wanted to talk. CJ is picking it up.
+Goal of the call: confirm what's broken / outstanding now, confirm the 5/28 account issue status, and set the next work block.

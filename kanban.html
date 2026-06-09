@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmarterFlow · Kanban</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@400;500;600&display=block" rel="stylesheet">
+<style>
+/* font-default-ok: EB Garamond — ElevenLabs design system spec, client-specified */
+/* font-default-ok: Inter — ElevenLabs design system spec, client-specified */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --canvas:  #f5f4f0;
+  --surface: #ffffff;
+  --surface-2: #f0ede8;
+  --ink:     #0c0a09;
+  --ink-2:   #59554f;
+  --ink-3:   #9b938a;
+  --ink-4:   #c8c2bb;
+  --border:  rgba(12,10,9,0.08);
+  --border-strong: rgba(12,10,9,0.14);
+  --todo:    #92400e;
+  --prog:    #1d4ed8;
+  --done:    #15803d;
+  --high:    #b91c1c;
+  --med:     #b45309;
+  --low:     #15803d;
+}
+
+/* DARK MODE — ElevenLabs surface-dark tokens */
+[data-theme="dark"] {
+  --canvas:  #0c0a09;
+  --surface: #1c1917;
+  --surface-2: #292524;
+  --ink:     #fafaf9;
+  --ink-2:   #e7e5e4;
+  --ink-3:   #a8a29e;
+  --ink-4:   #78716c;
+  --border:  rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.12);
+  --todo:    #c2761a;
+  --prog:    #60a5fa;
+  --done:    #4ade80;
+  --high:    #f87171;
+  --med:     #fbbf24;
+  --low:     #4ade80;
+}
+[data-theme="dark"] .topbar {
+  background: rgba(12,10,9,0.9);
+}
+[data-theme="dark"] .tabs {
+  background: var(--surface);
+}
+[data-theme="dark"] body::before {
+  background: radial-gradient(circle, rgba(167,229,211,0.07) 0%, transparent 65%);
+}
+[data-theme="dark"] body::after {
+  background: radial-gradient(circle, rgba(200,184,224,0.06) 0%, transparent 65%);
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -15%;
+  right: -8%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -18%;
+  left: -6%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(245,244,240,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar-left h1 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 21px;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  color: var(--ink);
+}
+.topbar-left p {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 1px;
+  letter-spacing: 0.1px;
+}
+
+.topbar-right { display: flex; align-items: center; gap: 10px; }
+
+.sync-badge {
+  font-size: 11px;
+  padding: 3px 11px;
+  border-radius: 100px;
+  font-weight: 500;
+  transition: all 0.18s;
+}
+.sync-badge.saved {
+  background: rgba(21,128,61,0.08);
+  color: var(--done);
+  border: 1px solid rgba(21,128,61,0.16);
+}
+.sync-badge.saving {
+  background: rgba(29,78,216,0.08);
+  color: var(--prog);
+  border: 1px solid rgba(29,78,216,0.16);
+}
+.sync-badge.error {
+  background: rgba(185,28,28,0.08);
+  color: var(--high);
+  border: 1px solid rgba(185,28,28,0.16);
+}
+.loading-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--ink-3);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.btn-sm {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--ink-2);
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: 'Inter', inherit;
+  transition: background 0.12s, color 0.12s;
+  letter-spacing: 0.1px;
+}
+.btn-sm:hover { background: var(--surface-2); color: var(--ink); }
+.btn-sm.blue  { background: var(--ink); border-color: var(--ink); color: var(--canvas); }
+.btn-sm.blue:hover { background: var(--ink-2); border-color: var(--ink-2); }
+
+/* TABS */
+.tabs {
+  display: flex;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: relative;
+  z-index: 1;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-3);
+  cursor: pointer;
+  border-bottom: 1.5px solid transparent;
+  white-space: nowrap;
+  transition: color 0.12s;
+  user-select: none;
+  letter-spacing: 0.1px;
+}
+.tab:hover { color: var(--ink-2); }
+.tab.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+.tab-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-4); flex-shrink: 0; }
+.tab.has-urgent .tab-dot { background: var(--high); }
+.tab.active:not(.has-urgent) .tab-dot { background: var(--ink); }
+
+/* PANEL */
+.tab-panel { display: none; padding: 24px 28px 80px; position: relative; z-index: 1; }
+.tab-panel.active { display: block; }
+
+.client-header { margin-bottom: 22px; }
+.client-header h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: -0.4px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.client-meta { display: flex; gap: 14px; margin-top: 5px; flex-wrap: wrap; align-items: center; }
+.client-company { font-size: 12px; color: var(--ink-3); }
+.cstat { font-size: 11px; color: var(--ink-3); }
+.cstat span { color: var(--ink-2); font-weight: 500; }
+
+/* BOARD */
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+
+.column {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.column.drag-over {
+  border-color: rgba(29,78,216,0.35);
+  box-shadow: 0 0 0 3px rgba(29,78,216,0.06);
+}
+
+.col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.col-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--ink-3);
+}
+.col-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.col-todo .col-dot { background: var(--todo); }
+.col-prog .col-dot { background: var(--prog); }
+.col-done .col-dot { background: var(--done); }
+.col-count {
+  font-size: 10.5px;
+  color: var(--ink-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1px 8px;
+  border-radius: 100px;
+}
+
+.cards { display: flex; flex-direction: column; gap: 7px; min-height: 24px; }
+
+/* CARD */
+.card {
+  background: var(--canvas);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 13px;
+  cursor: grab;
+  position: relative;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 1px 4px rgba(12,10,9,0.06);
+}
+.card.dragging { opacity: 0.28; cursor: grabbing; }
+
+.card-del {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: none;
+  border: none;
+  color: var(--ink-4);
+  font-size: 14px;
+  line-height: 1;
+  padding: 2px 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s, color 0.12s;
+  font-family: inherit;
+}
+.card:hover .card-del { opacity: 1; }
+.card-del:hover { color: var(--high); }
+
+.card-title {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.45;
+  margin-bottom: 5px;
+  padding-right: 20px;
+}
+/* font-default-ok: Inter for card-note — ElevenLabs design system spec, client-specified; note body must match UI font for dense filter-logic readability */
+.card-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 400;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.card-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+.pri {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.p-high { background: rgba(185,28,28,0.08);  color: var(--high); }
+.p-med  { background: rgba(180,83,9,0.08);   color: var(--med);  }
+.p-low  { background: rgba(21,128,61,0.08);  color: var(--low);  }
+
+.card-time { font-size: 10.5px; color: var(--ink-3); }
+
+/* QUICK ADD */
+.quick-add-wrap { margin-top: 9px; }
+.quick-add {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 9px 12px;
+  font-family: 'Inter', inherit;
+  outline: none;
+  transition: border-color 0.12s, background 0.12s;
+}
+.quick-add::placeholder { color: var(--ink-4); }
+.quick-add:focus { border-color: var(--border-strong); background: var(--surface); }
+
+.detail-toggle {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-4);
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.12s;
+  background: none;
+  border: none;
+  width: 100%;
+  font-family: inherit;
+}
+.detail-toggle:hover { color: var(--ink-3); }
+
+/* EXPANDED FORM */
+.add-form { display: none; flex-direction: column; gap: 6px; margin-top: 4px; }
+.add-form.open { display: flex; }
+
+.add-form input,
+.add-form textarea,
+.add-form select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 8px 10px;
+  font-family: 'Inter', inherit;
+  outline: none;
+  resize: none;
+  transition: border-color 0.12s;
+}
+.add-form input:focus,
+.add-form textarea:focus,
+.add-form select:focus { border-color: var(--border-strong); }
+.add-form select option { background: var(--surface); color: var(--ink); }
+
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.form-label { font-size: 10.5px; color: var(--ink-3); margin-bottom: 2px; }
+
+.form-actions { display: flex; gap: 6px; }
+
+.btn-add {
+  background: var(--ink);
+  color: var(--canvas);
+  border: none;
+  border-radius: 100px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', inherit;
+  transition: background 0.12s;
+}
+.btn-add:hover { background: var(--ink-2); }
+
+.btn-cancel-f {
+  background: var(--surface-2);
+  color: var(--ink-2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 7px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Inter', inherit;
+}
+
+/* FOOTER */
+.board-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--ink-4);
+}
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(12,10,9,0.36);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 26px;
+  width: 420px;
+  max-width: 92vw;
+  box-shadow: 0 12px 48px rgba(12,10,9,0.12);
+}
+
+.modal-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+
+.modal-fields { display: flex; flex-direction: column; gap: 14px; }
+
+.modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.modal-field label {
+  display: block;
+  font-size: 10px;
+  color: var(--ink-3);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  font-weight: 600;
+}
+
+.modal-field input,
+.modal-field textarea {
+  width: 100%;
+  background: var(--canvas);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 12.5px;
+  padding: 9px 11px;
+  font-family: 'Inter', inherit;
+  outline: none;
+  transition: border-color 0.12s, background 0.12s;
+}
+.modal-field input:focus,
+.modal-field textarea:focus {
+  border-color: var(--border-strong);
+  background: var(--surface);
+}
+.modal-field textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.6;
+  font-size: 12px;
+}
+
+.notes-wrap { position: relative; }
+.notes-wrap textarea { padding-right: 40px; }
+
+.mic-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  transition: background 0.12s, border-color 0.12s;
+  padding: 0;
+  color: var(--ink-3);
+}
+.mic-btn:hover { background: var(--surface-2); border-color: var(--border-strong); }
+.mic-btn.recording {
+  background: rgba(185,28,28,0.08);
+  border-color: var(--high);
+  animation: mic-pulse 1.1s ease-in-out infinite;
+}
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(185,28,28,0.22); }
+  50%       { box-shadow: 0 0 0 5px rgba(185,28,28,0.0); }
+}
+
+.modal-actions { display: flex; gap: 8px; margin-top: 20px; }
+
+.modal-save {
+  flex: 1;
+  background: var(--ink);
+  color: var(--canvas);
+  border: none;
+  border-radius: 100px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', inherit;
+  transition: background 0.12s;
+}
+.modal-save:hover { background: var(--ink-2); }
+
+.modal-cancel {
+  background: var(--surface-2);
+  color: var(--ink-2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Inter', inherit;
+  transition: background 0.12s;
+}
+.modal-cancel:hover { background: var(--surface-2); color: var(--ink); }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <h1>SmarterFlow · Kanban</h1>
+    <p>CJ Salamida · $24/hr client · $15/hr internal</p>
+  </div>
+  <div class="topbar-right">
+    <span class="sync-badge" id="sync-badge"></span>
+    <button class="btn-sm" id="theme-toggle" onclick="toggleTheme()">Light</button>
+    <button class="btn-sm blue" onclick="exportJSON()">Export JSON</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title" id="modal-task-title"></div>
+    <div class="modal-fields">
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>Start date</label>
+          <input type="text" id="m-start-date" placeholder="e.g. Jun 9" />
+        </div>
+        <div class="modal-field">
+          <label>Start time</label>
+          <input type="text" id="m-start-time" placeholder="e.g. 9:00 AM" />
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>End date</label>
+          <input type="text" id="m-end-date" placeholder="e.g. Jun 9" />
+        </div>
+        <div class="modal-field">
+          <label>End time</label>
+          <input type="text" id="m-end-time" placeholder="e.g. 10:30 AM" />
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Notes</label>
+        <div class="notes-wrap">
+          <textarea id="m-notes" placeholder="Add context, observations, handover details — or use the mic to speak your notes..."></textarea>
+          <button class="mic-btn" id="mic-btn" onclick="toggleMic()" title="Voice input (click to record)">🎙</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-save" onclick="saveModal()">Save</button>
+      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="tabs" id="tabs"></div>
+<div id="panels"></div>
+
+<script>
+const CLIENTS = [
+  { id: 'david-giraldo', name: 'David Giraldo', company: 'Flipside Investments' },
+  { id: 'chris',         name: 'Chris',         company: '' },
+  { id: 'harvey',        name: 'Harvey',        company: '' },
+  { id: 'jared',         name: 'Jared',         company: '' },
+  { id: 'jon',           name: 'Jon',           company: '' },
+  { id: 'leo',           name: 'Leo',           company: '' },
+  { id: 'renato',        name: 'Renato',        company: '' },
+];
+
+const COLS = ['todo','inprogress','done'];
+
+// ── EMBEDDED DATA ────────────────────────────────────────────────
+// Claude edits this block directly. Bump _rev to override localStorage on next refresh.
+const EMBEDDED_DATA = {
+  _rev: 6,
+  'david-giraldo': {
+    todo: [
+      { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'dg-013', title: 'Enroll 8,993 stuck contacts in Christina', note: 'ACCOUNT: Christina sub-account. BEFORE BULK-ADD: manually spot-check 20-30 contacts from "Stuck — Never Enrolled" smart list. Confirm each has a batch tag (A through G), no active workflow enrollment showing in contact timeline, and no hidden exclusion flags. THEN: bulk select all → Add Tag → AddedToNew2026. Contacts will enter Untouched Automation Main and route to their batch (A-G) workflow. VERIFY: stuck list count drops toward 0. HIGH RISK due to volume — do not skip sample audit.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: [
+      { id: 'dg-001', title: 'Reviewed all Loom walkthroughs from Nica (4 videos)', note: 'Full context on 3-phase system: Untouched, Interested/Warm, Hot Agents tag removal. Phase logic and gotchas documented.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-002', title: 'Built full GHL workflow system map (Mermaid diagram)', note: 'Maps all 3 phases, A-G batch routing, FU sequences, loop after FU-15 back to FU-4.', pri: 'med', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-003', title: 'Created consultant handoff document — all 3 phases', note: 'Full HANDOFF.md and CLAUDE.md: automation phases, tag system, phone batches, critical rules, billing history.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-004', title: 'Updated handoff doc with transition call context', note: 'Logged 2026-06-09 call: David, Jonathan, CJ. Root causes documented — old trigger tags, DND/DNC gap, smart list confusion.', pri: 'med', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-005', title: 'Built: Excl — All Exclusions smart list', note: 'Josh: 5,674 | Christina: 5,444. Filters (OR logic): Tag is dnc | Tag is stop | Tag is wrong number | Tag is not interested | Tag is error | SMS Do Not Disturb is Enabled.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-006', title: 'Built: Active — Untouched smart list', note: 'Josh: 13,336 | Christina: 5,682. Filters: Tag is untouched AND Tag is added to new 2026 workflow AND Phone is not empty AND First Name is not empty AND Last Name is not empty AND NOT dnc AND NOT stop AND NOT wrong number AND NOT not interested AND NOT error AND SMS DND is Disabled.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-007', title: 'Built: Active — Interested / Warm smart list', note: 'Josh: 2,576 | Christina: 5,829. Filters: (Tag is interested OR Tag is needs follow-up workflow) AND NOT dnc AND NOT stop AND NOT wrong number AND NOT not interested AND NOT error AND SMS DND is Disabled.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-008', title: 'Built: Eligible — Not Yet in Any Workflow smart list', note: 'Josh: 262 | Christina: 478. Filters: NOT untouched AND NOT added to new 2026 workflow AND NOT interested AND NOT needs follow-up workflow AND NOT dnc AND NOT stop AND NOT wrong number AND NOT not interested AND NOT error AND SMS DND is Disabled.', pri: 'med', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-009', title: 'Built: Stuck — Never Enrolled smart list', note: 'Josh: 76 | Christina: 8,993. Filters: Tag is added to new 2026 workflow AND NOT untouched AND NOT interested AND NOT needs follow-up workflow AND NOT dnc AND NOT stop AND NOT wrong number AND NOT not interested AND NOT error AND SMS DND is Disabled. Root cause: GHL trigger fires on tag ADD only — these contacts had the tag before new workflows were built, so trigger never fired.', pri: 'med', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-010', title: 'Audited Josh account — 21,804 contacts', note: '120 overlap (negligible), 76 stuck, 262 eligible for enrollment.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+      { id: 'dg-011', title: 'Audited Christina account — 26,283 contacts', note: '143 overlap (negligible), 8,993 stuck, 478 eligible for enrollment. Largest backlog here.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
+    ]
+  }
+};
+
+const STARTER_TASKS = [
+  { title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high' },
+  { title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high' },
+  { title: 'Audit existing workflows', note: 'Document what is built, active, and broken.', pri: 'med' },
+  { title: 'Update HANDOFF.md after first session', note: '', pri: 'med' },
+  { title: 'Set up communication channel with client', note: 'WhatsApp preferred.', pri: 'med' },
+];
+
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+
+let active = CLIENTS[0].id;
+let dragCard = null, dragFrom = null, dragCid = null;
+
+// ── PERSISTENCE ──────────────────────────────────────────────────
+
+const SUPABASE_URL  = 'https://rcjeymcljjuloifaljoj.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjamV5bWNsamp1bG9pZmFsam9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5OTg3ODQsImV4cCI6MjA5NjU3NDc4NH0.MwHjevTmOB1WVpkuHH5Em7LmDKs0vgNAdiEv8ARrWRM';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let _db = {};
+
+function rowToCard(row) {
+  return { id: row.id, title: row.title, note: row.note, pri: row.pri,
+    start_date: row.start_date, start_time: row.start_time,
+    end_date: row.end_date, end_time: row.end_time };
+}
+
+function clientToRows(cid, data) {
+  const rows = [];
+  COLS.forEach(col => {
+    (data[col] || []).forEach((card, i) => {
+      rows.push({ id: card.id, client_id: cid, col,
+        title: card.title || '', note: card.note || '',
+        pri: card.pri || 'med',
+        start_date: card.start_date || '', start_time: card.start_time || '',
+        end_date: card.end_date || '', end_time: card.end_time || '',
+        sort_order: i });
+    });
+  });
+  return rows;
+}
+
+function starterCards() {
+  return STARTER_TASKS.map(s => ({ id: uid(), title: s.title, note: s.note || '',
+    pri: s.pri, start_date: '', start_time: '', end_date: '', end_time: '' }));
+}
+
+function loadClient(cid) {
+  return _db[cid] || { todo: [], inprogress: [], done: [] };
+}
+
+async function seedClient(cid) {
+  const rows = clientToRows(cid, _db[cid]);
+  if (rows.length) await sb.from('cards').upsert(rows);
+}
+
+async function loadAllFromSupabase() {
+  const { data, error } = await sb.from('cards').select('*').order('sort_order');
+  CLIENTS.forEach(c => { _db[c.id] = { todo: [], inprogress: [], done: [] }; });
+  if (!error && data) {
+    data.forEach(row => {
+      if (_db[row.client_id] && COLS.includes(row.col))
+        _db[row.client_id][row.col].push(rowToCard(row));
+    });
+  }
+  const seeds = [];
+  CLIENTS.forEach(c => {
+    const total = COLS.reduce((n, col) => n + _db[c.id][col].length, 0);
+    if (total === 0) {
+      const src = EMBEDDED_DATA[c.id];
+      _db[c.id] = src ? JSON.parse(JSON.stringify(src))
+        : { todo: starterCards(), inprogress: [], done: [] };
+      seeds.push(seedClient(c.id));
+    }
+  });
+  await Promise.all(seeds);
+}
+
+async function saveClient(cid, data) {
+  _db[cid] = data;
+  setBadge('saving');
+  const rows = clientToRows(cid, data);
+  const ids = rows.map(r => r.id);
+  const { error } = await sb.from('cards').upsert(rows);
+  if (error) { setBadge('error'); return; }
+  if (ids.length) {
+    await sb.from('cards').delete().eq('client_id', cid).not('id', 'in', `(${ids.join(',')})`);
+  } else {
+    await sb.from('cards').delete().eq('client_id', cid);
+  }
+  setBadge('saved');
+}
+
+function getAllLocal() {
+  return { ..._db };
+}
+
+function setBadge(state) {
+  const el = document.getElementById('sync-badge');
+  if (!el) return;
+  if (state === 'saving') {
+    el.textContent = 'Saving…'; el.className = 'sync-badge saving';
+  } else if (state === 'saved') {
+    el.textContent = 'Saved'; el.className = 'sync-badge saved';
+    setTimeout(() => { el.textContent = ''; el.className = 'sync-badge'; }, 1200);
+  } else if (state === 'error') {
+    el.textContent = 'Sync error'; el.className = 'sync-badge error';
+    setTimeout(() => { el.textContent = ''; el.className = 'sync-badge'; }, 3000);
+  }
+}
+
+// ── TABS ──────────────────────────────────────────────────────────
+
+function buildTabs() {
+  const wrap = document.getElementById('tabs');
+  CLIENTS.forEach(c => {
+    const data = loadClient(c.id);
+    const urgent = [...data.todo, ...data.inprogress].some(x => x.pri === 'high');
+    const tab = document.createElement('div');
+    tab.className = `tab${c.id === active ? ' active' : ''}${urgent ? ' has-urgent' : ''}`;
+    tab.dataset.id = c.id;
+    tab.innerHTML = `<span class="tab-dot"></span>${esc(c.name)}`;
+    tab.onclick = () => switchTab(c.id);
+    wrap.appendChild(tab);
+  });
+}
+
+function refreshTab(cid) {
+  const data = loadClient(cid);
+  const urgent = [...data.todo, ...data.inprogress].some(x => x.pri === 'high');
+  const tab = document.querySelector(`.tab[data-id="${cid}"]`);
+  if (tab) {
+    tab.classList.toggle('has-urgent', urgent);
+    if (cid === active) tab.classList.add('active');
+  }
+}
+
+function switchTab(cid) {
+  active = cid;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.id === cid));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === `panel-${cid}`));
+}
+
+// ── PANELS ────────────────────────────────────────────────────────
+
+function buildPanels() {
+  const wrap = document.getElementById('panels');
+  CLIENTS.forEach(c => {
+    const p = document.createElement('div');
+    p.className = `tab-panel${c.id === active ? ' active' : ''}`;
+    p.id = `panel-${c.id}`;
+    wrap.appendChild(p);
+    renderPanel(c.id);
+  });
+}
+
+function renderPanel(cid) {
+  const c = CLIENTS.find(x => x.id === cid);
+  const data = loadClient(cid);
+  const panel = document.getElementById(`panel-${cid}`);
+  const total = data.todo.length + data.inprogress.length + data.done.length;
+
+  panel.innerHTML = `
+    <div class="client-header">
+      <h2>${esc(c.name)}</h2>
+      <div class="client-meta">
+        ${c.company ? `<span class="client-company">${esc(c.company)}</span>` : ''}
+        <span class="cstat">Total <span>${total}</span></span>
+        <span class="cstat">Done <span>${data.done.length}</span></span>
+        ${data.inprogress.length ? `<span class="cstat">Active <span>${data.inprogress.length}</span></span>` : ''}
+      </div>
+    </div>
+    <div class="board">
+      ${buildCol(cid, 'todo',       'To Do',        'col-todo', data.todo)}
+      ${buildCol(cid, 'inprogress', 'In Progress',  'col-prog', data.inprogress)}
+      ${buildCol(cid, 'done',       'Done',         'col-done', data.done)}
+    </div>
+    <div class="board-footer">
+      <span>Synced to Supabase</span>
+      <span>${data.done.length}/${total} done</span>
+    </div>
+  `;
+
+  // Wire drag events on columns
+  panel.querySelectorAll('.column').forEach(col => {
+    col.addEventListener('dragover', e => { e.preventDefault(); col.classList.add('drag-over'); });
+    col.addEventListener('dragleave', e => { if (!col.contains(e.relatedTarget)) col.classList.remove('drag-over'); });
+    col.addEventListener('drop', e => {
+      e.preventDefault();
+      col.classList.remove('drag-over');
+      const targetCol = col.dataset.col;
+      if (!dragCard || dragFrom === targetCol || dragCid !== cid) return;
+      const d = loadClient(cid);
+      d[dragFrom] = d[dragFrom].filter(x => x.id !== dragCard.id);
+      d[targetCol].unshift(dragCard);
+      saveClient(cid, d);
+      renderPanel(cid);
+      refreshTab(cid);
+      dragCard = null; dragFrom = null; dragCid = null;
+    });
+  });
+
+  // Wire drag on cards
+  panel.querySelectorAll('.card').forEach(el => {
+    el.addEventListener('dragstart', e => {
+      const d = loadClient(cid);
+      const col = el.dataset.col;
+      dragCard = d[col].find(x => x.id === el.dataset.id);
+      dragFrom = col;
+      dragCid = cid;
+      setTimeout(() => el.classList.add('dragging'), 0);
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    el.addEventListener('dragend', () => el.classList.remove('dragging'));
+  });
+
+  // Wire quick-add inputs
+  panel.querySelectorAll('.quick-add').forEach(input => {
+    input.addEventListener('keydown', e => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      const title = input.value.trim();
+      if (!title) return;
+      const col = input.dataset.col;
+      const d = loadClient(cid);
+      d[col].unshift({ id: uid(), title, note: '', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' });
+      saveClient(cid, d);
+      renderPanel(cid);
+      refreshTab(cid);
+      const reInput = document.querySelector(`.quick-add[data-col="${col}"]`);
+      if (reInput) reInput.focus();
+    });
+  });
+}
+
+function buildCol(cid, colId, label, colClass, cards) {
+  return `
+    <div class="column ${colClass}" data-col="${colId}">
+      <div class="col-header">
+        <div class="col-title"><span class="col-dot"></span>${label}</div>
+        <span class="col-count">${cards.length}</span>
+      </div>
+      <div class="cards">
+        ${cards.map(c => buildCard(cid, colId, c)).join('')}
+      </div>
+      <div class="quick-add-wrap">
+        <input class="quick-add" data-col="${colId}" placeholder="Quick add... press Enter" />
+      </div>
+      <button class="detail-toggle" onclick="toggleForm('${cid}','${colId}')">+ Add with details</button>
+      <div class="add-form" id="form-${cid}-${colId}">
+        <input type="text" id="ft-${cid}-${colId}" placeholder="Task title" />
+        <textarea id="fn-${cid}-${colId}" rows="2" placeholder="Notes (optional)"></textarea>
+        <select id="fp-${cid}-${colId}">
+          <option value="high">High priority</option>
+          <option value="med" selected>Medium priority</option>
+          <option value="low">Low priority</option>
+        </select>
+        <div class="form-row-2">
+          <div>
+            <div class="form-label">Start time</div>
+            <input type="text" id="fst-${cid}-${colId}" placeholder="e.g. 9:00 AM" />
+          </div>
+          <div>
+            <div class="form-label">End time</div>
+            <input type="text" id="fet-${cid}-${colId}" placeholder="e.g. 10:30 AM" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-add" onclick="addCard('${cid}','${colId}')">Add</button>
+          <button class="btn-cancel-f" onclick="closeForm('${cid}','${colId}')">Cancel</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function buildCard(cid, col, c) {
+  const priLabel = c.pri === 'high' ? 'High' : c.pri === 'med' ? 'Med' : 'Low';
+  const startStr = [c.start_date, c.start_time].filter(Boolean).join(' ');
+  const endStr   = [c.end_date,   c.end_time  ].filter(Boolean).join(' ');
+  const timeStr  = [startStr, endStr].filter(Boolean).join(' → ');
+  return `
+    <div class="card" draggable="true" data-id="${c.id}" data-col="${col}"
+      onclick="openModal('${cid}','${col}','${c.id}')">
+      <button class="card-del" onclick="delCard('${cid}','${col}','${c.id}',event)">×</button>
+      <div class="card-title">${esc(c.title)}</div>
+      ${c.note ? `<div class="card-note">${esc(c.note)}</div>` : ''}
+      <div class="card-meta">
+        <span class="pri p-${c.pri}">${priLabel}</span>
+        ${timeStr ? `<span class="card-time">${esc(timeStr)}</span>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ── CARD ACTIONS ──────────────────────────────────────────────────
+
+function delCard(cid, col, cardId, e) {
+  e.stopPropagation();
+  if (!confirm('Delete this task?')) return;
+  const d = loadClient(cid);
+  d[col] = d[col].filter(x => x.id !== cardId);
+  saveClient(cid, d);
+  renderPanel(cid);
+  refreshTab(cid);
+}
+
+function toggleForm(cid, col) {
+  const form = document.getElementById(`form-${cid}-${col}`);
+  if (!form) return;
+  const isOpen = form.classList.contains('open');
+  document.querySelectorAll('.add-form').forEach(f => f.classList.remove('open'));
+  if (!isOpen) { form.classList.add('open'); document.getElementById(`ft-${cid}-${col}`).focus(); }
+}
+
+function closeForm(cid, col) {
+  const form = document.getElementById(`form-${cid}-${col}`);
+  if (form) form.classList.remove('open');
+  ['ft-','fn-','fst-','fet-'].forEach(p => { const el = document.getElementById(p + cid + '-' + col); if (el) el.value = ''; });
+}
+
+function addCard(cid, col) {
+  const title = document.getElementById(`ft-${cid}-${col}`).value.trim();
+  if (!title) return;
+  const note       = document.getElementById(`fn-${cid}-${col}`).value.trim();
+  const pri        = document.getElementById(`fp-${cid}-${col}`).value;
+  const start_time = document.getElementById(`fst-${cid}-${col}`).value.trim();
+  const end_time   = document.getElementById(`fet-${cid}-${col}`).value.trim();
+  const d = loadClient(cid);
+  d[col].unshift({ id: uid(), title, note, pri, start_date: '', start_time, end_date: '', end_time });
+  saveClient(cid, d);
+  renderPanel(cid);
+  refreshTab(cid);
+  closeForm(cid, col);
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────
+
+let _modal = {};
+
+function openModal(cid, col, cardId) {
+  const d = loadClient(cid);
+  const card = d[col].find(x => x.id === cardId);
+  if (!card) return;
+  _modal = { cid, col, cardId };
+  document.getElementById('modal-task-title').textContent = card.title;
+  document.getElementById('m-start-date').value = card.start_date || '';
+  document.getElementById('m-start-time').value = card.start_time || '';
+  document.getElementById('m-end-date').value   = card.end_date   || '';
+  document.getElementById('m-end-time').value   = card.end_time   || '';
+  document.getElementById('m-notes').value      = card.note       || '';
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('m-start-date').focus();
+}
+
+function saveModal() {
+  const { cid, col, cardId } = _modal;
+  if (!cid) return;
+  const d = loadClient(cid);
+  const card = d[col].find(x => x.id === cardId);
+  if (!card) return;
+  card.start_date = document.getElementById('m-start-date').value.trim();
+  card.start_time = document.getElementById('m-start-time').value.trim();
+  card.end_date   = document.getElementById('m-end-date').value.trim();
+  card.end_time   = document.getElementById('m-end-time').value.trim();
+  card.note       = document.getElementById('m-notes').value.trim();
+  saveClient(cid, d);
+  renderPanel(cid);
+  closeModal();
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal-overlay')) return;
+  stopMic();
+  document.getElementById('modal-overlay').classList.remove('open');
+  _modal = {};
+}
+
+// ── VOICE INPUT ───────────────────────────────────────────────────
+
+let _recognizing = false;
+let _recognition = null;
+
+function initRecognition() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return null;
+  const r = new SR();
+  r.continuous = true;
+  r.interimResults = true;
+  r.lang = 'en-US';
+  r._base = '';
+  r.onresult = e => {
+    let transcript = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      transcript += e.results[i][0].transcript;
+    }
+    const ta = document.getElementById('m-notes');
+    if (ta) ta.value = r._base + transcript;
+  };
+  r.onend = () => {
+    _recognizing = false;
+    const btn = document.getElementById('mic-btn');
+    if (btn) { btn.textContent = '🎙'; btn.classList.remove('recording'); }
+  };
+  r.onerror = () => {
+    _recognizing = false;
+    const btn = document.getElementById('mic-btn');
+    if (btn) { btn.textContent = '🎙'; btn.classList.remove('recording'); }
+  };
+  return r;
+}
+
+function toggleMic() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { alert('Speech recognition not supported in this browser. Use Chrome or Safari.'); return; }
+  if (!_recognition) _recognition = initRecognition();
+  if (_recognizing) {
+    _recognition.stop();
+  } else {
+    const ta = document.getElementById('m-notes');
+    _recognition._base = ta ? ta.value : '';
+    if (_recognition._base && !_recognition._base.endsWith(' ')) _recognition._base += ' ';
+    _recognition.start();
+    _recognizing = true;
+    const btn = document.getElementById('mic-btn');
+    if (btn) { btn.textContent = '⏹'; btn.classList.add('recording'); }
+  }
+}
+
+function stopMic() {
+  if (_recognizing && _recognition) _recognition.stop();
+}
+
+// ── EXPORT ────────────────────────────────────────────────────────
+
+function exportJSON() {
+  const all = getAllLocal();
+  const blob = new Blob([JSON.stringify(all, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `sf-kanban-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+
+// ── UTILS ─────────────────────────────────────────────────────────
+
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.add-form').forEach(f => f.classList.remove('open'));
+    stopMic();
+    document.getElementById('modal-overlay').classList.remove('open');
+    _modal = {};
+  }
+});
+
+// ── THEME ─────────────────────────────────────────────────────────
+
+function toggleTheme() {
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('sf-theme', next);
+  document.getElementById('theme-toggle').textContent = isDark ? 'Dark' : 'Light';
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('sf-theme') || 'dark';
+  document.documentElement.dataset.theme = saved;
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.textContent = saved === 'dark' ? 'Light' : 'Dark';
+})();
+
+// ── INIT ──────────────────────────────────────────────────────────
+
+async function init() {
+  document.getElementById('panels').innerHTML = '<div class="loading-state">Loading…</div>';
+  await loadAllFromSupabase();
+  document.getElementById('panels').innerHTML = '';
+  document.getElementById('tabs').innerHTML = '';
+  buildTabs();
+  buildPanels();
+}
+init();
+</script>
+</body>
+</html>

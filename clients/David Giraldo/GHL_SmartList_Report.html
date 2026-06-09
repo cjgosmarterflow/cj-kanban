@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GHL Smart List Report — Josh Sub-Account</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f4f6f9;
+      color: #1a1a2e;
+      padding: 40px 24px;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 32px;
+    }
+    .header .brand {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7c8db5;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+    .header .sub { font-size: 14px; color: #a0aec0; }
+    .header .meta {
+      display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap;
+    }
+    .header .meta span {
+      font-size: 13px; color: #7c8db5;
+    }
+    .header .meta strong { color: #e2e8f0; }
+
+    /* Total bar */
+    .total-bar {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .total-bar .label { font-size: 14px; color: #64748b; font-weight: 500; }
+    .total-bar .number { font-size: 32px; font-weight: 800; color: #1a1a2e; }
+    .progress-wrap { width: 100%; margin-top: 8px; }
+    .progress-track {
+      height: 10px; background: #e2e8f0; border-radius: 99px; overflow: hidden;
+      display: flex;
+    }
+    .progress-seg { height: 100%; transition: width 0.4s; }
+
+    .legend {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #64748b; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* Section */
+    .section { margin-bottom: 28px; }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px 28px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border-left: 4px solid transparent;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .card.red    { border-left-color: #ef4444; }
+    .card.orange { border-left-color: #f97316; }
+    .card.blue   { border-left-color: #3b82f6; }
+    .card.green  { border-left-color: #22c55e; }
+    .card.purple { border-left-color: #a855f7; }
+    .card.gray   { border-left-color: #94a3b8; }
+
+    .card-name { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .card-count {
+      font-size: 28px; font-weight: 800; text-align: right; white-space: nowrap;
+    }
+    .card-pct { font-size: 12px; color: #94a3b8; text-align: right; margin-top: 2px; }
+    .card.red    .card-count { color: #ef4444; }
+    .card.orange .card-count { color: #f97316; }
+    .card.blue   .card-count { color: #3b82f6; }
+    .card.green  .card-count { color: #22c55e; }
+    .card.purple .card-count { color: #a855f7; }
+    .card.gray   .card-count { color: #94a3b8; }
+
+    .filters { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .filter-tag {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 12px;
+      padding: 3px 10px;
+      color: #475569;
+    }
+    .filter-tag .op { color: #94a3b8; font-size: 11px; margin-right: 4px; }
+    .filter-tag code {
+      background: #e2e8f0;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 11px;
+      color: #1e40af;
+    }
+
+    /* Gap card */
+    .gap-card {
+      background: #fffbeb;
+      border: 2px dashed #fbbf24;
+      border-radius: 12px;
+      padding: 22px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .gap-card .card-name { color: #92400e; }
+    .gap-card .card-count { color: #d97706; font-size: 28px; font-weight: 800; }
+    .gap-note { font-size: 13px; color: #92400e; margin-top: 8px; line-height: 1.6; }
+
+    /* Math box */
+    .math-box {
+      background: #1a1a2e;
+      color: white;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+    }
+    .math-box h3 { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #7c8db5; margin-bottom: 20px; }
+    .math-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid #2d3561; font-size: 14px;
+    }
+    .math-row:last-child { border-bottom: none; }
+    .math-row .ml { color: #a0aec0; }
+    .math-row .mr { font-weight: 700; }
+    .math-row.total {
+      margin-top: 8px; padding-top: 16px;
+      border-top: 2px solid #3b4a8a; border-bottom: none;
+      font-size: 16px;
+    }
+    .math-row.total .ml { color: white; font-weight: 700; }
+    .math-row.gap .mr { color: #fbbf24; }
+    .math-row.total .mr { color: #22c55e; font-size: 22px; }
+
+    /* Footer */
+    .footer {
+      text-align: center; font-size: 12px; color: #94a3b8; margin-top: 40px;
+    }
+  /* Tabs */
+  .tabs {
+    display: flex; gap: 8px; margin-bottom: 24px;
+  }
+  .tab-btn {
+    padding: 10px 24px; border-radius: 8px; border: 2px solid #e2e8f0;
+    background: white; font-size: 14px; font-weight: 600; cursor: pointer;
+    color: #64748b; transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: #1a1a2e; color: white; border-color: #1a1a2e;
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">SmarterFlow · GHL Contact Audit</div>
+    <h1>Smart List Report</h1>
+    <div class="sub">Contact database breakdown — Flipside CFL</div>
+    <div class="meta">
+      <span><strong>Client:</strong> David Giraldo</span>
+      <span><strong>Accounts:</strong> Josh · Christina</span>
+      <span><strong>Date:</strong> June 9, 2026</span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('josh')">Josh Sub-Account</button>
+    <button class="tab-btn" onclick="switchTab('christina')">Christina Sub-Account</button>
+  </div>
+
+  <!-- JOSH TAB -->
+  <div class="tab-content active" id="tab-josh">
+
+  <!-- Progress Bar -->
+  <div class="total-bar">
+    <div>
+      <div class="label">Total Contacts in CRM (Josh)</div>
+      <div class="number">21,804</div>
+    </div>
+    <div style="flex:1; min-width:200px;">
+      <div class="progress-wrap">
+        <div class="progress-track">
+          <div class="progress-seg" style="width:74.0%; background:#3b82f6;"></div>
+          <div class="progress-seg" style="width:11.8%; background:#22c55e;"></div>
+          <div class="progress-seg" style="width:12.6%; background:#ef4444;"></div>
+          <div class="progress-seg" style="width:1.2%; background:#a855f7;"></div>
+          <div class="progress-seg" style="width:0.4%; background:#f97316;"></div>
+        </div>
+      </div>
+      <div style="margin-top:10px; background:#fff3cd; border:1px solid #ffc107; border-radius:8px; padding:8px 12px; font-size:12px; color:#856404;">
+        ⚠️ <strong>Audit complete:</strong> 21,924 accounted for vs. 21,804 actual — <strong>120 contact overlap (0.5%)</strong>. Negligible.
+      </div>
+      <div class="legend" style="margin-top:10px;">
+        <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Untouched Active</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Interested / Warm</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Excluded</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Eligible / Not Yet In</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div>Stuck — Never Enrolled</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 1: Exclusions -->
+  <div class="section">
+    <div class="section-title">Group 1 — Exclusions</div>
+    <div class="card red">
+      <div>
+        <div class="card-name">Excl — All Exclusions</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">OR</span>SMS Do Not Disturb <code>is Enabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">5,674</div>
+        <div class="card-pct">26.0% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 2: Active -->
+  <div class="section">
+    <div class="section-title">Group 2 — Active in Workflow</div>
+
+    <div class="card blue">
+      <div>
+        <div class="card-name">Active — Untouched</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>untouched</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is</span><code>added to new 2026 workflow</code></span>
+          <span class="filter-tag"><span class="op">AND</span>Phone <code>is not empty</code></span>
+          <span class="filter-tag"><span class="op">AND</span>First Name <code>is not empty</code></span>
+          <span class="filter-tag"><span class="op">AND</span>Last Name <code>is not empty</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">13,336</div>
+        <div class="card-pct">61.2% of total</div>
+      </div>
+    </div>
+
+    <div class="card green">
+      <div>
+        <div class="card-name">Active — Interested / Warm</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>interested</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>needs follow-up workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">2,576</div>
+        <div class="card-pct">11.8% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 3: Eligible -->
+  <div class="section">
+    <div class="section-title">Group 3 — Eligible, Not Yet in Workflow</div>
+    <div class="card purple">
+      <div>
+        <div class="card-name">Eligible — Not Yet in Any Workflow</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is not</span><code>untouched</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>added to new 2026 workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>needs follow-up workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">262</div>
+        <div class="card-pct">1.2% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 4: Stuck -->
+  <div class="section">
+    <div class="section-title">Group 4 — Stuck, Never Enrolled</div>
+    <div class="card orange">
+      <div>
+        <div class="card-name">Stuck — Never Enrolled</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>added to new 2026 workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>untouched</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>needs follow-up workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">76</div>
+        <div class="card-pct">0.3% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Math Summary -->
+  <div class="math-box">
+    <h3>Gap Analysis — Josh Sub-Account</h3>
+    <div class="math-row"><span class="ml">Active — Untouched</span><span class="mr">13,336</span></div>
+    <div class="math-row"><span class="ml">Active — Interested / Warm</span><span class="mr">2,576</span></div>
+    <div class="math-row"><span class="ml">Excl — All Exclusions</span><span class="mr">5,674</span></div>
+    <div class="math-row"><span class="ml">Eligible — Not Yet in Workflow</span><span class="mr">262</span></div>
+    <div class="math-row"><span class="ml">Stuck — Never Enrolled</span><span class="mr">76</span></div>
+    <div class="math-row total"><span class="ml">Smart List Total</span><span class="mr">21,924</span></div>
+    <div class="math-row"><span class="ml" style="color:#a0aec0;">Actual Total Contacts</span><span class="mr" style="color:#a0aec0;">21,804</span></div>
+    <div class="math-row gap"><span class="ml" style="color:#fbbf24;">⚠ Overlap</span><span class="mr" style="color:#fbbf24;">120</span></div>
+  </div>
+
+  <!-- Gap Card -->
+  <div class="section">
+    <div class="section-title">Audit Result</div>
+    <div class="gap-card" style="background:#f0fdf4; border-color:#34d399;">
+      <div>
+        <div class="card-name" style="color:#065f46;">Josh's Account — Nearly Clean</div>
+        <div class="gap-note" style="color:#065f46;">
+          Josh's account is well-organised. The 120-contact overlap is 0.5% of the database — negligible.
+          <br><br>
+          <strong>76 stuck contacts</strong> have the trigger tag but never entered any workflow — minor issue, easy fix.
+          <br><br>
+          <strong>262 eligible contacts</strong> are clean and ready to enroll immediately by bulk-adding the <code style="background:#dcfce7; padding:1px 5px; border-radius:3px; font-size:12px;">untouched</code> tag.
+        </div>
+      </div>
+      <div>
+        <div class="card-count" style="color:#16a34a;">120</div>
+        <div class="card-pct" style="color:#16a34a;">overlap</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Prepared by SmarterFlow · CJ Salamida · June 9, 2026
+  </div>
+
+  </div><!-- end tab-josh -->
+
+  <!-- CHRISTINA TAB -->
+  <div class="tab-content" id="tab-christina">
+
+  <!-- Progress Bar -->
+  <div class="total-bar">
+    <div>
+      <div class="label">Total Contacts in CRM (Christina)</div>
+      <div class="number">26,283</div>
+    </div>
+    <div style="flex:1; min-width:200px;">
+      <div class="progress-wrap">
+        <div class="progress-track">
+          <div class="progress-seg" style="width:21.6%; background:#3b82f6;"></div>
+          <div class="progress-seg" style="width:22.1%; background:#22c55e;"></div>
+          <div class="progress-seg" style="width:19.4%; background:#ef4444;"></div>
+          <div class="progress-seg" style="width:1.8%; background:#a855f7;"></div>
+          <div class="progress-seg" style="width:34.2%; background:#fbbf24;"></div>
+        </div>
+      </div>
+      <div style="margin-top:10px; background:#fff3cd; border:1px solid #ffc107; border-radius:8px; padding:8px 12px; font-size:12px; color:#856404;">
+        ⚠️ <strong>8,993 contacts are stuck and never enrolled</strong> — they have the trigger tag but never entered any workflow. 143-contact overlap (0.5%) — negligible. Audit complete.
+      </div>
+      <div class="legend" style="margin-top:10px;">
+        <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Untouched Active</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Interested / Warm</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Excluded</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Eligible / Not Yet In</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div>Stuck — Never Enrolled</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 1: Exclusions -->
+  <div class="section">
+    <div class="section-title">Group 1 — Exclusions</div>
+    <div class="card red">
+      <div>
+        <div class="card-name">Excl — All Exclusions</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">OR</span>SMS Do Not Disturb <code>is Enabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">5,444</div>
+        <div class="card-pct">20.7% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 2: Active -->
+  <div class="section">
+    <div class="section-title">Group 2 — Active in Workflow</div>
+
+    <div class="card blue">
+      <div>
+        <div class="card-name">Active — Untouched</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>untouched</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is</span><code>added to new 2026 workflow</code></span>
+          <span class="filter-tag"><span class="op">AND</span>Phone <code>is not empty</code></span>
+          <span class="filter-tag"><span class="op">AND</span>First Name <code>is not empty</code></span>
+          <span class="filter-tag"><span class="op">AND</span>Last Name <code>is not empty</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">5,682</div>
+        <div class="card-pct">21.6% of total</div>
+      </div>
+    </div>
+
+    <div class="card green">
+      <div>
+        <div class="card-name">Active — Interested / Warm</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>interested</code></span>
+          <span class="filter-tag"><span class="op">OR Tag is</span><code>needs follow-up workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">5,829</div>
+        <div class="card-pct">22.2% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 3: Eligible -->
+  <div class="section">
+    <div class="section-title">Group 3 — Eligible, Not Yet in Workflow</div>
+    <div class="card purple">
+      <div>
+        <div class="card-name">Eligible — Not Yet in Any Workflow</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is not</span><code>untouched</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>added to new 2026 workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>needs follow-up workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">478</div>
+        <div class="card-pct">1.8% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 4: Stuck -->
+  <div class="section">
+    <div class="section-title">Group 4 — Stuck, Never Enrolled</div>
+    <div class="card orange">
+      <div>
+        <div class="card-name">Stuck — Never Enrolled</div>
+        <div class="filters">
+          <span class="filter-tag"><span class="op">Tag is</span><code>added to new 2026 workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>untouched</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>needs follow-up workflow</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>dnc</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>stop</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>wrong number</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>not interested</code></span>
+          <span class="filter-tag"><span class="op">AND Tag is not</span><code>error</code></span>
+          <span class="filter-tag"><span class="op">AND</span>SMS DND <code>is Disabled</code></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-count">8,993</div>
+        <div class="card-pct">34.2% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Math Summary -->
+  <div class="math-box">
+    <h3>Gap Analysis — Christina Sub-Account</h3>
+    <div class="math-row"><span class="ml">Active — Untouched</span><span class="mr">5,682</span></div>
+    <div class="math-row"><span class="ml">Active — Interested / Warm</span><span class="mr">5,829</span></div>
+    <div class="math-row"><span class="ml">Excl — All Exclusions</span><span class="mr">5,444</span></div>
+    <div class="math-row"><span class="ml">Eligible — Not Yet in Workflow</span><span class="mr">478</span></div>
+    <div class="math-row"><span class="ml">Stuck — Never Enrolled</span><span class="mr">8,993</span></div>
+    <div class="math-row total"><span class="ml">Smart List Total</span><span class="mr">26,426</span></div>
+    <div class="math-row"><span class="ml" style="color:#a0aec0;">Actual Total Contacts</span><span class="mr" style="color:#a0aec0;">26,283</span></div>
+    <div class="math-row gap"><span class="ml" style="color:#fbbf24;">⚠ Overlap</span><span class="mr" style="color:#fbbf24;">143</span></div>
+  </div>
+
+  <!-- Gap Card -->
+  <div class="section">
+    <div class="section-title">How We Found the 8,993</div>
+    <div class="gap-card">
+      <div>
+        <div class="card-name">Stuck Contacts — Step by Step</div>
+        <div class="gap-note">
+          <strong>Step 1:</strong> 24,106 contacts have the tag <code style="background:#fef3c7; padding:1px 5px; border-radius:3px; font-size:12px;">added to new 2026 workflow</code> — nearly the entire database.<br><br>
+          <strong>Step 2:</strong> Filtered for contacts with this tag but without <code style="background:#fef3c7; padding:1px 5px; border-radius:3px; font-size:12px;">untouched</code> — meaning never enrolled into the active workflow. Result: 18,225.<br><br>
+          <strong>Step 3:</strong> Removed contacts with exclusion tags (dnc, stop, wrong number, not interested, error, DND) — these cannot be contacted. Result: 14,657.<br><br>
+          <strong>Step 4:</strong> Removed contacts already in an active workflow (interested, needs follow-up workflow) — already being worked. Final count: <strong>8,993 contacts ready to enroll.</strong><br><br>
+          <strong>Why are they stuck?</strong> The workflow trigger fires only when a tag is <em>added</em>. These contacts already had the tag before the new workflows were built, so the trigger never fired for them.<br><br>
+          <strong>143-contact overlap</strong> between smart lists is negligible at 0.5% — no action needed.
+        </div>
+      </div>
+      <div>
+        <div class="card-count">8,993</div>
+        <div class="card-pct" style="color:#d97706;">34.2% of total</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Prepared by SmarterFlow · CJ Salamida · June 9, 2026
+  </div>
+
+  </div><!-- end tab-christina -->
+
+</div>
+
+<script>
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
