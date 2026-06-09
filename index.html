@@ -636,6 +636,7 @@ const CLIENTS = [
   { id: 'leo',           name: 'Leo',           company: '' },
   { id: 'renato',        name: 'Renato',        company: '' },
   { id: 'nacho',         name: 'Nacho',         company: '' },
+  { id: 'tate-smith',   name: 'Tate Smith',    company: '' },
 ];
 
 const COLS = ['todo','inprogress','done'];
@@ -643,7 +644,7 @@ const COLS = ['todo','inprogress','done'];
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 7,
+  _rev: 8,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -663,6 +664,13 @@ const EMBEDDED_DATA = {
       { id: 'dg-010', title: 'Audited Josh account — 21,804 contacts', note: '120 overlap (negligible), 76 stuck, 262 eligible for enrollment.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-011', title: 'Audited Christina account — 26,283 contacts', note: '143 overlap (negligible), 8,993 stuck, 478 eligible for enrollment. Largest backlog here.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
     ]
+  },
+  'tate-smith': {
+    todo: [
+      { id: 'ts-001', title: 'Limit 2.9% surcharge to credit cards only — exclude ACH', note: 'HOW: GHL → Payments → Integrations → Stripe → find surcharge / convenience fee settings. Configure so the 2.9% processing fee only applies when customer selects a credit card payment method. ACH / bank transfer must be excluded from the surcharge rule. ACH actual cost is ~0.8% capped at $5 — passing 2.9% to ACH customers is wrong. VERIFY: Place a test order using ACH — confirm no surcharge line item. Place a test order using credit card — confirm 2.9% surcharge appears. BLOCKED IF: GHL Stripe integration does not support per-method surcharge rules natively — may need to split payment options into two separate order forms or use Stripe directly.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
   },
   'nacho': {
     todo: [
