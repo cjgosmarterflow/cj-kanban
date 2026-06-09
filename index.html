@@ -635,6 +635,7 @@ const CLIENTS = [
   { id: 'jon',           name: 'Jon',           company: '' },
   { id: 'leo',           name: 'Leo',           company: '' },
   { id: 'renato',        name: 'Renato',        company: '' },
+  { id: 'nacho',         name: 'Nacho',         company: '' },
 ];
 
 const COLS = ['todo','inprogress','done'];
@@ -642,7 +643,7 @@ const COLS = ['todo','inprogress','done'];
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 6,
+  _rev: 7,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -662,6 +663,15 @@ const EMBEDDED_DATA = {
       { id: 'dg-010', title: 'Audited Josh account — 21,804 contacts', note: '120 overlap (negligible), 76 stuck, 262 eligible for enrollment.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-011', title: 'Audited Christina account — 26,283 contacts', note: '143 overlap (negligible), 8,993 stuck, 478 eligible for enrollment. Largest backlog here.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
     ]
+  },
+  'nacho': {
+    todo: [
+      { id: 'na-001', title: 'Hide 7 nav items — Alberto de Blas', note: 'ACCOUNT: Alberto de Blas | Location ID: q7QWcqB3q81Kq4KLw2vs. HOW: Agency → Sub-accounts → Alberto de Blas → Edit → Left Nav customization. HIDE: Ask AI, Reporting, App Marketplace, Support Calls, Community, Mobile App, Settings. VERIFY: Log into the sub-account and confirm all 7 items are gone from the left menu.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'na-002', title: 'Disable voicemail at backend — Asesoria Inmobiliaria León', note: 'ACCOUNT: Asesoria Inmobiliaria León | Location ID: AmIpeBd5n4gZ2V183CeW | Phone: +1 507-516-9800. HOW: This requires a backend support ticket to GHL — not available in the UI. Submit ticket requesting voicemail disabled at backend level for this number. Include Location ID and phone number. Current greeting: "We are unable to take your call right now. Please leave a message after the beep." VERIFY: After confirmation from GHL support, test by letting a call ring out — Call Report should show "Missed" not "Voicemail".', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'na-003', title: 'Optimize GHL timeout settings — Asesoria Inmobiliaria León', note: 'ACCOUNT: Asesoria Inmobiliaria León | Location ID: AmIpeBd5n4gZ2V183CeW. HOW: Phone System → Number Settings → +1 507-516-9800. Goal: incoming timeout must be SHORT enough that GHL never reaches voicemail before Zadarma cuts the call (Zadarma is set to 30s hang up). Recommended: set GHL incoming call timeout to 25s (below Zadarma\'s 30s). This way Zadarma always cuts first. VERIFY: Let a call ring through the full chain — check Call Report shows "Missed". Current settings: incoming 50s, outgoing 40s — both too high.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
   }
 };
 
