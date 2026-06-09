@@ -679,7 +679,7 @@ const CLIENTS = [
   { id: 'harvey',        name: 'Harvey',        company: '' },
   { id: 'jared',         name: 'Jared',         company: '' },
   { id: 'jon',           name: 'Jon',           company: '' },
-  { id: 'leo',           name: 'Leo',           company: '' },
+  { id: 'leo',           name: 'Leo',           company: 'Souzet' },
   { id: 'renato',        name: 'Renato',        company: '' },
   { id: 'nacho',         name: 'Nacho',         company: '' },
   { id: 'tate-smith',   name: 'Tate Smith',    company: '' },
@@ -691,7 +691,7 @@ const COLS = ['todo','inprogress','done'];
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 12,
+  _rev: 13,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -716,6 +716,15 @@ const EMBEDDED_DATA = {
     done: [
       { id: 'ts-001', title: 'Limit 2.9% surcharge to credit cards only — exclude ACH', note: 'HOW: GHL → Payments → Integrations → Stripe → find surcharge / convenience fee settings. Configure so the 2.9% processing fee only applies when customer selects a credit card payment method. ACH / bank transfer must be excluded from the surcharge rule. ACH actual cost is ~0.8% capped at $5 — passing 2.9% to ACH customers is wrong. VERIFY: Place a test order using ACH — confirm no surcharge line item. Place a test order using credit card — confirm 2.9% surcharge appears. BLOCKED IF: GHL Stripe integration does not support per-method surcharge rules natively — may need to split payment options into two separate order forms or use Stripe directly.\n\n--\n\nSolution: GHL Limitation, not possible for granular like credit cards only, discard ACH for surcharges. Not possible.', pri: 'high', start_date: 'June 10', start_time: '11:50 AM', end_date: 'June 10', end_time: '12:18 AM' },
     ]
+  },
+  'leo': {
+    todo: [
+      { id: 'lv-001', title: 'Run scoping call with Thiaggo — new sales pipeline + funnels', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Thiaggo wants a new sales pipeline + integrated funnels ASAP. Booking links sent 2026-06-09. Run call → scope build → move fast. Reply-all so Leo sees it too. Thiaggo: thiaggo@souzet.com | Leo: leo@souzet.com.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-002', title: 'Confirm support@gosmarterflow.com access on Souzet sub-account', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Verify support@ is on the sub-account as guaranteed for handoff coverage.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-003', title: 'Confirm Workstream B — zip code extraction still open?', note: 'Mar 2026 request: extract customer zip code from lead info (lands in notes field). CC: it.istomin@gmail.com. Confirm with Thiaggo if this is still needed or already resolved.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
   },
   'rodrigo': {
     todo: [

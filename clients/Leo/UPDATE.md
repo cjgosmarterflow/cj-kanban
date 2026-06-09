@@ -1,5 +1,5 @@
-# Leo — Session Updates
-**Client:** Leo
+# Leo Veloz — Session Updates
+**Client:** Leo Veloz / Souzet
 **Consultant:** CJ Salamida
 
 ---
