@@ -637,6 +637,7 @@ const CLIENTS = [
   { id: 'renato',        name: 'Renato',        company: '' },
   { id: 'nacho',         name: 'Nacho',         company: '' },
   { id: 'tate-smith',   name: 'Tate Smith',    company: '' },
+  { id: 'rodrigo',      name: 'Rodrigo',       company: 'Gracie Barra Santa Barbara' },
 ];
 
 const COLS = ['todo','inprogress','done'];
@@ -644,7 +645,7 @@ const COLS = ['todo','inprogress','done'];
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 9,
+  _rev: 10,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -671,6 +672,17 @@ const EMBEDDED_DATA = {
     done: [
       { id: 'ts-001', title: 'Limit 2.9% surcharge to credit cards only — exclude ACH', note: 'HOW: GHL → Payments → Integrations → Stripe → find surcharge / convenience fee settings. Configure so the 2.9% processing fee only applies when customer selects a credit card payment method. ACH / bank transfer must be excluded from the surcharge rule. ACH actual cost is ~0.8% capped at $5 — passing 2.9% to ACH customers is wrong. VERIFY: Place a test order using ACH — confirm no surcharge line item. Place a test order using credit card — confirm 2.9% surcharge appears. BLOCKED IF: GHL Stripe integration does not support per-method surcharge rules natively — may need to split payment options into two separate order forms or use Stripe directly.\n\n--\n\nSolution: GHL Limitation, not possible for granular like credit cards only, discard ACH for surcharges. Not possible.', pri: 'high', start_date: 'June 10', start_time: '11:50 AM', end_date: 'June 10', end_time: '12:18 AM' },
     ]
+  },
+  'rodrigo': {
+    todo: [
+      { id: 'rc-001', title: 'Complete webhook integration — outbound calls vendor', note: 'URGENT. Rodrigo is onboarding a call center. They need: (1) Webhook URL from GHL, (2) JSON or XML format, (3) attribute list, (4) field name mapping. Ref email: "Webhook Integration Process (Help Needed)" 2026-06-08. Call center email: 1210008878@armailstnr.appspotmail.com | Outbound number: 805-324-7086.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'rc-002', title: 'Retrieve and triage Rodrigo\'s unactioned task list', note: 'Rodrigo sent tasks that were never actioned because Kyle\'s email bounced. Retrieve the email(s) and triage items into this board.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'rc-003', title: 'Fix lead notification emails + add call center email', note: 'Rodrigo is not receiving new lead emails. Fix his notifications. Also add call center email (1210008878@armailstnr.appspotmail.com) to lead notification list so they are alerted on new leads.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'rc-004', title: 'Remove chatbot from gbsantabarbara.com', note: 'Rodrigo wants chatbot removed from www.gbsantabarbara.com — not performing. Focus shifting to web forms instead.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'rc-005', title: 'Audit sales pipelines and funnels', note: 'Leads are not auto-progressing through pipeline per set timeframes — being moved manually. Audit all pipelines and funnels to confirm automation is working as intended.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
   },
   'nacho': {
     todo: [],
