@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-06-10",
+    "tasks_completed": [],
+    "tasks_added": [
+      { "id": "lv-001", "title": "Run scoping call with Thiaggo — new sales pipeline + funnels", "pri": "high" },
+      { "id": "lv-002", "title": "Confirm support@gosmarterflow.com access on Souzet sub-account", "pri": "med" },
+      { "id": "lv-003", "title": "Confirm Workstream B — zip code extraction still open?", "pri": "med" },
+      { "id": "lv-004", "title": "Create JOF pipeline — 3rd party company (cold calls / marketing / lead capture)", "pri": "high" },
+      { "id": "lv-005", "title": "Duplicate funnel → use for JOF pipeline", "pri": "high" },
+      { "id": "lv-006", "title": "Duplicate English Landing Page for JOF", "pri": "high" },
+      { "id": "lv-007", "title": "Duplicate forms → re-attach to Portuguese and English landing pages", "pri": "high" },
+      { "id": "lv-008", "title": "Re-create workflows → route leads to JOF pipeline", "pri": "high" },
+      { "id": "lv-009", "title": "Assign dedicated phone number — rings to JOF staff only", "pri": "high" },
+      { "id": "lv-010", "title": "Remove WhatsApp buttons — both Portuguese and English landing pages", "pri": "med" },
+      { "id": "lv-011", "title": "Remove phone number from thank you page", "pri": "med" },
+      { "id": "lv-012", "title": "Remove email from thank you page", "pri": "med" },
+      { "id": "lv-013", "title": "Fix translation — \"Verde\" → \"Efficient\" on Portuguese landing page", "pri": "med" },
+      { "id": "lv-014", "title": "Update 2nd FAQ — Portuguese Landing Page", "pri": "med" }
+    ],
+    "decisions": [
+      "Terminal dedicated solely to Leo & Thiaggo Souzet (SOLO_CLIENT = 'leo')"
+    ],
+    "notes": "First session. Booking links sent 2026-06-09 for scoping call. Thiaggo is day-to-day contact; Leo is CC. Account: Souzet | LCb3KCRj8DxVjNQbmEdZ."
+  }
+]
