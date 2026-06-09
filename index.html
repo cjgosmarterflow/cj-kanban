@@ -322,6 +322,26 @@ body::after {
   line-height: 1.55;
   margin-bottom: 8px;
 }
+.card-solution {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  color: var(--done);
+  line-height: 1.55;
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  border-left: 2px solid var(--done);
+  background: rgba(21,128,61,0.06);
+  border-radius: 0 4px 4px 0;
+}
+.card-solution-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
 .card-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 
 .pri {
@@ -615,6 +635,10 @@ body::after {
           <button class="mic-btn" id="mic-btn" onclick="toggleMic()" title="Voice input (click to record)">🎙</button>
         </div>
       </div>
+      <div class="modal-field" id="m-solution-wrap" style="display:none">
+        <label>Solution</label>
+        <textarea id="m-solution" rows="4" placeholder="How was this resolved?"></textarea>
+      </div>
     </div>
     <div class="modal-actions">
       <button class="modal-save" onclick="saveModal()">Save</button>
@@ -645,7 +669,7 @@ const COLS = ['todo','inprogress','done'];
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 11,
+  _rev: 12,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -716,6 +740,7 @@ let _db = {};
 
 function rowToCard(row) {
   return { id: row.id, title: row.title, note: row.note, pri: row.pri,
+    solution: row.solution || '',
     start_date: row.start_date, start_time: row.start_time,
     end_date: row.end_date, end_time: row.end_time };
 }
@@ -726,6 +751,7 @@ function clientToRows(cid, data) {
     (data[col] || []).forEach((card, i) => {
       rows.push({ id: card.id, client_id: cid, col,
         title: card.title || '', note: card.note || '',
+        solution: card.solution || '',
         pri: card.pri || 'med',
         start_date: card.start_date || '', start_time: card.start_time || '',
         end_date: card.end_date || '', end_time: card.end_time || '',
@@ -737,7 +763,7 @@ function clientToRows(cid, data) {
 
 function starterCards() {
   return STARTER_TASKS.map(s => ({ id: uid(), title: s.title, note: s.note || '',
-    pri: s.pri, start_date: '', start_time: '', end_date: '', end_time: '' }));
+    solution: '', pri: s.pri, start_date: '', start_time: '', end_date: '', end_time: '' }));
 }
 
 function loadClient(cid) {
@@ -980,6 +1006,7 @@ function buildCard(cid, col, c) {
       <button class="card-del" onclick="delCard('${cid}','${col}','${c.id}',event)">×</button>
       <div class="card-title">${esc(c.title)}</div>
       ${c.note ? `<div class="card-note">${esc(c.note)}</div>` : ''}
+      ${col === 'done' && c.solution ? `<div class="card-solution"><span class="card-solution-label">Solution</span>${esc(c.solution)}</div>` : ''}
       <div class="card-meta">
         <span class="pri p-${c.pri}">${priLabel}</span>
         ${timeStr ? `<span class="card-time">${esc(timeStr)}</span>` : ''}
@@ -1022,7 +1049,7 @@ function addCard(cid, col) {
   const start_time = document.getElementById(`fst-${cid}-${col}`).value.trim();
   const end_time   = document.getElementById(`fet-${cid}-${col}`).value.trim();
   const d = loadClient(cid);
-  d[col].unshift({ id: uid(), title, note, pri, start_date: '', start_time, end_date: '', end_time });
+  d[col].unshift({ id: uid(), title, note, solution: '', pri, start_date: '', start_time, end_date: '', end_time });
   saveClient(cid, d);
   renderPanel(cid);
   refreshTab(cid);
@@ -1044,6 +1071,9 @@ function openModal(cid, col, cardId) {
   document.getElementById('m-end-date').value   = card.end_date   || '';
   document.getElementById('m-end-time').value   = card.end_time   || '';
   document.getElementById('m-notes').value      = card.note       || '';
+  const solWrap = document.getElementById('m-solution-wrap');
+  solWrap.style.display = col === 'done' ? '' : 'none';
+  document.getElementById('m-solution').value  = card.solution   || '';
   document.getElementById('modal-overlay').classList.add('open');
   document.getElementById('m-start-date').focus();
 }
@@ -1059,6 +1089,7 @@ function saveModal() {
   card.end_date   = document.getElementById('m-end-date').value.trim();
   card.end_time   = document.getElementById('m-end-time').value.trim();
   card.note       = document.getElementById('m-notes').value.trim();
+  if (_modal.col === 'done') card.solution = document.getElementById('m-solution').value.trim();
   saveClient(cid, d);
   renderPanel(cid);
   closeModal();
