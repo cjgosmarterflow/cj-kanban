@@ -692,7 +692,7 @@ const SOLO_CLIENT = null;
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 14,
+  _rev: 15,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -720,23 +720,26 @@ const EMBEDDED_DATA = {
   },
   'leo': {
     todo: [
-      { id: 'lv-001', title: 'Run scoping call with Thiaggo — new sales pipeline + funnels', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Thiaggo wants a new sales pipeline + integrated funnels ASAP. Booking links sent 2026-06-09. Run call → scope build → move fast. Reply-all so Leo sees it too. Thiaggo: thiaggo@souzet.com | Leo: leo@souzet.com.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-004', title: 'Create JOF pipeline — 3rd party company (cold calls / marketing / lead capture)', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. JOF is a 3rd-party company handling cold calls, marketing, and lead capture. GHL → Pipelines → New Pipeline → name: JOF. Configure pipeline view/filter so JOF staff only see the JOF pipeline. May require restricting their user permissions or using a custom dashboard view.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-005', title: 'Duplicate funnel → use for JOF pipeline', note: 'SOURCE FUNNEL: https://app.gohighlevel.com/v2/location/LCb3KCRj8DxVjNQbmEdZ/funnels-websites/funnels/pstFuRCXrGZr2ZHWTOr5/steps/3145c29a-f3a3-48b0-9ff7-353c78dddafd/overview. HOW: Open funnel → Settings → Clone/Duplicate → rename to JOF version. Forms inside the funnel must be duplicated separately (see lv-007). GOAL: JOF funnel routes leads to JOF pipeline, not main Souzet pipeline.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-006', title: 'Duplicate English Landing Page for JOF', note: 'HOW: GHL Funnels/Sites → find existing English Landing Page → Duplicate → rename to JOF English. This is the base for re-attaching JOF-specific forms. Coordinate with lv-007 (form duplication) after.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-007', title: 'Duplicate forms → re-attach to Portuguese and English landing pages', note: 'GOAL: JOF-specific forms that route submissions to JOF pipeline. HOW: GHL → Sites → Forms → clone each form used on Portuguese and English landing pages → update form submission action to move lead into JOF pipeline → swap old forms for new JOF forms on both landing pages (Portuguese and English). Attach same logic to JOF funnel from lv-005.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-008', title: 'Re-create workflows → route leads to JOF pipeline', note: 'GOAL: JOF leads follow same workflow logic as main Souzet but land in JOF pipeline. HOW: Clone existing Souzet workflows → update all pipeline-move actions to target JOF pipeline → update tags/identifiers to distinguish JOF leads from main leads. Attach workflows to JOF forms (from lv-007).', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-009', title: 'Assign dedicated phone number — rings to JOF staff only', note: 'HOW: GHL → Phone Numbers → purchase new number or use unassigned → assign to JOF staff user. Configure inbound call routing so calls go to JOF staff only — not main Souzet line. VERIFY: Test call routes to correct person.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-010', title: 'Remove WhatsApp buttons — both Portuguese and English landing pages', note: 'HOW: Open each landing page in funnel editor → locate all WhatsApp button elements → delete. VERIFY: Preview both pages — no WhatsApp buttons visible on either.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-011', title: 'Remove phone number from thank you page', note: 'HOW: Open thank you page step in funnel editor → locate phone number text/element → delete. VERIFY: Submit test form → thank you page shows no phone number.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-012', title: 'Remove email from thank you page', note: 'HOW: Open thank you page step in funnel editor → locate email address text/element → delete. VERIFY: Submit test form → thank you page shows no email.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-013', title: 'Fix translation — "Verde" → "Efficient" on Portuguese landing page', note: 'HOW: Open Portuguese landing page in editor → find all instances of "Verde" used in the energy efficiency context → replace with correct term (confirm with Thiaggo: "Eficiente" in Portuguese or "Efficient" if English label). VERIFY: Review full page — no remaining "Verde" labels where "Efficient/Eficiente" is intended.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-003', title: 'Confirm Workstream B — zip code extraction still open?', note: 'Mar 2026 request: extract customer zip code from lead info (lands in notes field). CC: it.istomin@gmail.com. Confirm with Thiaggo if still needed or already resolved.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-004', title: 'Create JOF pipeline — 3rd party company (cold calls / marketing / lead capture)', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. JOF is a 3rd-party company handling cold calls, marketing, and lead capture. GHL → Pipelines → New Pipeline → name: JOF. Configure pipeline view/filter so JOF staff only see the JOF pipeline.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-006', title: 'Duplicate English Landing Page for JOF', note: 'HOW: GHL Funnels/Sites → find existing English Landing Page → Duplicate → rename to JOF English. Base for re-attaching JOF-specific forms. Coordinate with lv-007 after.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-007', title: 'Duplicate forms → re-attach to Portuguese and English landing pages', note: 'GOAL: JOF forms route to JOF pipeline. HOW: GHL → Sites → Forms → clone each form from PT and EN pages → update submission action to JOF pipeline → swap forms on both pages. Also attach to JOF funnel (lv-005).', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-008', title: 'Re-create workflows → route leads to JOF pipeline', note: 'Clone Souzet workflows → update pipeline-move actions to JOF pipeline → update tags to distinguish JOF leads. Attach to JOF forms (lv-007).', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-009', title: 'Assign dedicated phone number — rings to JOF staff only', note: 'HOW: GHL → Phone Numbers → purchase new number or use unassigned → assign to JOF staff user. Configure inbound routing to JOF staff only. VERIFY: test call routes correctly.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-010', title: 'Remove WhatsApp buttons — both Portuguese and English landing pages', note: 'Open each landing page in editor → delete all WhatsApp button elements. VERIFY: preview both pages, no WhatsApp buttons.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-011', title: 'Remove phone number from thank you page', note: 'Open thank you page in funnel editor → delete phone number element. VERIFY: submit test form, no phone on thank you page.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-012', title: 'Remove email from thank you page', note: 'Open thank you page in funnel editor → delete email element. VERIFY: submit test form, no email on thank you page.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-013', title: 'Fix translation — "Verde" → "Efficient" on Portuguese landing page', note: 'Open PT landing page → find all Verde instances used for energy efficiency → replace with Eficiente (PT) or Efficient (EN label). Confirm with Thiaggo. VERIFY: no Verde labels remain.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
       { id: 'lv-014', title: 'Update 2nd FAQ — Portuguese Landing Page', note: 'HOW: Open Portuguese landing page → FAQ section → 2nd FAQ item → replace answer text with: "Muitos proprietários podem se qualificar para receber de 75% a 100% de desconto em melhorias de isolamento térmico e vedação de ar sem custo através do programa Mass Save®. Alguns clientes também podem se qualificar para serviços de climatização e eficiência energética totalmente gratuitos." VERIFY: Preview page — FAQ #2 shows updated text exactly.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-002', title: 'Confirm support@gosmarterflow.com access on Souzet sub-account', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Verify support@ is on the sub-account as guaranteed for handoff coverage.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-003', title: 'Confirm Workstream B — zip code extraction still open?', note: 'Mar 2026 request: extract customer zip code from lead info (lands in notes field). CC: it.istomin@gmail.com. Confirm with Thiaggo if this is still needed or already resolved.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-015', title: 'Create separate folder in Funnels for JOF', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. HOW: GHL → Funnels & Websites → Funnels → New Folder → name: JOF. Move all JOF funnel work into this folder. Do this before duplicating the funnel.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-016', title: 'Duplicate Portuguese Landing Page for JOF', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. HOW: GHL → Funnels & Websites → find existing Portuguese Landing Page → Duplicate → rename to JOF Portuguese. Move into JOF folder (lv-015). Coordinate with lv-007 after.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
     ],
     inprogress: [],
-    done: []
+    done: [
+      { id: 'lv-001', title: 'Run scoping call with Thiaggo — new sales pipeline + funnels', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Thiaggo wants a new sales pipeline + integrated funnels ASAP. Booking links sent 2026-06-09. Thiaggo: thiaggo@souzet.com | Leo: leo@souzet.com.', pri: 'high', start_date: 'June 9', start_time: '4:00PM', end_date: 'June 9', end_time: '5:00PM' },
+      { id: 'lv-005', title: 'Duplicate funnel for JOF pipeline', note: 'SOURCE: https://app.gohighlevel.com/v2/location/LCb3KCRj8DxVjNQbmEdZ/funnels-websites/funnels/pstFuRCXrGZr2ZHWTOr5/steps/3145c29a-f3a3-48b0-9ff7-353c78dddafd/overview. Cloned → renamed to JOF version.', pri: 'high', start_date: 'Jun 10', start_time: '1:00', end_date: 'Jun 10', end_time: '1:24' },
+      { id: 'lv-002', title: 'Confirm support@gosmarterflow.com access on Souzet sub-account', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Verified support@ is on the sub-account.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ]
   },
   'rodrigo': {
     todo: [
@@ -1160,6 +1163,11 @@ function openModal(cid, col, cardId) {
   const solWrap = document.getElementById('m-solution-wrap');
   solWrap.style.display = col === 'done' ? '' : 'none';
   document.getElementById('m-solution').value  = card.solution   || '';
+  _modal._orig = {
+    startDate: card.start_date || '', startTime: card.start_time || '',
+    endDate: card.end_date || '',     endTime: card.end_time || '',
+    note: card.note || '',            solution: card.solution || ''
+  };
   document.getElementById('modal-overlay').classList.add('open');
   document.getElementById('m-start-date').focus();
 }
@@ -1181,8 +1189,22 @@ function saveModal() {
   closeModal();
 }
 
+function _modalHasChanges() {
+  if (!_modal._orig) return false;
+  const o = _modal._orig;
+  return document.getElementById('m-start-date').value.trim() !== o.startDate ||
+         document.getElementById('m-start-time').value.trim() !== o.startTime ||
+         document.getElementById('m-end-date').value.trim()   !== o.endDate   ||
+         document.getElementById('m-end-time').value.trim()   !== o.endTime   ||
+         document.getElementById('m-notes').value.trim()      !== o.note      ||
+         document.getElementById('m-solution').value.trim()   !== o.solution;
+}
+
 function closeModal(e) {
   if (e && e.target !== document.getElementById('modal-overlay')) return;
+  if (e && _modalHasChanges()) {
+    if (!confirm('You have unsaved changes. Discard and close?')) return;
+  }
   stopMic();
   document.getElementById('modal-overlay').classList.remove('open');
   _modal = {};
