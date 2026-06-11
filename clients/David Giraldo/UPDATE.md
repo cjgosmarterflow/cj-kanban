@@ -43,12 +43,13 @@ GHL workflow triggers only fire when a tag is added to a contact, not when the t
 
 ---
 
-<!-- TEMPLATE FOR NEXT SESSION
-## [Date]
+## 2026-06-12
 
 **What was done:**
+- Enrolled 8,993 stuck contacts in Christina sub-account by bulk-adding AddedToNew2026 tag. Contacts now routed into Untouched Automation Main and batch (A-G) workflows.
 
 **What's next:**
+- Enroll 262 eligible contacts in Josh: open "Eligible — Not Yet in Any Workflow" smart list → select all → Add Tag → AddedToNew2026. Verify list drops to 0.
 
 **Blockers:**
--->
+- None
