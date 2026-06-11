@@ -684,6 +684,7 @@ const CLIENTS = [
   { id: 'nacho',         name: 'Nacho',         company: '' },
   { id: 'tate-smith',   name: 'Tate Smith',    company: '' },
   { id: 'rodrigo',      name: 'Rodrigo',       company: 'Gracie Barra Santa Barbara' },
+  { id: 'fred-genie',  name: 'Fred',          company: 'Genie Receptionist' },
 ];
 
 const COLS = ['todo','inprogress','done'];
@@ -692,14 +693,14 @@ const SOLO_CLIENT = null;
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 15,
+  _rev: 17,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'dg-013', title: 'Enroll 8,993 stuck contacts in Christina', note: 'ACCOUNT: Christina sub-account. BEFORE BULK-ADD: manually spot-check 20-30 contacts from "Stuck — Never Enrolled" smart list. Confirm each has a batch tag (A through G), no active workflow enrollment showing in contact timeline, and no hidden exclusion flags. THEN: bulk select all → Add Tag → AddedToNew2026. Contacts will enter Untouched Automation Main and route to their batch (A-G) workflow. VERIFY: stuck list count drops toward 0. HIGH RISK due to volume — do not skip sample audit.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
     ],
     inprogress: [],
     done: [
+      { id: 'dg-013', title: 'Enroll 8,993 stuck contacts in Christina', note: 'ACCOUNT: Christina sub-account. BEFORE BULK-ADD: manually spot-check 20-30 contacts from "Stuck — Never Enrolled" smart list. Confirm each has a batch tag (A through G), no active workflow enrollment showing in contact timeline, and no hidden exclusion flags. THEN: bulk select all → Add Tag → AddedToNew2026. Contacts will enter Untouched Automation Main and route to their batch (A-G) workflow. VERIFY: stuck list count drops toward 0. HIGH RISK due to volume — do not skip sample audit.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-001', title: 'Reviewed all Loom walkthroughs from Nica (4 videos)', note: 'Full context on 3-phase system: Untouched, Interested/Warm, Hot Agents tag removal. Phase logic and gotchas documented.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-002', title: 'Built full GHL workflow system map (Mermaid diagram)', note: 'Maps all 3 phases, A-G batch routing, FU sequences, loop after FU-15 back to FU-4.', pri: 'med', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
       { id: 'dg-005', title: 'Built: Excl — All Exclusions smart list', note: 'Josh: 5,674 | Christina: 5,444. Filters (OR logic): Tag is dnc | Tag is stop | Tag is wrong number | Tag is not interested | Tag is error | SMS Do Not Disturb is Enabled.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
@@ -711,46 +712,101 @@ const EMBEDDED_DATA = {
       { id: 'dg-011', title: 'Audited Christina account — 26,283 contacts', note: '143 overlap (negligible), 8,993 stuck, 478 eligible for enrollment. Largest backlog here.', pri: 'high', start_date: 'June 9', start_time: '', end_date: 'June 9', end_time: '' },
     ]
   },
+  'chris': {
+    todo: [
+      { id: 'mq6sfext4h08', title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfext8i88', title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextaz7u', title: 'Audit existing workflows', note: 'Document what is built, active, and broken.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextive2', title: 'Update HANDOFF.md after first session', note: '', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfexttz5c', title: 'Set up communication channel with client', note: 'WhatsApp preferred.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
+  },
+  'harvey': {
+    todo: [
+      { id: 'mq6sfexttfm8', title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextfia8', title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfext2nru', title: 'Audit existing workflows', note: 'Document what is built, active, and broken.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextfvsr', title: 'Update HANDOFF.md after first session', note: '', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextd47n', title: 'Set up communication channel with client', note: 'WhatsApp preferred.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
+  },
+  'jared': {
+    todo: [
+      { id: 'mq6sfextgynk', title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfext3y9c', title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextjsgo', title: 'Audit existing workflows', note: 'Document what is built, active, and broken.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextuuyx', title: 'Update HANDOFF.md after first session', note: '', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextkkir', title: 'Set up communication channel with client', note: 'WhatsApp preferred.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
+  },
+  'jon': {
+    todo: [
+      { id: 'mq6sfextn2g7', title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextye52', title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfext196r', title: 'Audit existing workflows', note: 'Document what is built, active, and broken.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfexto58n', title: 'Update HANDOFF.md after first session', note: '', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextmyqk', title: 'Set up communication channel with client', note: 'WhatsApp preferred.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
+  },
+  'renato': {
+    todo: [
+      { id: 'mq6sfext5o73', title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextdkce', title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextm1fj', title: 'Audit existing workflows', note: 'Document what is built, active, and broken.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfext0mng', title: 'Update HANDOFF.md after first session', note: '', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'mq6sfextxyh3', title: 'Set up communication channel with client', note: 'WhatsApp preferred.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ],
+    inprogress: [],
+    done: []
+  },
   'tate-smith': {
     todo: [],
     inprogress: [],
     done: [
-      { id: 'ts-001', title: 'Limit 2.9% surcharge to credit cards only — exclude ACH', note: 'HOW: GHL → Payments → Integrations → Stripe → find surcharge / convenience fee settings. Configure so the 2.9% processing fee only applies when customer selects a credit card payment method. ACH / bank transfer must be excluded from the surcharge rule. ACH actual cost is ~0.8% capped at $5 — passing 2.9% to ACH customers is wrong. VERIFY: Place a test order using ACH — confirm no surcharge line item. Place a test order using credit card — confirm 2.9% surcharge appears. BLOCKED IF: GHL Stripe integration does not support per-method surcharge rules natively — may need to split payment options into two separate order forms or use Stripe directly.\n\n--\n\nSolution: GHL Limitation, not possible for granular like credit cards only, discard ACH for surcharges. Not possible.', pri: 'high', start_date: 'June 10', start_time: '11:50 AM', end_date: 'June 10', end_time: '12:18 AM' },
+      { id: '0966e28b-73f5-47ea-bf9f-c3404311766b', title: 'Replied to Tate - ACH surcharge roadmap inquiry', note: "Informed Tate that channel-specific processing fees are on GHL's roadmap but timeline is GHL's to set, not SmarterFlow's.", pri: 'med', solution: 'Sent reply clarifying that SmarterFlow manages implementation/strategy; GHL controls platform feature timelines. Offered custom software alternative if needed.', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'ts-001', title: 'Limit 2.9% surcharge to credit cards only — exclude ACH', note: 'HOW: GHL → Payments → Integrations → Stripe → find surcharge / convenience fee settings. Configure so the 2.9% processing fee only applies when customer selects a credit card payment method. ACH / bank transfer must be excluded from the surcharge rule. ACH actual cost is ~0.8% capped at $5 — passing 2.9% to ACH customers is wrong. VERIFY: Place a test order using ACH — confirm no surcharge line item. Place a test order using credit card — confirm 2.9% surcharge appears. BLOCKED IF: GHL Stripe integration does not support per-method surcharge rules natively — may need to split payment options into two separate order forms or use Stripe directly.', pri: 'high', solution: 'GHL Limitation, not possible for granular like credit cards only, discard ACH for surcharges. Not possible.', start_date: 'June 10', start_time: '11:50 AM', end_date: 'June 10', end_time: '12:18 AM' },
     ]
   },
   'leo': {
     todo: [
+      { id: 'lv-009', title: 'Assign dedicated phone number - rings JOF staff only', note: 'GHL -> Phone Numbers -> purchase/assign to JOF staff user. Configure inbound routing to JOF staff only. VERIFY: test call routes correctly.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
       { id: 'lv-003', title: 'Confirm Workstream B — zip code extraction still open?', note: 'Mar 2026 request: extract customer zip code from lead info (lands in notes field). CC: it.istomin@gmail.com. Confirm with Thiaggo if still needed or already resolved.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-004', title: 'Create JOF pipeline — 3rd party company (cold calls / marketing / lead capture)', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. JOF is a 3rd-party company handling cold calls, marketing, and lead capture. GHL → Pipelines → New Pipeline → name: JOF. Configure pipeline view/filter so JOF staff only see the JOF pipeline.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-006', title: 'Duplicate English Landing Page for JOF', note: 'HOW: GHL Funnels/Sites → find existing English Landing Page → Duplicate → rename to JOF English. Base for re-attaching JOF-specific forms. Coordinate with lv-007 after.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-007', title: 'Duplicate forms → re-attach to Portuguese and English landing pages', note: 'GOAL: JOF forms route to JOF pipeline. HOW: GHL → Sites → Forms → clone each form from PT and EN pages → update submission action to JOF pipeline → swap forms on both pages. Also attach to JOF funnel (lv-005).', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-008', title: 'Re-create workflows → route leads to JOF pipeline', note: 'Clone Souzet workflows → update pipeline-move actions to JOF pipeline → update tags to distinguish JOF leads. Attach to JOF forms (lv-007).', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-009', title: 'Assign dedicated phone number — rings to JOF staff only', note: 'HOW: GHL → Phone Numbers → purchase new number or use unassigned → assign to JOF staff user. Configure inbound routing to JOF staff only. VERIFY: test call routes correctly.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-010', title: 'Remove WhatsApp buttons — both Portuguese and English landing pages', note: 'Open each landing page in editor → delete all WhatsApp button elements. VERIFY: preview both pages, no WhatsApp buttons.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-011', title: 'Remove phone number from thank you page', note: 'Open thank you page in funnel editor → delete phone number element. VERIFY: submit test form, no phone on thank you page.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-012', title: 'Remove email from thank you page', note: 'Open thank you page in funnel editor → delete email element. VERIFY: submit test form, no email on thank you page.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-013', title: 'Fix translation — "Verde" → "Efficient" on Portuguese landing page', note: 'Open PT landing page → find all Verde instances used for energy efficiency → replace with Eficiente (PT) or Efficient (EN label). Confirm with Thiaggo. VERIFY: no Verde labels remain.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-014', title: 'Update 2nd FAQ — Portuguese Landing Page', note: 'HOW: Open Portuguese landing page → FAQ section → 2nd FAQ item → replace answer text with: "Muitos proprietários podem se qualificar para receber de 75% a 100% de desconto em melhorias de isolamento térmico e vedação de ar sem custo através do programa Mass Save®. Alguns clientes também podem se qualificar para serviços de climatização e eficiência energética totalmente gratuitos." VERIFY: Preview page — FAQ #2 shows updated text exactly.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-015', title: 'Create separate folder in Funnels for JOF', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. HOW: GHL → Funnels & Websites → Funnels → New Folder → name: JOF. Move all JOF funnel work into this folder. Do this before duplicating the funnel.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'lv-016', title: 'Duplicate Portuguese Landing Page for JOF', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. HOW: GHL → Funnels & Websites → find existing Portuguese Landing Page → Duplicate → rename to JOF Portuguese. Move into JOF folder (lv-015). Coordinate with lv-007 after.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
     ],
-    inprogress: [],
+    inprogress: [
+      { id: 'lv-008', title: 'Re-create workflows -> route to JOF pipeline', note: 'Clone Souzet workflows -> update pipeline-move actions to JOF pipeline -> update tags to distinguish JOF leads. Attach to JOF forms (lv-007).', pri: 'high', solution: 'Updated the workflow trigger form into Souzet Contact Form - JOF - English and Souzet Contact Form - JOF - Portuguese.\n\nUpdated the pipeline from sales pipeline to JOF\n\nTested the workflow by submitting the form of english and portuguese.', start_date: 'Jun 10', start_time: '3:04', end_date: 'Jun 10', end_time: '4:12' },
+    ],
     done: [
-      { id: 'lv-001', title: 'Run scoping call with Thiaggo — new sales pipeline + funnels', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Thiaggo wants a new sales pipeline + integrated funnels ASAP. Booking links sent 2026-06-09. Thiaggo: thiaggo@souzet.com | Leo: leo@souzet.com.', pri: 'high', start_date: 'June 9', start_time: '4:00PM', end_date: 'June 9', end_time: '5:00PM' },
-      { id: 'lv-005', title: 'Duplicate funnel for JOF pipeline', note: 'SOURCE: https://app.gohighlevel.com/v2/location/LCb3KCRj8DxVjNQbmEdZ/funnels-websites/funnels/pstFuRCXrGZr2ZHWTOr5/steps/3145c29a-f3a3-48b0-9ff7-353c78dddafd/overview. Cloned → renamed to JOF version.', pri: 'high', start_date: 'Jun 10', start_time: '1:00', end_date: 'Jun 10', end_time: '1:24' },
-      { id: 'lv-002', title: 'Confirm support@gosmarterflow.com access on Souzet sub-account', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Verified support@ is on the sub-account.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-001', title: 'Run scoping call with Thiaggo — new sales pipeline + funnels', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Thiaggo wants a new sales pipeline + integrated funnels ASAP. Booking links sent 2026-06-09. Thiaggo: thiaggo@souzet.com | Leo: leo@souzet.com.', pri: 'high', solution: 'Call done. Provided more info about the funnel.', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 'lv-014', title: 'Update 2nd FAQ - Portuguese Landing Page', note: 'Open PT landing page -> FAQ section -> 2nd item -> replace with: Muitos proprietarios podem se qualificar para receber de 75% a 100% de desconto em melhorias de isolamento termico e vedacao de ar sem custo atraves do programa Mass Save. Alguns clientes tambem podem se qualificar para servicos de climatizacao e eficiencia energetica totalmente gratuitos. VERIFY: preview FAQ #2 shows updated text.', pri: 'med', solution: 'Updated the second item in FAQ and replace the sentence with "Muitos proprietarios podem se qualificar para receber de 75% a 100% de desconto em melhorias de isolamento termico e vedacao de ar sem custo atraves do programa Mass Save. Alguns clientes tambem podem se qualificar para servicos de climatizacao e eficiencia energetica totalmente gratuitos."', start_date: 'Jun 10', start_time: '2:57', end_date: 'Jun 10', end_time: '3:00' },
+      { id: 'lv-013', title: 'Fix translation: Verde -> Efficient on Portuguese landing page', note: 'Open PT landing page -> find all Verde instances used for energy efficiency -> replace with Eficiente (PT) or Efficient (EN label). Confirm with Thiaggo. VERIFY: no Verde labels remain.', pri: 'med', solution: 'Change the Verde into -> Eficiente', start_date: 'Jun 10', start_time: '2:40', end_date: 'Jun 10', end_time: '2:52' },
+      { id: 'lv-012', title: 'Remove email from thank you page', note: 'Open thank you page in funnel editor -> delete email element. VERIFY: submit test form, no email on thank you page.', pri: 'med', solution: 'Remove the email to thank you page both english and portuguese jof landing page. Check the preview to ensure no email attached', start_date: 'Jun 10', start_time: '2:33', end_date: 'Jun 10', end_time: '2:36' },
+      { id: 'lv-015', title: 'Create separate folder in Funnels for JOF', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. HOW: GHL -> Funnels & Websites -> Funnels -> New Folder -> name: JOF. Move all JOF funnel work into this folder to keep it separate from main Souzet funnels. Do this before duplicating the funnel (lv-005).', pri: 'med', solution: 'Created a Separate folder for JOF.\nName: Create separate folder in Funnels for JOF\nStored the landing pages for english and portuguese', start_date: 'Jun 10', start_time: '2:29', end_date: 'Jun 10', end_time: '2:29' },
+      { id: 'lv-011', title: 'Remove phone number from thank you page', note: 'Open thank you page in funnel editor -> delete phone number element. VERIFY: submit test form, no phone on thank you page.', pri: 'med', solution: 'Deleted the phone number element in thank you page both english and portuguese jof landing page', start_date: 'Jun 10', start_time: '2:18', end_date: 'Jun 10', end_time: '2:23' },
+      { id: 'lv-010', title: 'Remove WhatsApp buttons - both PT and EN landing pages', note: 'Open each landing page in editor -> delete all WhatsApp button elements. VERIFY: preview both pages, no WhatsApp buttons.', pri: 'med', solution: 'Deleted WhatsApp button element both english landing page jof and portuguese landing page jof. Both Preview button to ensure no whatsApp button display', start_date: 'Jun 10', start_time: '2:03', end_date: 'Jun 10', end_time: '2:12' },
+      { id: 'lv-007', title: 'Duplicate forms -> re-attach to Portuguese and English landing pages', note: 'GOAL: JOF forms route to JOF pipeline. HOW: GHL -> Sites -> Forms -> clone each form from PT and EN pages -> update submission action to JOF pipeline -> swap forms on both pages. Also attach to JOF funnel (lv-005).', pri: 'high', solution: '- Created a folder in Form (JOF)\n- Attached JOF English Form into JOF English Landing Page (Including the pop up)\n- Attached JOF English Form into JOF Portuguese Landing Page (Including the pop up)\n-', start_date: 'Jun 10', start_time: '1:24', end_date: 'Jun 10', end_time: '1:58' },
+      { id: 'lv-005', title: 'Duplicate funnel for JOF pipeline', note: 'SOURCE: https://app.gohighlevel.com/v2/location/LCb3KCRj8DxVjNQbmEdZ/funnels-websites/funnels/pstFuRCXrGZr2ZHWTOr5/steps/3145c29a-f3a3-48b0-9ff7-353c78dddafd/overview. Open funnel -> Clone -> rename to JOF. Forms must be duplicated separately (lv-007). Goal: JOF funnel routes to JOF pipeline.', pri: 'high', solution: 'Duplicate English/Portuguese (New Design)', start_date: 'Jun 10', start_time: '1:00', end_date: 'Jun 10', end_time: '1:24' },
+      { id: 'lv-002', title: 'Confirm support@gosmarterflow.com access on Souzet sub-account', note: 'ACCOUNT: Souzet | LCb3KCRj8DxVjNQbmEdZ. Verify support@ is on the sub-account as guaranteed for handoff coverage.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
     ]
   },
   'rodrigo': {
-    todo: [
-      { id: 'rc-001', title: 'Complete webhook integration — outbound calls vendor', note: 'URGENT. Rodrigo is onboarding a call center. They need: (1) Webhook URL from GHL, (2) JSON or XML format, (3) attribute list, (4) field name mapping. Ref email: "Webhook Integration Process (Help Needed)" 2026-06-08. Call center email: 1210008878@armailstnr.appspotmail.com | Outbound number: 805-324-7086.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'rc-002', title: 'Retrieve and triage Rodrigo\'s unactioned task list', note: 'Rodrigo sent tasks that were never actioned because Kyle\'s email bounced. Retrieve the email(s) and triage items into this board.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'rc-003', title: 'Fix lead notification emails + add call center email', note: 'Rodrigo is not receiving new lead emails. Fix his notifications. Also add call center email (1210008878@armailstnr.appspotmail.com) to lead notification list so they are alerted on new leads.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'rc-004', title: 'Remove chatbot from gbsantabarbara.com', note: 'Rodrigo wants chatbot removed from www.gbsantabarbara.com — not performing. Focus shifting to web forms instead.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'rc-005', title: 'Audit sales pipelines and funnels', note: 'Leads are not auto-progressing through pipeline per set timeframes — being moved manually. Audit all pipelines and funnels to confirm automation is working as intended.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+    todo: [],
+    inprogress: [
+      { id: 'rc-004', title: 'Remove chatbot from gbsantabarbara.com', note: 'Rodrigo wants chatbot removed from www.gbsantabarbara.com — not performing. Focus shifting to web forms instead.\n\n---\n\nREADME: I need to know if from Wordpress or not.\n---\n\nWebsite not in GHL', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
     ],
-    inprogress: [],
-    done: []
+    done: [
+      { id: 'rc-001', title: 'Complete webhook integration — outbound calls vendor', note: 'URGENT. Rodrigo is onboarding a call center. They need: (1) Webhook URL from GHL, (2) JSON or XML format, (3) attribute list, (4) field name mapping. Ref email: "Webhook Integration Process (Help Needed)" 2026-06-08. Call center email: 1210008878@armailstnr.appspotmail.com | Outbound number: 805-324-7086.', pri: 'high', solution: 'Finished call with AccountConnect and provided webhook URL + workflow trigger saved.\n\nWorkflow name: Full.io > GHL (Inbound Webhook)\nhttps://app.gohighlevel.com/location/klHc5Eg0r48FoFYAVWhI/workflow/90591814-a3b8-473a-a0ea-cae5d5ad94a6', start_date: 'Jun 10', start_time: '12:00 PM', end_date: 'Jun 10', end_time: '12:20 PM' },
+      { id: 'rc-005', title: 'Audit sales pipelines and funnels', note: 'Leads are not auto-progressing through pipeline per set timeframes — being moved manually. Audit all pipelines and funnels to confirm automation is working as intended.\n\nNo show - Changing Status \nMost of the workflow is pipeline stage changes', pri: 'med', solution: 'Proposal: No show status in calendar doesn\'t change, when Rodrigo moves to No Show stage, create action: Change Appt Status to No Show \n\nCadence of 14-30-75 days are working properly.', start_date: 'Jun 10', start_time: '3:28', end_date: 'Jun 10', end_time: '4:57' },
+      { id: 'mq8bjpj5u4fe', title: 'Check workflows: Branded Calendar Domain Link', note: 'Rodrigo had been using the non-branded domain link for his calendars. Looks like GHL updated it and shows a 404 page error.', pri: 'med', solution: 'Checked each workflow email and SMS. All are using trigger links for emails. Custom values for SMS.', start_date: 'June 10', start_time: '1:00', end_date: 'June 10', end_time: '1:26' },
+      { id: 'rc-003', title: 'Fix lead notification emails + add call center email', note: 'Rodrigo is not receiving new lead emails. Fix his notifications. Also add call center email (1210008878@armailstnr.appspotmail.com) to lead notification list so they are alerted on new leads.', pri: 'high', start_date: 'June 10', start_time: '4:50', end_date: 'June 10', end_time: '5:00' },
+    ]
   },
   'nacho': {
     todo: [],
