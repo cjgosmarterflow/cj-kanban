@@ -65,3 +65,70 @@ Pair coverage: CJ covers Moon, Moon covers Jed.
 - **Renato** — folder scaffolded, details TBD
 
 Each client: `clients/<name>/CLAUDE.md` (context) + `HANDOFF.md` (living doc) + `kanban.html` (tasks).
+
+---
+
+## Kanban Board — Sync Instructions
+
+Live board: https://cj-kanban.vercel.app
+
+### Architecture
+
+```
+Supabase (live data) ←→ index.html EMBEDDED_DATA (fallback seed) → GitHub → Vercel (auto-deploy)
+```
+
+- **Supabase** is the primary data store. The app reads from it on load.
+- **EMBEDDED_DATA** in `index.html` seeds a client only when they have 0 rows in Supabase, or if Supabase fails. Keep it in sync to prevent stale cards reappearing.
+- **GitHub push → Vercel redeploys automatically.** No `vercel` CLI needed.
+- **Auto-push hook**: Any Edit/Write to `index.html` triggers `git add index.html; git commit; git push` via `.claude/settings.json`.
+
+### When the user shares a new JSON export — do these steps in order
+
+1. Read the JSON file
+2. Patch Supabase — PATCH changed cards, POST new ones, DELETE removed ones
+3. Update `EMBEDDED_DATA` in `index.html` to mirror the JSON exactly, bump `_rev` by 1
+4. The auto-push hook fires on the Edit → GitHub push → Vercel redeploys
+
+### Supabase connection
+
+- URL: `https://rcjeymcljjuloifaljoj.supabase.co`
+- Anon key: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjamV5bWNsamp1bG9pZmFsam9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5OTg3ODQsImV4cCI6MjA5NjU3NDc4NH0.MwHjevTmOB1WVpkuHH5Em7LmDKs0vgNAdiEv8ARrWRM`
+- Table: `cards` — columns: `id, client_id, col, title, note, solution, pri, start_date, start_time, end_date, end_time, sort_order`
+
+### PowerShell helper functions (copy-paste ready)
+
+```powershell
+$script:BASE = 'https://rcjeymcljjuloifaljoj.supabase.co/rest/v1/cards'
+$script:KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjamV5bWNsamp1bG9pZmFsam9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5OTg3ODQsImV4cCI6MjA5NjU3NDc4NH0.MwHjevTmOB1WVpkuHH5Em7LmDKs0vgNAdiEv8ARrWRM'
+$script:HDR  = @{ 'apikey'=$script:KEY; 'Authorization'="Bearer $($script:KEY)"; 'Content-Type'='application/json'; 'Prefer'='return=minimal' }
+
+function SbPatch($id, $body) {
+  $uri  = $script:BASE + '?id=eq.' + $id
+  $json = [System.Text.Encoding]::UTF8.GetBytes(($body | ConvertTo-Json -Compress))
+  try { Invoke-RestMethod -Uri $uri -Method PATCH -Headers $script:HDR -Body $json | Out-Null; Write-Host "PATCH $id OK" }
+  catch { Write-Host "PATCH $id FAIL: $($_.Exception.Message)" }
+}
+function SbDelete($id) {
+  $uri = $script:BASE + '?id=eq.' + $id
+  try { Invoke-RestMethod -Uri $uri -Method DELETE -Headers $script:HDR | Out-Null; Write-Host "DELETE $id OK" }
+  catch { Write-Host "DELETE $id FAIL: $($_.Exception.Message)" }
+}
+function SbPost($body) {
+  $json = [System.Text.Encoding]::UTF8.GetBytes(($body | ConvertTo-Json -Compress))
+  try { Invoke-RestMethod -Uri $script:BASE -Method POST -Headers $script:HDR -Body $json | Out-Null; Write-Host "POST $($body.id) OK" }
+  catch { Write-Host "POST $($body.id) FAIL: $($_.Exception.Message)" }
+}
+```
+
+**Critical gotchas:**
+- Always use `$script:BASE` / `$script:HDR` — PowerShell functions don't inherit outer-scope variables, causing "Invalid URI" errors
+- Never name a function `Del` — it's a PowerShell alias for `Remove-Item`
+- If POST returns 409 Conflict, the card already exists — use `SbPatch` instead
+- Encode body with `[System.Text.Encoding]::UTF8.GetBytes(...)` to avoid UTF-16 issues
+
+### GitHub remote
+
+```
+git@github-cjkanban:cjgosmarterflow/cj-kanban.git  (main branch)
+```

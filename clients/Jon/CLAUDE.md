@@ -1,29 +1,7 @@
-# Jon — Client Context
+# Jon (Jonathan Smith) — MERGED
 
-## Identity
-- **Name:** Jon [last name TBD]
-- **Company:** [TBD]
-- **Email:** [TBD]
-- **Phone:** [TBD]
-- **Timezone:** [TBD]
-- **Engaged since:** [TBD]
-- **Previous consultant:** [TBD]
-- **Billing rate:** $55/hr to client · CJ earns $24/hr — confirm with Jonathan
+**MERGED into Tate Smith / CLR WTR SOL.**
 
-## GHL Setup
-- **Sub-account:** [TBD]
-- **Account ID:** [TBD]
-- **What's built:** TBD — audit on first session
+See: `clients/Tate Smith/` for all active context, tasks, and session logs.
 
-## Active Workflows
-TBD — document after first session.
-
-## Communication
-- **Primary:** [WhatsApp / Email — TBD]
-- **Escalation:** Email Jonathan + CC Moon
-
-## Current Focus
-TBD — define on first client contact.
-
-## Gotchas
-TBD — document after first session.
+Jonathan Smith and Tate Smith are the same company: CLR WTR SOL.

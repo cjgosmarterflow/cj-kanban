@@ -1,5 +1,6 @@
 # Tate Smith — Claude Context
-**Client:** Tate Smith
+**Client:** Tate Smith (also listed as Jonathan Smith — same company)
+**Company:** CLR WTR SOL
 **Consultant:** CJ Salamida
 **Started:** June 2026
 

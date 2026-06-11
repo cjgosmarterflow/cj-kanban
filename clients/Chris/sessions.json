@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "date": "2026-06-09",
+    "time": "15:00-16:00",
+    "duration_hrs": 1,
+    "tasks_completed": [],
+    "tasks_added": [
+      { "id": "ch-001", "title": "Build Claude data reactivation skill — real estate variant", "pri": "high" },
+      { "id": "ch-002", "title": "Build Claude data reactivation skill — glazing variant (Brooklands Glass)", "pri": "high" },
+      { "id": "ch-003", "title": "Await Chris's brief: data categories, key fields, prioritization rules (oldest vs newest)", "pri": "high" },
+      { "id": "ch-004", "title": "Brooklands Glass system build — confirm proceed + get final requirements", "pri": "med" },
+      { "id": "ch-005", "title": "Schedule call with Chris + new real estate clients to review brickENGINE workflows + test AI employee", "pri": "med" }
+    ],
+    "decisions": [
+      "Claude integration = a skill, NOT a per-sub-account API link. Christopher will run one brickENGINE Claude account and process client CSVs manually through it.",
+      "Two skill variants needed: real estate (standard, reusable) and glazing (different data format, charge separately).",
+      "Skill build scoped at < 5 hours max. CJ needs full context brief from Chris before starting.",
+      "AI employee built by Nica not yet tested — Chris will test with real estate clients on onboarding call."
+    ],
+    "notes": "Christopher James, hello@brickengine.co.uk. brickENGINE targets real estate agents (lead inflow, conversion). Skeleton account exists in GHL for snapshots. Use case: database reactivation — upload old CSVs (from HubSpot etc.) into Claude, categorize + prioritize leads, then run SMS/email campaigns. Glazing variant: older data, possibly scanned/handwritten PDFs. Chris visiting glazing offices next week to audit their data. Working on onboarding 2 real estate clients — will need a call with CJ + clients to review workflows and test AI employee."
+  }
+]

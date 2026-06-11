@@ -1,8 +1,8 @@
 # Chris — Client Context
 
 ## Identity
-- **Name:** Chris [last name TBD]
-- **Company:** [TBD]
+- **Name:** Christopher James
+- **Company:** brickENGINE
 - **Email:** [TBD]
 - **Phone:** [TBD]
 - **Timezone:** [TBD]

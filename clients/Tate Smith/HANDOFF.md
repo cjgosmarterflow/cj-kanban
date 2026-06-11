@@ -1,5 +1,6 @@
 # Tate Smith — Consultant Handoff
-**Client:** Tate Smith
+**Client:** Tate Smith (also listed as Jonathan Smith — same company)
+**Company:** CLR WTR SOL
 **Consultant:** CJ Salamida
 **Last updated:** June 10, 2026
 
