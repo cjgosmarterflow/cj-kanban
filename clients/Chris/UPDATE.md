@@ -1,5 +1,5 @@
 # Chris — Session Updates
-**Client:** Chris
+**Client:** Christopher James Zoutewelle (brickENGINE)
 **Consultant:** CJ Salamida
 
 ---

@@ -1,15 +1,15 @@
-# INTERNAL - Christopher James - brickENGINE
+# INTERNAL - Christopher James Zoutewelle - brickENGINE
 <!-- Mirrors the Google Drive Project Doc. Edit here, paste to Drive — or paste from Drive back here. Do NOT edit the Activity Log section; that is AI-maintained in the Drive doc only. -->
 
-**Client:** Christopher James  |  **Company:** brickENGINE  |  **HighLevel sub-account ID:** o8z5Vjq06mpL29ofU7yP  |  **Primary:** CJ  |  **Backup:** Jed  |  **Backup-2:** Moon  |  **Status:** Active
+**Client:** Christopher James Zoutewelle  |  **Company:** brickENGINE  |  **HighLevel sub-account ID:** o8z5Vjq06mpL29ofU7yP  |  **Primary:** CJ  |  **Backup:** Jed  |  **Backup-2:** Moon  |  **Status:** Active
 
 ## 1. Snapshot
 
-Christopher James runs brickENGINE, his own GHL agency account targeting real estate agents — managing lead inflow, converting leads, selling/letting properties. Nica built the workflows and AI employee; more work still needed. Christopher is now onboarding his first real estate clients and has a glazing company (Brooklands Glass) that wants to adopt the brickENGINE system. Two active workstreams: (1) a Claude data reactivation skill — build once, Christopher installs on his own brickENGINE Claude account and reuses per client; and (2) the full Brooklands Glass system build (quoted by Nica at 21–34 hrs). First call with CJ: 2026-06-09, 3–4pm.
+Christopher James Zoutewelle runs brickENGINE, his own GHL agency account targeting real estate agents — managing lead inflow, converting leads, selling/letting properties. Nica built the workflows and AI employee; more work still needed. Christopher is now onboarding his first real estate clients and has a glazing company (Brooklands Glass) that wants to adopt the brickENGINE system. Two active workstreams: (1) a Claude data reactivation skill — build once, Christopher installs on his own brickENGINE Claude account and reuses per client; and (2) the full Brooklands Glass system build (quoted by Nica at 21–34 hrs). First call with CJ: 2026-06-09, 3–4pm.
 
 ## 2. Communication
 
-- **Primary contact:** Christopher James — hello@brickengine.co.uk
+- **Primary contact:** Christopher James Zoutewelle — hello@brickengine.co.uk
 - **All associated emails + contacts:** TBD — confirm additional contacts on next session
 - **Preferred channel and format:** Email
 - **Timezone / best times:** UK-based (.co.uk) — adjust timing accordingly
@@ -70,7 +70,7 @@ Next action: schedule call once Chris confirms client onboarding. Owner: CJ.
 
 ## 6. Handoff notes (read first if covering cold)
 
-- Christopher James, hello@brickengine.co.uk. UK-based. brickENGINE = real estate lead generation agency. Referred by Jonathan while Nica is OOO.
+- Christopher James Zoutewelle, hello@brickengine.co.uk. UK-based. brickENGINE = real estate lead generation agency. Referred by Jonathan while Nica is OOO.
 - Three workstreams: (A) Claude reactivation skill — 2 variants, awaiting brief; (B) Brooklands Glass full build, awaiting confirmation; (C) workflow/AI review call with new real estate clients.
 - Nothing starts without written brief/confirmation from Chris.
 - UK timezone. Claude account = brickENGINE-owned, not per sub-account API.

@@ -1,5 +1,5 @@
 # Chris — Handoff Document
-**Client:** Christopher James (brickENGINE)
+**Client:** Christopher James Zoutewelle (brickENGINE)
 **Consultant:** CJ Salamida
 **Last updated:** 2026-06-09
 
