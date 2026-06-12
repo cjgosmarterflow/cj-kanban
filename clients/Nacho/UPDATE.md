@@ -38,8 +38,10 @@
 - Sent email to Nacho explaining GHL's response and the workflow workaround.
 
 **What's next:**
-- Implement the voicemail → Fuera de horario branch in GHL workflow (pending Nacho confirmation)
-- Test: trigger voicemail call, verify SMS Fuera de horario is sent
+- Find a way to prevent GHL voicemail from activating entirely (not just handling after the fact)
+- Awaiting team response from team@gosmarterflow.com — if anyone knows a config to block voicemail activation, escalate to Nacho
 
 **Blockers:**
-- None — awaiting Nacho's go-ahead to implement the workflow change
+- Nacho rejected workflow fix — his goal is voicemail never answers at all (Spanish clients distrust English voicemail, see it as a scam)
+- GHL Senior Support confirmed backend disable not possible
+- Escalated to Smarter Flow team for a solution — blocked pending team input
