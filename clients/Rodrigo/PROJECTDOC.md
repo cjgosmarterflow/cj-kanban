@@ -5,43 +5,42 @@
 
 ## 1. Snapshot
 
-Gracie Barra Santa Barbara is a BJJ gym running on HighLevel. The account transitioned from Kyle (no longer with Smarter Flow, his email bounced) to CJ on 2026-06-09. Rodrigo had a service gap and flagged urgent twice — trust is being rebuilt through fast follow-through. Lead notifications are fixed. Active work: webhook integration for an outbound call center (top priority), pipeline automation audit, and chatbot removal from the external website.
+Gracie Barra Santa Barbara is a BJJ gym running on HighLevel. The account transitioned from Kyle (no longer with Smarter Flow, his email bounced) to CJ on 2026-06-09. Trust is being rebuilt through fast follow-through. Webhook integration with the outbound call center is complete. Pipeline automation audit is complete — automations confirmed working. One active workstream remains: removing the chatbot from the external website gbsantabarbara.com.
 
 ## 2. Communication
 
-- **Primary contact:** Rodrigo Clark, rodrigoclarkbjj@gmail.com
-- **All associated emails + contacts:** Call center — 1210008878@armailstnr.appspotmail.com (outbound calls vendor, CC on webhook tasks). Outbound number: 805-324-7086.
+- **Primary contact:** Rodrigo Clark — rodrigoclarkbjj@gmail.com
+- **All associated emails + contacts:** Call center — 1210008878@armailstnr.appspotmail.com (outbound calls vendor). Outbound number: 805-324-7086.
 - **Preferred channel and format:** Email (he emails Jonathan directly). Confirm direct preference with Rodrigo.
-- **Timezone / best times:** Pacific (Santa Barbara, California, UTC-7). Calls / Loom / chat: none on record — confirm preference.
+- **Timezone / best times:** Pacific (Santa Barbara, California, UTC-7).
 
 ## 3. Access and Systems
 
 - **HighLevel sub-account(s):** Gracie Barra Santa Barbara — klHc5Eg0r48FoFYAVWhI
 - **support@gosmarterflow.com added to the sub-account?** TO CONFIRM
-- **Secrets vault (1Password):** TO CREATE — one item for this client, then link it here. Never paste passwords or keys here.
-- **What is built:** Lead notification emails (fixed). Sales pipelines and funnels (automation under audit). Website gbsantabarbara.com is external — not in GHL. Webhook integration with outbound call center in progress.
-- **Billing:** Stripe auto recharge on the sub-account wallet (LC phone/email credits — recurring $10 top-ups are wallet credits, not consulting fees). Consulting is billed through the weekly billing flow.
+- **Secrets vault (1Password):** TO CREATE
+- **What is built:** Lead notification emails (fixed). Webhook integration with outbound call center (complete). Sales pipeline and funnel automations (audited and confirmed working). Website gbsantabarbara.com is external — not in GHL.
+- **Billing:** Stripe auto recharge on sub-account wallet (LC phone/email credits — wallet credits, not consulting fees). Consulting billed through weekly billing flow.
 
 ## 4. Current state and Next actions
 
-**Workstream A — Outbound calls webhook integration (URGENT):** Rodrigo is onboarding a call center. They need: (1) Webhook URL from GHL, (2) JSON or XML format, (3) attribute list, (4) field name mapping. Ref email: "Webhook Integration Process (Help Needed)" 2026-06-08. Call center email: 1210008878@armailstnr.appspotmail.com | Outbound number: 805-324-7086. Owner: CJ. Status: Not yet complete.
+**Workstream C — Remove chatbot from gbsantabarbara.com (IN PROGRESS):** Rodrigo wants chatbot removed — not performing. Focus shifting to web forms. Website is external, not in GHL — requires coordinating outside the platform. Owner: CJ.
 
-**Workstream B — Pipeline automation audit (IN PROGRESS):** Leads are not auto-progressing through pipeline per set timeframes — being moved manually. Audit all pipelines and funnels to confirm automations are working as intended. Owner: CJ.
+**Completed — Webhook integration:** Outbound call center fully connected. Webhook URL, JSON format, attribute list, and field name mapping delivered to call center vendor (1210008878@armailstnr.appspotmail.com | 805-324-7086).
 
-**Workstream C — Remove chatbot from gbsantabarbara.com (IN PROGRESS):** Rodrigo wants chatbot removed — not performing. Focus shifting to web forms. Note: website is external, not in GHL. Owner: CJ.
+**Completed — Pipeline automation audit:** Audited all pipelines and funnels. Automations confirmed working as intended — leads now auto-progress per set timeframes.
 
-**Completed:** Lead notification emails fixed — Rodrigo now receives new lead emails. Call center email (1210008878@armailstnr.appspotmail.com) added to lead notification list.
+**Completed — Lead notifications:** Lead notification emails fixed — Rodrigo now receives new lead emails. Call center email added to notification list.
 
 ## 5. Risks and watch-outs
 
-- **Trust gap:** Service lapsed when Kyle left (bounced email). Rodrigo flagged "urgent" twice. Needs prompt, visible follow-through — no more gaps.
+- **Trust gap:** Service lapsed when Kyle left (bounced email). Rodrigo flagged "urgent" twice. Needs visible follow-through — no more gaps.
 - **Review risk:** Marked "Not Likely" in old Clients Tracker. Handle with extra care before any review ask.
 - **Chatbot removal:** Website is not in GHL — requires coordinating outside the platform.
 
 ## 6. Handoff notes (read first if covering cold)
 
-- Kyle departed with no handoff. CJ is Primary as of 2026-06-09 — Jonathan introduced CJ to Rodrigo by email that day.
-- Top priority: webhook integration for outbound call center (Workstream A). All details in Section 4.
-- Pipeline audit (B) and chatbot removal (C) are in progress but secondary to the webhook.
+- Kyle departed with no handoff. CJ is Primary as of 2026-06-09.
+- Webhook and pipeline work are done. Only open task is chatbot removal from gbsantabarbara.com (external site, not GHL).
 - Tone: apologize for the gap once, then move fast. Rodrigo wants action, not explanations.
 - Contact: rodrigoclarkbjj@gmail.com. Pacific time.
