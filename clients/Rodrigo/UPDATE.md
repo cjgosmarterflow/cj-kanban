@@ -39,3 +39,40 @@
 
 **Blockers:**
 - None yet — investigation starting now.
+
+---
+
+## 2026-06-13
+
+**What was done:**
+- Investigated URGENT pipeline/notification issue. AnswerConnect confirmed Zapier account belongs to them.
+- AnswerConnect flagged 2 duplicate accounts on their end (8774029803 and 8053247086).
+- Investigation ongoing — root cause not yet confirmed.
+
+**What's next:**
+- Determine what changed in the Zapier/GHL integration since Monday
+- Confirm which of the 2 AnswerConnect accounts is active and correctly mapped to GHL
+- Restore lead flow and notify Rodrigo once resolved
+
+**Blockers:**
+- Need access to AnswerConnect's Zapier config to trace the broken link
+
+---
+
+## 2026-06-13 (update)
+
+**What was done:**
+- Completed GHL audit — system confirmed working correctly.
+- Root causes of Rodrigo's concern identified:
+  - SMS notifications set to 8AM–5PM only; tests submitted after hours, queued and fired next morning as designed.
+  - App notifications were sent and visible in GHL — Rodrigo missed them in the feed.
+  - Workflow triggers on form submission only — manually moving pipeline stage does not re-trigger it.
+  - Test contact already had `hotleads` tag, routed to non-branch as expected.
+- Replied to Rodrigo with findings and recommendation to test between 8AM–5PM.
+- AnswerConnect (Rodrigo's third-party answering service) confirmed on their end — no issues. Integration working as expected.
+
+**What's next:**
+- rc-004: Remove chatbot from gbsantabarbara.com — confirm CMS type before proceeding.
+
+**Blockers:**
+- Chatbot removal: site not in GHL, CMS unknown.
