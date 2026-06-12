@@ -26,3 +26,20 @@
 
 **Blockers:**
 - Waiting on GHL support to action the voicemail disable ticket
+
+---
+
+## 2026-06-13
+
+**What was done:**
+- GHL Senior Support confirmed: backend voicemail disable is not possible for +1 507-516-9800. Platform limitation — cannot be done via UI or backend.
+- Diagnosed root cause: when GHL's voicemail answers a call, the MCTB workflow does not trigger (call exits at None branch with no SMS sent).
+- Identified workflow fix: add condition branch at top of "Missed Call Text Back - Digi → Zadarma → GHL" — if call status = Voicemail → send SMS Fuera de horario → End. Bypasses business hours / contact type routing entirely.
+- Sent email to Nacho explaining GHL's response and the workflow workaround.
+
+**What's next:**
+- Implement the voicemail → Fuera de horario branch in GHL workflow (pending Nacho confirmation)
+- Test: trigger voicemail call, verify SMS Fuera de horario is sent
+
+**Blockers:**
+- None — awaiting Nacho's go-ahead to implement the workflow change

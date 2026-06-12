@@ -26,3 +26,16 @@
 
 **Blockers:**
 - Chatbot removal: site is not in GHL. Need to confirm if WordPress or another CMS.
+
+---
+
+## 2026-06-12 (update)
+
+**What was done:**
+- Rodrigo reported 0 notifications and 0 pipeline activity for 2 days. Test form submission confirmed: lead did not appear in GHL, no email/app notification received.
+
+**What's next:**
+- URGENT: Audit GHL — form-to-GHL connection, workflow triggers, notification settings. Determine if leads are entering GHL at all or if the integration broke.
+
+**Blockers:**
+- None yet — investigation starting now.
