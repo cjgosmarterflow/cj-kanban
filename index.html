@@ -692,7 +692,7 @@ const SOLO_CLIENT = null;
 // ── EMBEDDED DATA ────────────────────────────────────────────────
 // Claude edits this block directly. Bump _rev to override localStorage on next refresh.
 const EMBEDDED_DATA = {
-  _rev: 17,
+  _rev: 19,
   'david-giraldo': {
     todo: [
       { id: 'dg-012', title: 'Enroll 262 eligible contacts in Josh', note: 'ACCOUNT: Josh sub-account. HOW: Open "Eligible — Not Yet in Any Workflow" smart list → select all 262 contacts → bulk action → Add Tag → type: AddedToNew2026. This tag triggers Untouched Automation Main. VERIFY: smart list count drops to 0 after. Safe to run immediately — no overlap issues, exclusions already filtered out by smart list.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
@@ -756,15 +756,13 @@ const EMBEDDED_DATA = {
     done: []
   },
   'renato': {
-    todo: [
-      { id: 'mq6sfext5o73', title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'mq6sfextdkce', title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'mq6sfextm1fj', title: 'Audit existing workflows', note: 'Document what is built, active, and broken.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'mq6sfext0mng', title: 'Update HANDOFF.md after first session', note: '', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-      { id: 'mq6sfextxyh3', title: 'Set up communication channel with client', note: 'WhatsApp preferred.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
-    ],
+    todo: [],
     inprogress: [],
-    done: []
+    done: [
+      { id: 're002eofyeml', title: 'EOFY email campaign — verify ready to fire Mon 15/06 morning', note: 'Check the email campaign is built, scheduled, and set to send to all contacts on 15/06 early morning. Same deadline as SMS.', solution: 'Sarah K EOFY Campaign confirmed scheduled. Execution date: Jun 14, 2026 at 10:15 PM (system time — likely early morning June 15 AEST). Asked Renato to confirm date is correct via email thread.', pri: 'high', start_date: 'June 12', start_time: '4:24 PM', end_date: 'June 12', end_time: '' },
+      { id: 're003wfaudit', title: 'General GHL workflow audit (ongoing from Nica handover)', note: 'Nica was working on workflows. CJ took over 6/10. Review and continue any outstanding workflow work.', solution: 'EOFY SMS workflow audited and fixed: removed Custom Date and Wait actions, converted to Drip Mode. Contacts segregated into sent/unsent lists. Smart List (EOFY-SMS-Sent) verified with 112 contacts.', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
+      { id: 're004reenroll', title: 'Re-enroll 663 remaining contacts into EOFY SMS workflow', note: 'CSV upload stuck at 0% (GHL bug). Workaround: manually tag 112 already-sent contacts, filter them out, re-enroll the rest. Level 2 = 250/day, Level 3 = 500/day etc.', solution: 'Fixed workflow (removed Custom Date + Wait, switched to Drip Mode). Tagged 112 sent contacts with EOFY-SMS-Sent. GHL import bug delayed tagging — resolved June 17. All 663 remaining contacts enrolled via Drip Mode at 250/day. Final validation passed — no duplicates.', pri: 'high', start_date: '', start_time: '', end_date: '', end_time: '' },
+    ]
   },
   'tate-smith': {
     todo: [],
@@ -801,6 +799,7 @@ const EMBEDDED_DATA = {
       { id: 'rc-004', title: 'Remove chatbot from gbsantabarbara.com', note: 'Rodrigo wants chatbot removed from www.gbsantabarbara.com — not performing. Focus shifting to web forms instead.\n\n---\n\nREADME: I need to know if from Wordpress or not.\n---\n\nWebsite not in GHL', pri: 'med', start_date: '', start_time: '', end_date: '', end_time: '' },
     ],
     done: [
+      { id: 'rc-006', title: 'Audit: pipeline & notifications not firing (AnswerConnect)', note: 'Rodrigo reported 0 notifications and 0 pipeline activity. Test contacts (Floyd + Julie) confirmed not appearing in GHL. Audited form connections, workflows, notification settings.', pri: 'high', solution: 'System working correctly. Root causes: (1) SMS set to 8AM–5PM only — tests submitted after hours, queued and fired next morning. (2) App notifications were sent; Rodrigo missed them. (3) Workflow triggers on form submit only — manually moving pipeline stage does not trigger it. (4) Test contact already had hotleads tag, routed to non-branch as expected. Recommended: test between 8AM–5PM.', start_date: 'Jun 13', start_time: '', end_date: 'Jun 13', end_time: '' },
       { id: 'rc-001', title: 'Complete webhook integration — outbound calls vendor', note: 'URGENT. Rodrigo is onboarding a call center. They need: (1) Webhook URL from GHL, (2) JSON or XML format, (3) attribute list, (4) field name mapping. Ref email: "Webhook Integration Process (Help Needed)" 2026-06-08. Call center email: 1210008878@armailstnr.appspotmail.com | Outbound number: 805-324-7086.', pri: 'high', solution: 'Finished call with AccountConnect and provided webhook URL + workflow trigger saved.\n\nWorkflow name: Full.io > GHL (Inbound Webhook)\nhttps://app.gohighlevel.com/location/klHc5Eg0r48FoFYAVWhI/workflow/90591814-a3b8-473a-a0ea-cae5d5ad94a6', start_date: 'Jun 10', start_time: '12:00 PM', end_date: 'Jun 10', end_time: '12:20 PM' },
       { id: 'rc-005', title: 'Audit sales pipelines and funnels', note: 'Leads are not auto-progressing through pipeline per set timeframes — being moved manually. Audit all pipelines and funnels to confirm automation is working as intended.\n\nNo show - Changing Status \nMost of the workflow is pipeline stage changes', pri: 'med', solution: 'Proposal: No show status in calendar doesn\'t change, when Rodrigo moves to No Show stage, create action: Change Appt Status to No Show \n\nCadence of 14-30-75 days are working properly.', start_date: 'Jun 10', start_time: '3:28', end_date: 'Jun 10', end_time: '4:57' },
       { id: 'mq8bjpj5u4fe', title: 'Check workflows: Branded Calendar Domain Link', note: 'Rodrigo had been using the non-branded domain link for his calendars. Looks like GHL updated it and shows a 404 page error.', pri: 'med', solution: 'Checked each workflow email and SMS. All are using trigger links for emails. Custom values for SMS.', start_date: 'June 10', start_time: '1:00', end_date: 'June 10', end_time: '1:26' },
