@@ -45,3 +45,20 @@
 - Nacho rejected workflow fix — his goal is voicemail never answers at all (Spanish clients distrust English voicemail, see it as a scam)
 - GHL Senior Support confirmed backend disable not possible
 - Escalated to Smarter Flow team for a solution — blocked pending team input
+
+---
+
+## 2026-06-16
+
+**What was done:**
+- Identified root cause of inconsistent voicemail triggering: GHL per-user voicemail timeout (Call & Voicemail Settings) fires at max 20 seconds — independently of the phone number's 50s timeout Nacho had correctly configured. Since Zadarma cuts at 30s, the per-user 20s fires first, activating voicemail before Zadarma can hang up.
+- Confirmed with Senior GHL Support: per-user voicemail timeout cannot be increased beyond 20 seconds — platform limitation.
+- Drafted final reply to Nacho explaining the root cause and that all GHL-side options have been exhausted.
+- Separately addressed Nacho's billing concern (invoice surprise): confirmed no extra charge, committed to giving upfront notice before any future billable work.
+
+**What's next:**
+- Await Nacho's response — no further action on voicemail unless he proposes a new direction
+- No known solution remains on GHL's side
+
+**Blockers:**
+- All configuration options exhausted — voicemail cannot be prevented with current GHL platform limits
