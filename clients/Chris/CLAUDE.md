@@ -1,7 +1,7 @@
 # Chris — Client Context
 
 ## Identity
-- **Name:** Christopher James Zoutewelle
+- **Name:** Christopher James Zoutewelle Zoutewelle
 - **Company:** brickENGINE
 - **Email:** [TBD]
 - **Phone:** [TBD]

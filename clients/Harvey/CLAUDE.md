@@ -1,29 +1,32 @@
 # Harvey — Client Context
 
 ## Identity
-- **Name:** Harvey [last name TBD]
-- **Company:** [TBD]
-- **Email:** [TBD]
-- **Phone:** [TBD]
-- **Timezone:** [TBD]
-- **Engaged since:** [TBD]
-- **Previous consultant:** [TBD]
-- **Billing rate:** $55/hr to client · CJ earns $24/hr — confirm with Jonathan
+- **Name:** Harvey Hillyer
+- **Company:** dermani MEDSPA® (multi-location franchise)
+- **Email:** harvey@dermanimedspa.com
+- **CC always:** marketing@dermanimedspa.com, digital@dermanimedspa.com
+- **Phone:** 877-337-6264 (main) | 770-286-3235 (cell) | 770-212-2278 (fax)
+- **Websites:** dermanimedspa.com | ownamedspafranchise.com
+- **Timezone:** ET (Georgia-based)
+- **Previous consultant:** Nica (email deactivated June 2026)
+- **Billing rate:** $55/hr
 
 ## GHL Setup
-- **Sub-account:** [TBD]
-- **Account ID:** [TBD]
-- **What's built:** TBD — audit on first session
+- **Sub-account:** Multiple (franchise). Woodstock confirmed active. Others TBD.
+- **Woodstock sending domain:** woodstock.dermanimedspa.co (verification PENDING — DNS call Jun 23)
+- **Woodstock GHL Location ID:** Sx1pflmJdApprLCcpUXy
+- **Stephanie (admin@dermanimedspa.com):** Harvey's GoDaddy expert — key contact for domain/DNS work
 
 ## Active Workflows
-TBD — document after first session.
+TBD — audit on first working session.
 
 ## Communication
-- **Primary:** [WhatsApp / Email — TBD]
+- **Primary:** Email — always CC marketing@ and digital@
 - **Escalation:** Email Jonathan + CC Moon
 
 ## Current Focus
-TBD — define on first client contact.
+Confirm GHL sending domain verification green for woodstock.dermanimedspa.co. DNS fix applied 2026-06-24 — propagation in progress.
 
 ## Gotchas
-TBD — document after first session.
+- Multi-location franchise — each location likely has its own sub-account. Do not assume one sub-account = full setup.
+- Nica's email (nica@gosmarterflow.com) is deactivated — any emails Harvey sent there are bounced. Check for bounced threads.

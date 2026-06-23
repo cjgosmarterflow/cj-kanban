@@ -53,3 +53,29 @@ GHL workflow triggers only fire when a tag is added to a contact, not when the t
 
 **Blockers:**
 - None
+
+---
+
+## 2026-06-19
+
+**What was done:**
+- Enrolled 262 eligible contacts in Josh sub-account by bulk-adding AddedToNew2026 tag. All David Giraldo tasks now complete.
+
+**What's next:**
+- None — board is fully cleared.
+
+**Blockers:**
+- None
+
+---
+
+## 2026-06-22
+
+**What was done:**
+- Sent check-in email to David asking if he has new tasks (all previous work complete).
+
+**What's next:**
+- Await David's reply.
+
+**Blockers:**
+- None

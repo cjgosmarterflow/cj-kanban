@@ -2,13 +2,13 @@
 **Client:** Leudson "Leo" Veloz (Director) / Thiaggo M Gomes (Manager, day-to-day)
 **Company:** Souzet (souzet.com)
 **Consultant:** CJ Salamida (covering Nica, OOO ~2 weeks from 2026-06-08)
-**Last updated:** June 10, 2026
+**Last updated:** June 22, 2026
 
 ---
 
 ## Current Status
 
-Active — coverage in progress. Nica OOO ~2 weeks. CJ covering. Scoping call with Thiaggo pending (booking links sent 2026-06-09).
+All tasks complete. JOF pipeline, funnels, and workflows fully built. Board cleared. Sent check-in June 22 asking for new tasks. Waiting on reply.
 
 ---
 
@@ -35,13 +35,18 @@ Phone: (833) 717-5001 | Address: 1625 C / 893 Washington St, Holliston, MA 01746
 
 ## Open Workstreams
 
-### Workstream A — New Sales Pipeline + Funnels (LIVE, URGENT)
-Thiaggo: "I need help establishing a new sales pipeline and the funnels that integrate into that." Wants to start ASAP (2026-06-08).
-- Booking links sent 2026-06-09 (30-min + 60-min)
-- Next: run scoping call → draft pipeline/funnel plan → build fast
+### Workstream A — New Sales Pipeline + Funnels — COMPLETE
+- JOF folder created in Souzet sub-account.
+- Funnel duplicated, forms cloned with JOF pipeline routing.
+- Workflows re-created routing to JOF pipeline.
+- Tags updated to distinguish JOF leads.
+- Julia Muniz (jofcompanyagencia@gmail.com) added to JOF pipeline June 17.
+- Portuguese landing page updated (FAQ #2 text, Verde → Eficiente).
+- Thank you page cleaned (removed email, phone, WhatsApp elements).
+- Status: Done.
 
-### Workstream B — Lead Zip Code Extraction (confirm if still open)
-Mar 2026 request: extract customer zip code from lead info (lands in notes field). CC: it.istomin@gmail.com. Confirm with Thiaggo/Leo if resolved.
+### Workstream B — Lead Zip Code Extraction — CLOSED
+- Removed from Kanban scope. Not a current task. Confirm with Thiaggo if ever needed.
 
 ---
 
@@ -59,6 +64,10 @@ Mar 2026 request: extract customer zip code from lead info (lands in notes field
 
 | Date | Event |
 |---|---|
+| 2026-06-22 | CJ sent check-in email to Thiaggo (CC Leo) — all tasks done, asking for new work. |
+| 2026-06-17 | CJ added Julia Muniz to JOF pipeline — Thiaggo had permissions error, CJ did it directly. |
+| 2026-06-12 | CJ built full JOF pipeline setup: folder, funnel clone, form clones, workflows, tags. Ran scoping call with Thiaggo. Updated PT landing page. Cleaned thank you pages. |
+| 2026-06-11 | CJ synced Kanban board (Supabase → GitHub → Vercel). Confirmed all lv-010 through lv-015 done. Removed lv-004, lv-006, lv-016 from scope. |
 | 2026-06-09 | Thiaggo confirmed pipeline + funnels request ASAP. Jonathan sent CJ booking links. |
 | 2026-06-08 | Jonathan sent coverage intro to Leo, Thiaggo, info@ (CC Nica, CJ). |
 | 2026-06-03/04 | Nica resolved "Adding Users" issue — ads@digitalfuelagency.com added to Souzet account. |

@@ -1,12 +1,12 @@
 # David Giraldo — Handoff Document
 **Client:** David Giraldo · Flipside Investments LLC
 **Consultant:** CJ Salamida
-**Last updated:** 2026-06-09
+**Last updated:** 2026-06-22
 
 ---
 
 ## Current Status
-Audit complete. Smart lists built on both accounts. Contact enrollment pending (ready to execute). Only hard blocker: phone number purchase by David.
+All tasks complete. Both sub-accounts fully enrolled. Board cleared. Sent check-in June 22 asking for new tasks.
 
 ---
 
@@ -27,10 +27,7 @@ See `CLAUDE.md` for full filter definitions and contact counts.
 ---
 
 ## What's Pending
-| # | Task | Account | Status |
-|---|---|---|---|
-| 1 | Enroll 262 eligible contacts | Josh | Ready — bulk-add `AddedToNew2026` tag |
-| 2 | Enroll 8,993 stuck contacts | Christina | Ready — audit sample first, then bulk-add |
+Nothing pending — all tasks complete.
 
 ---
 
@@ -74,6 +71,17 @@ Nothing currently blocked.
 - DND/DNC gap identified: ~5,680 contacts DND in GHL with no DNC tag
 - Smart list confusion traced to overlapping filters + DND double-negative misread
 - Call not billed. Work billing starts post-call.
+
+### 2026-06-22 — Check-in
+- Sent check-in email to David asking for new tasks. All work complete, board clear.
+
+### 2026-06-19 — Josh enrollment (CJ solo)
+- Enrolled 262 eligible contacts in Josh sub-account by bulk-adding AddedToNew2026 tag.
+- Verified "Eligible — Not Yet in Any Workflow" smart list dropped to 0. All David tasks now complete.
+
+### 2026-06-12 — Christina enrollment (CJ solo)
+- Enrolled 8,993 stuck contacts in Christina sub-account by bulk-adding AddedToNew2026 tag.
+- Contacts now routed into Untouched Automation Main and batch (A–G) workflows.
 
 ### 2026-06-09 — Audit + smart list build (CJ solo)
 - Watched all 4 Nica Loom walkthroughs. Full context on 3-phase system documented.

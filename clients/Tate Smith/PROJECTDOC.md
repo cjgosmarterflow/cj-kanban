@@ -5,11 +5,11 @@
 
 ## 1. Snapshot
 
-CLR WTR SOL is operated by business partners Tate Smith and Jonathan Smith. Recently switched to Stripe for additional payment options. The 2.9% Stripe surcharge was misconfigured — firing on ACH payments as well as credit cards. CJ fixed this on 2026-06-12: surcharge now applies to credit card payments only; ACH is excluded (ACH actual cost ~0.8% capped at $5). Tate also inquired about channel-specific processing fees on the GHL roadmap — informed that it is on the roadmap but timeline is GHL's to set.
+CLR WTR SOL installs whole-home water filtration and reverse osmosis systems. Business partners Tate Smith and Jonathan Smith. Stripe surcharge fixed 2026-06-12 (credit card 2.9%, ACH excluded). Install Calendar custom fields added 2026-06-18 (backend-only, required for sales reps). Active build in progress: automated maintenance tracking system — 6 workflows + 9 custom fields + 25-contact migration + Smart List. Approved 2026-06-23 at $220 / 4 hrs.
 
 ## 2. Communication
 
-- **Primary contacts:** Tate Smith (email TBD) + Jonathan Smith — jsmith@clrwtrsol.com
+- **Primary contacts:** Tate Smith — tsmith@clrwtrsol.com + Jonathan Smith — jsmith@clrwtrsol.com
 - **All associated emails + contacts:** Keep both partners on all correspondence.
 - **Preferred channel and format:** Email.
 - **Timezone / best times:** TBD — confirm with Tate or Jonathan.
@@ -19,26 +19,27 @@ CLR WTR SOL is operated by business partners Tate Smith and Jonathan Smith. Rece
 - **HighLevel sub-account(s):** CLR WTR SOL — location ID TBD
 - **support@gosmarterflow.com added to the sub-account?** TO CONFIRM
 - **Secrets vault (1Password):** TO CREATE
-- **What is built:** Stripe payment processing with 2.9% surcharge on credit cards only. ACH excluded as of 2026-06-12.
+- **What is built:** Stripe payment processing (credit card 2.9% surcharge, ACH excluded). Install Calendar custom fields (address/phone auto-populate, square footage, RO Faucet Type/Color, Install Type, RO System Type — backend only, required for sales reps).
 - **Billing:** TBD — confirm rate.
 
 ## 4. Current state and Next actions
 
-**Workstream A — Verify surcharge test transactions (NEXT):** Confirm ACH shows $0 surcharge and credit card shows 2.9% surcharge via a test transaction. Owner: CJ. Status: Not yet confirmed.
+**Workstream A — Maintenance tracking system (IN PROGRESS):** Build approved 2026-06-23. $220 / 4 hrs. Tasks: create 9 custom fields → build 6 workflows (package-type enrollment: Whole-Home Only=4 workflows, RO Only=2, Whole-Home+RO=6) → migrate 25 contacts from spreadsheet → build Smart List view. Owner: CJ.
 
-**Workstream B — Monitor for Tate follow-up (ONGOING):** Tate was informed channel-specific processing fees are on GHL's roadmap but no ETA. No action needed unless Tate follows up.
+**Completed (2026-06-18):** Install Calendar custom fields — address/phone auto-populate, square footage, RO Faucet Type/Color, Install Type, RO System Type. Backend-only, required for sales reps when booking.
 
-**Completed (2026-06-12):** Configured 2.9% Stripe surcharge to apply to credit card payments only. ACH excluded. Replied to Tate's roadmap inquiry.
+**Completed (2026-06-12):** Configured 2.9% Stripe surcharge — credit cards only, ACH excluded. Replied to Tate's GHL roadmap inquiry (channel-specific fees planned, no ETA).
 
 ## 5. Risks and watch-outs
 
-- **Test before closing:** Confirm ACH = no surcharge and credit card = 2.9% via actual test before declaring fully resolved.
-- **GHL roadmap dependency:** Channel-specific fees are not yet live in GHL. Manage expectations — do not commit to a timeline.
-- **Two decision-makers:** Tate (primary ask) and Jonathan (partner). Keep both in the loop.
+- **Package-type enrollment:** Each contact must be enrolled only in workflows matching their package (Whole-Home Only / RO Only / Whole-Home+RO). Add condition-check safeguard inside each workflow.
+- **GHL roadmap dependency:** Channel-specific processing fees not yet live in GHL. Don't commit to timeline.
+- **Two decision-makers:** Tate (primary) + Jonathan (partner). Keep both in loop.
 
 ## 6. Handoff notes (read first if covering cold)
 
-- Tate Smith and Jonathan Smith are business partners at CLR WTR SOL — treat them as co-clients. Jonathan's email: jsmith@clrwtrsol.com.
-- Stripe surcharge fix applied 2026-06-12: credit cards = 2.9%, ACH = $0 surcharge.
-- Verify test transactions if not yet confirmed.
-- Sub-account location ID and Tate's direct email still TBD — confirm on next session.
+- Tate Smith (tsmith@clrwtrsol.com) + Jonathan Smith (jsmith@clrwtrsol.com) — business partners, both on correspondence.
+- Kyle Staude (kstaude@clrwtrsol.com) — COO, keep CC'd on operational threads.
+- Stripe surcharge: credit cards = 2.9%, ACH = $0. Fixed 2026-06-12.
+- Install Calendar fields: backend-only custom fields required for sales reps when booking installs. Done 2026-06-18.
+- Maintenance tracking build approved ($220/4hrs). 6 workflows, package-type-based enrollment. 25 contacts in GHL with pre-calculated Next service dates in their spreadsheet (Google Drive file ID: 1f1sTVvbm0aLF9o_xlP1biEkDl082EIP0).

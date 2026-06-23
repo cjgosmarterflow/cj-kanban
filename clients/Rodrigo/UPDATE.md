@@ -14,6 +14,19 @@
 **Blockers:**
 -->
 
+## 2026-06-22
+
+**What was done:**
+- Sent check-in email to Rodrigo asking about chatbot CMS type (need to confirm if WordPress or other) and if he has new tasks.
+
+**What's next:**
+- Await Rodrigo's reply confirming CMS type so chatbot removal can proceed.
+
+**Blockers:**
+- Chatbot removal still blocked: gbsantabarbara.com not in GHL, CMS type unknown.
+
+---
+
 ## 2026-06-12
 
 **What was done:**

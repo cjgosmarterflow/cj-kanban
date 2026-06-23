@@ -2,13 +2,13 @@
 **Client:** Rodrigo Clark
 **Company:** Gracie Barra Santa Barbara (BJJ gym)
 **Consultant:** CJ Salamida
-**Last updated:** June 10, 2026
+**Last updated:** June 22, 2026
 
 ---
 
 ## Current Status
 
-Active — transition in progress. Kyle departed (email bounced). CJ is Primary as of 2026-06-09. Two urgent open items.
+Active. All original urgent items resolved. Only remaining task: chatbot removal from gbsantabarbara.com — blocked pending CMS confirmation. Check-in sent June 22.
 
 ---
 
@@ -22,25 +22,24 @@ Active — transition in progress. Kyle departed (email bounced). CJ is Primary 
 
 ## Open Workstreams
 
-### Workstream A — Outbound Calls Webhook Integration (URGENT)
-Rodrigo is onboarding a call center to handle outbound calls. They need:
-- Webhook URL from GHL
-- JSON or XML format
-- Attribute list and field name mapping
+### Workstream A — Outbound Calls Webhook Integration — DONE
+- Webhook integration completed June 12.
+- Call center email (1210008878@armailstnr.appspotmail.com) added to lead notification list.
+- Outbound number (805-324-7086) configured correctly.
 
-Call center email (for lead notifications): `1210008878@armailstnr.appspotmail.com`
-Outbound calling number: `805-324-7086`
+### Lead Notifications — DONE
+- Fixed June 12. Rodrigo now receives lead notification emails.
+- Root cause resolved: notifications were misconfigured, not broken.
 
-### Workstream B — Rodrigo's Unactioned Task List
-Rodrigo sent tasks that were never actioned because Kyle's email bounced. CJ needs to retrieve and triage these.
+### Pipeline Audit — DONE
+- Audited June 12. Most stage changes are manual by design. Automated pipeline progression confirmed working.
+- GHL system fully functioning — root cause of Rodrigo's concern was tests submitted after notification hours (8AM–5PM).
 
----
-
-## Additional Items (from Rodrigo's email 2026-06-08)
-
-- **Lead notifications broken**: Rodrigo is not receiving new lead emails. Fix and add call center email to notification list.
-- **Remove chatbot** from `www.gbsantabarbara.com` — not performing, wants to focus on web forms instead.
-- **Pipeline audit**: leads not progressing automatically through pipeline per set timeframes — being moved manually. Audit sales pipelines and funnels.
+### Chatbot Removal — PENDING (BLOCKED)
+- Site gbsantabarbara.com is NOT in GHL. CMS type unknown.
+- Cannot remove chatbot until CMS is confirmed (WordPress? Other?).
+- Check-in sent June 22 asking Rodrigo to confirm CMS type.
+- Owner: CJ | Blocked: awaiting Rodrigo reply
 
 ---
 
@@ -57,5 +56,9 @@ Rodrigo sent tasks that were never actioned because Kyle's email bounced. CJ nee
 
 | Date | Event |
 |---|---|
+| 2026-06-22 | CJ sent check-in email asking about chatbot CMS type and if Rodrigo has new tasks. |
+| 2026-06-13 | GHL audit complete. System confirmed working correctly. SMS notifications are 8AM–5PM only — Rodrigo's test was after hours. Replied to Rodrigo with findings. AnswerConnect confirmed integration working on their end. |
+| 2026-06-13 | AnswerConnect flagged 2 duplicate accounts (8774029803, 8053247086). Investigated urgency report. |
+| 2026-06-12 | Webhook integration completed. Lead notifications fixed (call center email added). Pipeline audited — automated progression working. |
 | 2026-06-09 | Kyle departed. Jonathan introduced CJ as new Primary. Rodrigo acknowledged. |
 | 2026-06-09 | Project Doc created on handoff. Two urgent workstreams identified. |
