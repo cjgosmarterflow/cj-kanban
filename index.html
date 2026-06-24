@@ -848,6 +848,19 @@ const EMBEDDED_DATA = {
   }
 };
 
+const EMBEDDED_STATUSES = {
+  'nacho':        'urgent',
+  'tate-smith':   'urgent',
+  'rodrigo':      'urgent',
+  'fred-genie':   'urgent',
+  'david-giraldo':'good',
+  'chris':        'good',
+  'harvey':       'good',
+  'jared':        'good',
+  'leo':          'good',
+  'renato':       'good',
+};
+
 const STARTER_TASKS = [
   { title: 'Get GHL sub-account access', note: 'Request agency admin from Jonathan.', pri: 'high' },
   { title: 'Initial onboarding call', note: 'Understand current system, issues, goals.', pri: 'high' },
@@ -907,10 +920,28 @@ async function seedClient(cid) {
 }
 
 async function loadAllFromSupabase() {
-  const { data, error } = await sb.from('cards').select('*').order('sort_order');
+  const [cardsRes, statusRes] = await Promise.all([
+    sb.from('cards').select('*').order('sort_order'),
+    sb.from('client_status').select('*')
+  ]);
+
+  // Load statuses
+  _statuses = {};
+  if (!statusRes.error && statusRes.data) {
+    statusRes.data.forEach(row => { _statuses[row.client_id] = row.status; });
+  }
+  // Seed missing statuses
+  const missingStatus = CLIENTS.filter(c => !_statuses[c.id]);
+  if (missingStatus.length) {
+    const seeds = missingStatus.map(c => ({ client_id: c.id, status: EMBEDDED_STATUSES[c.id] || 'default' }));
+    await sb.from('client_status').upsert(seeds);
+    missingStatus.forEach(c => { _statuses[c.id] = EMBEDDED_STATUSES[c.id] || 'default'; });
+  }
+
+  // Load cards
   CLIENTS.forEach(c => { _db[c.id] = { todo: [], inprogress: [], done: [] }; });
-  if (!error && data) {
-    data.forEach(row => {
+  if (!cardsRes.error && cardsRes.data) {
+    cardsRes.data.forEach(row => {
       if (_db[row.client_id] && COLS.includes(row.col))
         _db[row.client_id][row.col].push(rowToCard(row));
     });
@@ -963,13 +994,13 @@ function setBadge(state) {
 
 // ── TABS ──────────────────────────────────────────────────────────
 
-function getClientStatuses() {
-  try { return JSON.parse(localStorage.getItem('sf-client-status') || '{}'); } catch { return {}; }
-}
-function setClientStatus(cid, status) {
-  const s = getClientStatuses();
-  s[cid] = status;
-  localStorage.setItem('sf-client-status', JSON.stringify(s));
+let _statuses = {};
+
+function getClientStatuses() { return _statuses; }
+
+async function setClientStatus(cid, status) {
+  _statuses[cid] = status;
+  await sb.from('client_status').upsert({ client_id: cid, status });
 }
 
 function applyTabStatus(tab, cid) {
@@ -999,8 +1030,8 @@ function openStatusMenu(e, cid) {
 function closeStatusMenu() {
   if (_statusMenu) { _statusMenu.remove(); _statusMenu = null; }
 }
-function pickStatus(cid, status) {
-  setClientStatus(cid, status);
+async function pickStatus(cid, status) {
+  await setClientStatus(cid, status);
   document.getElementById('sidebar').innerHTML = '';
   buildSidebar();
   closeStatusMenu();
