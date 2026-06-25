@@ -1,7 +1,7 @@
 # Jared White — Handoff Document
 **Client:** Jared White, General Manager — Brickell Window Cleaners (Miami, FL)
 **Consultant:** CJ Salamida (Primary, replacing Nica)
-**Last updated:** 2026-06-22
+**Last updated:** 2026-06-24
 
 ---
 
@@ -47,10 +47,14 @@ Jared supplied detailed runbooks: **"Brickell OS"**, **"Metro Domination Operati
 
 | # | Task | Owner | Status |
 |---|---|---|---|
-| 1 | Review all Nica documentation, Zoom recordings, email threads | CJ | This week |
-| 2 | Get list of broken/active flows from Jared | Jared | Awaiting reply |
-| 3 | Book intro call with Jared + Cheily | CJ | End of week |
-| 4 | Fix broken active flows | CJ | After review |
+| 1 | Review all Nica documentation, Zoom recordings, email threads | CJ | In progress |
+| 2 | **Audit GHL workflows — SMS duplicate sends (no enrollment cap)** | CJ | Before Jun 30 Zoom |
+| 3 | **Audit GHL workflows — DND not suppressing email channel** | CJ | Before Jun 30 Zoom |
+| 4 | Accept ManyChat invite (from Jared Jun 23 email) | CJ | Todo |
+| 5 | Log into ZenMaid (cj@gosmarterflow.com / SalamidaCJ) | CJ | Todo |
+| 6 | Await Meta BM access from Cheily | Cheily | Pending |
+| 7 | June 30 noon Zoom — project status review call | CJ + Jared | Booked |
+| 8 | Meta Attribution audit report (Project B, ~30-40hrs) | CJ | After Zoom |
 
 ---
 

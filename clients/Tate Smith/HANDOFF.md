@@ -1,7 +1,7 @@
 # Tate Smith — Consultant Handoff
 **Client:** Clearwater Solutions (CLR WTR Solutions) — water treatment
 **Consultant:** CJ Salamida (Primary, replacing Nica) | Backup: Jed
-**Last updated:** 2026-06-22
+**Last updated:** 2026-06-25
 
 ---
 
@@ -37,14 +37,13 @@ Active, long-running account (onboarded ~June 2025). Healthy relationship — th
 |---|---|---|
 | ACH surcharge — limit 2.9% Stripe fee to credit cards only | Closed — GHL platform limitation. Client absorbing fees. | Pre-June 22 |
 | Install Calendar custom fields (address, phone auto-populate; square-footage; RO Faucet Type/Color, Install Type, RO System Type dropdowns) | Done | 2026-06-18 |
+| Maintenance tracking system — 9 custom fields, 6 workflows (package-type enrollment), 25 contacts migrated, Smart List "Maintenance Due (30 Days)", TWIST-LOC dropdown | Done — billed 3h 45min / $206.25 | 2026-06-25 |
 
 ---
 
 ## What's Pending
 
-| Task | Status |
-|---|---|
-| Maintenance reminder workflows + Smart List | **APPROVED $220 / 4 hrs. Ready to build.** Scope: 9 custom fields, 6 workflows (package-type enrollment — not all 6 per contact), 25-contact migration, Smart List view. |
+None — board cleared.
 
 ---
 
@@ -56,6 +55,12 @@ Active, long-running account (onboarded ~June 2025). Healthy relationship — th
 ---
 
 ## Session Log
+
+### 2026-06-25 — Build complete, invoice sent
+- Maintenance tracking system fully complete and tested
+- Sent completion update to Tate with invoice: 3h 45min @ $55 = $206.25
+- TWIST-LOC added to RO System Type dropdown
+- Board cleared
 
 ### 2026-06-23 — Approved, ready to build
 - Tate approved $220 / 4 hrs

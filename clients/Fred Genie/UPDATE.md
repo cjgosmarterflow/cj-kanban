@@ -1,22 +1,43 @@
+## 2026-06-25
+
+**What was done:**
+- Voice AI – Switched active agent from "Genie" to "Genie – Updated" (revised prompt by Johnica, Hard Rules change applied). All other settings identical — only prompt changed.
+- Voice AI – Reassigned phone number (916) 908-5085 to "Genie – Updated"
+- Voice AI – Configured after-hours schedule: Mon–Fri 12:00 AM–8:00 AM + 5:00 PM–11:30 PM; Sat–Sun 12:00 AM–11:30 PM. GHL 30-min increment limitation = 11:30 PM max; 30-min gap nightly unavoidable.
+- Voice AI – Verified "Appointment Calendar - Outlook" connected to Voice AI
+- Reputation Mgmt – Completed fix and confirmed fully working. Automated review requests now trigger on Closed Won or "Request Review" tag. Full funnel: email → SMS → Yes/No branch → Google review follow-up or negative feedback form.
+- Sent detailed update email to Fred covering both Voice AI and Rep Mgmt (with screenshots)
+- Kanban updated: fg-voice-prompt, fg-voice-hours, fg-voice-cal → done
+
+**What's next:**
+- Email Andrea (andrea@appletreeadvertising.com) for admin access to Fred's website (cj@gosmarterflow.com)
+- Install All-In-One chat widget once Andrea grants access
+
+**Blockers:**
+- Website access pending — waiting on Andrea
+
+---
+
 ## 2026-06-24
 
 **What was done:**
 - Received Fred's reply (June 23) — approved All-In-One chat widget install, approved rep mgmt $110 fix, provided website designer contact (andrea@appletreeadvertising.com)
-- Reviewed Voice AI call routing: found Business Phone Number set as priority with Voicemail as backup (not Voice AI) — needs 5–10 call test to confirm behavior before removing Business Phone from profile
+- **Rep mgmt started (~2hrs):** Enabled and configured automated review request system in GHL.
+- Reviewed Voice AI call routing: found Business Phone Number set as priority with Voicemail as backup — flagged to Fred
+- Fred clarified: Voice AI is ONLY for after-hours and weekend calls; phone system handles forwarding; no backup/shuffling intended
+- Replied to Fred: confirmed will configure after-hours schedule, asked for specific weekday/weekend hours, explained BPN
 - Identified correct GHL calendar likely "Appointment Calendar - Outlook" for Voice AI bookings
-- Drafted reply-all to Fred: Voice AI prompt (CJ handling), hours control confirmed off, call routing findings, Outlook calendar, All-In-One widget, website access (cj@gosmarterflow.com)
+- Drafted reply-all to Fred covering all open items
 
 **What's next:**
+- Configure Voice AI: remove BPN from profile; leave GHL hours always-on (phone system handles forwarding). Schedule: Mon-Fri 8AM-5PM live, after hours + weekends route to Voice AI automatically.
 - Review Johnica's 2 Voice AI prompt versions → apply Hard Rules change → push active
-- Test call routing 5–10 calls: confirm unanswered calls go to Voice AI not voicemail
-- If voicemail → remove Business Phone from profile → retest
 - Verify "Appointment Calendar - Outlook" connected to Voice AI in GHL
-- Begin rep mgmt fix ($110 approved): custom field, workflow logic, branch rebuild, end-to-end test
+- Complete rep mgmt fix (started Jun 24 ~2hrs — enable/configure done, test + verify remaining)
 - Wait for Andrea to grant cj@gosmarterflow.com website admin access, then install All-In-One widget
 
 **Blockers:**
 - Website access pending — waiting on Andrea (andrea@appletreeadvertising.com)
-- Call routing behavior unconfirmed — needs live testing
 
 ---
 

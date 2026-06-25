@@ -40,6 +40,19 @@
 
 ---
 
+## 2026-06-25
+
+**What was done:**
+- Marked as dropped. Abe showed frustration; Jonathan stopped following up after the Jun 19 closer. No reply, no GHL access, nothing signed. Not a prospect.
+
+**What's next:**
+- Nothing. Do not contact.
+
+**Blockers:**
+- N/A
+
+---
+
 ## 2026-06-16
 
 **What was done:**

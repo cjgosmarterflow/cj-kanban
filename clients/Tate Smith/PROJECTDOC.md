@@ -24,7 +24,7 @@ CLR WTR SOL installs whole-home water filtration and reverse osmosis systems. Bu
 
 ## 4. Current state and Next actions
 
-**Workstream A — Maintenance tracking system (IN PROGRESS):** Build approved 2026-06-23. $220 / 4 hrs. Tasks: create 9 custom fields → build 6 workflows (package-type enrollment: Whole-Home Only=4 workflows, RO Only=2, Whole-Home+RO=6) → migrate 25 contacts from spreadsheet → build Smart List view. Owner: CJ.
+**Workstream A — Maintenance tracking system (COMPLETE 2026-06-25):** 9 custom fields + 6 workflows (package-type enrollment) + 25 contacts migrated + Smart List "Maintenance Due (30 Days)" + TWIST-LOC dropdown added. Billed 3h 45min @ $55 = $206.25. All workflows tested and live. Completion update sent to Tate 2026-06-25.
 
 **Completed (2026-06-18):** Install Calendar custom fields — address/phone auto-populate, square footage, RO Faucet Type/Color, Install Type, RO System Type. Backend-only, required for sales reps when booking.
 

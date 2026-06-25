@@ -42,23 +42,19 @@ Genie Receptionist Services is a virtual receptionist business. CJ onboarded thi
 ## 4. Current State and Next Actions
 
 **Workstream: Voice AI**
-- Status: Live and in use
-- Prompt updates done: Hard Rules self-ID line updated; Call Flow Script #1 greeting reconciled
-- Prompt push pending: Johnica built 2 revised versions — CJ to review, apply Hard Rules change, push active. Fred does not touch this.
-- Call routing issue: Business Phone Number set as priority; Voicemail is backup (not Voice AI). Needs 5–10 call test to confirm behavior. If unanswered calls go to voicemail → remove Business Phone from profile → retest. GHL hours control: confirmed OFF — Fred's phone system handles after-hours forwarding.
-- Outlook calendar: Voice AI should book into "Appointment Calendar - Outlook" in GHL (Outlook synced). CJ to verify and connect to Voice AI.
-- Caller ID issue: Twilio masks original caller ID. Fix = Fred buys new LC phone number (Add Phone Number → Option 1) and updates Voice AI forwarding destination. Caller name will NOT show — number only.
-- Next action: Prompt review + push; call routing test; Outlook calendar verify
+- Status: COMPLETE
+- Active agent: "Genie – Updated" — revised prompt (Johnica) with Hard Rules change applied. Phone number (916) 908-5085 assigned. Old "Genie" agent is off.
+- After-hours schedule live: Mon–Fri 12:00 AM–8:00 AM + 5:00 PM–11:30 PM; Sat–Sun 12:00 AM–11:30 PM. GHL 30-min increment limit = unavoidable 30-min gap nightly (11:30 PM–12:00 AM).
+- "Appointment Calendar - Outlook" verified and connected to Voice AI.
+- Caller ID issue: still pending Fred buying new LC number. Not blocking anything else.
 - Owner: CJ
 
 **Workstream: Reputation Management**
-- Status: APPROVED — Fred approved $110 fix on June 23. Ready to build.
-- Broken parts found:
-  1. Missing custom field — needs "How was your experience with us?" field created and mapped to survey
-  2. Workflow conditional logic — needs updating to route Happy (⭐⭐⭐⭐) and Extremely Happy (⭐⭐⭐⭐⭐) correctly
-  3. Corrupted If/Else branch in workflow — needs backup + rebuild before activation
-- Next action: Build fix → end-to-end test → activate
-- Owner: CJ | Estimate: 2hrs @ $55 = $110
+- Status: COMPLETE — Fixed and confirmed working. June 25.
+- What was fixed: corrupted If/Else branch rebuilt, custom field created and mapped, conditional logic updated for Happy (⭐⭐⭐⭐) and Extremely Happy (⭐⭐⭐⭐⭐) routing.
+- Trigger: Closed Won in Genie Receptionist Pipeline OR "Request Review" tag added.
+- Flow: Email review request → follow-up SMS → Yes/No branch → Google review follow-up sequence OR negative feedback form with internal notification.
+- Owner: CJ | Billed: 2hrs @ $55 = $110
 
 **Workstream: Website Chat Widget**
 - Status: Pending website access — Fred chose All-In-One widget
@@ -72,11 +68,9 @@ Genie Receptionist Services is a virtual receptionist business. CJ onboarded thi
 
 ## 5. Risks and Watch-outs
 
-- **Do NOT activate the reputation management workflow** until the corrupted branch is fixed and end-to-end tested. Activating now will cause routing errors.
 - **Caller ID still broken** until Fred switches from Twilio to a Lead Connector number — do not close this item until confirmed.
-- **Call routing: Voicemail may intercept calls** — Business Phone Number set as priority, Voicemail as backup. Test 5–10 calls before touching anything. Fix = remove Business Phone from profile if voicemail intercepts.
 - **Voice AI Chat Widget is in Labs** — must verify it is enabled at the agency level before attempting install on Fred's website.
-- **Sending domain / GBP** — GBP is connected but review automation is not yet live. Do not tell Fred it's active until fully tested.
+- **Website access blocked** — Andrea must assign cj@gosmarterflow.com as admin before chat widget install can proceed. Nothing to do until access granted.
 
 ---
 
@@ -106,3 +100,11 @@ Genie Receptionist Services is a virtual receptionist business. CJ onboarded thi
 2026-06-23 | Email | by Fred — Approved All-In-One chat widget install. Approved rep mgmt $110 fix. Asked about Voice AI prompt versions (Johnica's 2 drafts not yet pushed active), hours control (phone system handles it), and Outlook calendar connection. Provided website designer contact: Andrea at andrea@appletreeadvertising.com — will assign cj@gosmarterflow.com as admin.
 
 2026-06-24 | Work | by CJ — Reviewed call routing: Business Phone as priority, Voicemail as backup (not Voice AI) — needs live testing. Identified "Appointment Calendar - Outlook" as likely correct GHL calendar for Voice AI. Drafted reply-all to Fred covering all items. Updated client files.
+
+2026-06-24 | Email | by Fred — Clarified Voice AI is ONLY for after-hours and weekend calls. Not a backup to live calls. Phone system forwards non-business-hours calls to LC number. Asked CJ to explain BPN shuffling concern.
+
+2026-06-24 | Email | by CJ — Apologized for confusion. Confirmed will configure Voice AI for after-hours/weekends only (no shuffling). Asked Fred for specific after-hours schedule for weekdays and weekends. Explained BPN.
+
+2026-06-25 | Email | by Fred — Provided after-hours schedule. Business hours Mon-Fri 8 AM–5 PM (live). After hours Mon-Fri 5 PM to next business day 8 AM. Weekend Fri 5 PM to Mon 8 AM. GHL hours control NOT needed — phone system handles all forwarding. Voice AI stays always-on.
+
+2026-06-25 | Work | by CJ — Switched active Voice AI agent from "Genie" to "Genie – Updated" (revised prompt + Hard Rules applied). Reassigned phone number (916) 908-5085. Configured after-hours schedule in GHL. Verified Outlook calendar connected. Completed reputation management fix (corrupted branch rebuilt, custom field created, routing logic corrected). Sent detailed update email to Fred with screenshots covering both Voice AI and Rep Mgmt. Kanban updated.

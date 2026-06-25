@@ -9,12 +9,23 @@
 
 ## Stack
 - **CRM:** GoHighLevel
-- **Booking:** ZenMaid (syncs to GHL via Zapier)
+- **Booking/Invoicing:** ZenMaid (syncs to GHL via Zapier)
 - **Payments:** Square
 - **Lead source:** Meta Ads (Messenger / Instagram DM)
 - **Lead capture:** ManyChat → GHL
-- **Phones:** Grasshopper
+- **Phones/SMS:** Grasshopper
+- **AI Phone Answering:** Rosie (heyrosie.com)
 - **Ad platforms:** Meta, Google, TikTok
+
+## Access Status
+| Platform | Status | Notes |
+|----------|--------|-------|
+| GoHighLevel | ✅ Active | Workflow audit in progress |
+| ZenMaid | ✅ Active | Credentials via email |
+| ManyChat | ✅ Invite sent | Accept invite |
+| Grasshopper | ✅ Added | Set password |
+| Rosie | ✅ Invite sent | Accept invite |
+| Meta Business Manager | ⏳ Pending | Jared asked Cheily to grant |
 
 ## Active Projects
 

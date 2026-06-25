@@ -14,6 +14,41 @@
 **Blockers:**
 -->
 
+## 2026-06-25
+
+**What was done:**
+- Confirmed via Kanban: maintenance tracking system fully complete.
+  - 9 custom fields created ✓
+  - 6 maintenance workflows built ✓ (Salt/RO Filter/RO Membrane/Brine Tank/Carbon Media/Resin)
+  - 25 contacts migrated with Next service dates ✓
+  - Maintenance Smart List built ✓
+  - All workflows tested ✓
+  - TWIST-LOC added to RO System Type dropdown ✓
+- Board cleared.
+- Completion update sent to Tate. Billed 3h 45min @ $55/hr = **$206.25**
+
+**What's next:**
+- Await Tate feedback or new tasks.
+
+**Blockers:**
+- None
+
+---
+
+## 2026-06-24
+
+**What was done:**
+- Added "TWIST-LOC" option to RO System Type dropdown on Install Calendar (~5 min)
+- Built maintenance tracking system (6 workflows, 9 fields, 25-contact migration, Smart List)
+
+**What's next:**
+- Test all 6 maintenance workflows
+
+**Blockers:**
+- None
+
+---
+
 ## 2026-06-23
 
 **What was done:**

@@ -1,5 +1,5 @@
 # Global Client Status
-<!-- last_reset: 2026-06-23 | last_synced: 2026-06-23 (test run) -->
+<!-- last_reset: 2026-06-23 | last_synced: 2026-06-24 -->
 
 [rodrigo]
 folder: Rodrigo
@@ -29,10 +29,10 @@ changed: false
 folder: Leo
 pm_row: 4
 gmail: thiaggo@souzet.com,leo@souzet.com
-last_update: 2026-06-22
+last_update: 2026-06-25
 last_client_contact: 2026-06-22
-in_flight: lv-008 confirm JOF workflows tested. lv-009 assign dedicated JOF phone number. lv-003 zip code extraction decision pending.
-next_action: Await Thiaggo/Leo reply to 2026-06-22 check-in
+in_flight: Project complete. All Kanban cards done. Check-in sent Jun 22.
+next_action: Await Thiaggo/Leo reply for new tasks
 next_action_owner: CJ
 next_action_due: ASAP
 changed: false
@@ -41,22 +41,22 @@ changed: false
 folder: Tate Smith
 pm_row: 13
 gmail: jsmith@clrwtrsol.com,kstaude@clrwtrsol.com,tsmith@clrwtrsol.com
-last_update: 2026-06-23
-last_client_contact: 2026-06-23
-in_flight: Maintenance tracking system APPROVED ($220 / 4hrs). Build ready to start: 9 custom fields + 6 workflows (package-type enrollment) + 25-contact migration + Smart List.
-next_action: Build — custom fields → workflows → migrate 25 contacts → Smart List
+last_update: 2026-06-25
+last_client_contact: 2026-06-25
+in_flight: Maintenance tracking system COMPLETE. Invoice sent 2026-06-25: 3h 45min / $206.25. Board cleared.
+next_action: Await Tate reply to completion update / invoice
 next_action_owner: CJ
 next_action_due: ASAP
-changed: true
+changed: false
 
 [munchkins]
 folder: Munchkins Nursery
 pm_row: 14
 gmail: marketing@munchkins-nursery.co.uk,enquiries@munchkins-nursery.co.uk
-last_update: 2026-06-22
-last_client_contact: 2026-06-16
-in_flight: Handoff received 2026-06-22. Intro email to Lottie + Kellie not yet sent. GHL access migration Nica->CJ pending. EU compliance GDPR checkbox to verify.
-next_action: Send intro email to Lottie + Kellie; migrate GHL access; verify EU compliance checkbox on all checkout forms
+last_update: 2026-06-23
+last_client_contact: 2026-06-23
+in_flight: Intro call done Jun 25 with Ethan (marketing assistant). Bug identified: calendar/timezone conflict breaking appointment booking across sub-accounts. GHL access pending Kelly (top admin) — Ethan following up Jun 26.
+next_action: Check inbox for Ethan's forwarded Nica email; await Kelly granting GHL access; then audit timezone bug + send estimate
 next_action_owner: CJ
 next_action_due: ASAP
 changed: false
@@ -65,12 +65,12 @@ changed: false
 folder: Abe
 pm_row: 16
 gmail: abraham@securedhorizon.com
-last_update: 2026-06-22
+last_update: 2026-06-25
 last_client_contact: 2026-06-19
-in_flight: Voice AI 4-campaign build scoped (Phase 1 Realtor+CPA 24-28hrs; Phase 2 21-24hrs). Awaiting deliverables from Abe.
-next_action: Await Abe reply with call scripts x4, qualification criteria, transfer numbers, GHL access
-next_action_owner: CJ
-next_action_due: ASAP
+in_flight: DROPPED. Abe went silent after Jonathan's firm closer Jun 19. Showed frustration. Jonathan stopped following up.
+next_action: None — do not contact.
+next_action_owner: —
+next_action_due: —
 changed: false
 
 [renato]
@@ -89,10 +89,10 @@ changed: false
 folder: Fred Genie
 pm_row: 19
 gmail: Fred@geniereceptionist.com
-last_update: 2026-06-22
-last_client_contact: 2026-06-22
-in_flight: Rep mgmt survey fix pending (5 smileys + dropdown page 2). Chat widget install pending site overhaul. Voice AI caller ID fix staged.
-next_action: Await Fred reply on rep mgmt approval + website login credentials (site person back ~week June 23)
+last_update: 2026-06-25
+last_client_contact: 2026-06-23
+in_flight: Rep mgmt enabled + configured (~2hrs, $110). Voice AI schedule confirmed (Mon-Fri 8AM-5PM live; after hours + weekends to Voice AI via phone system forwarding — GHL hours control not needed). Remove BPN from profile. All-In-One chat widget pending Andrea website access.
+next_action: Remove BPN; configure Voice AI (always-on); complete rep mgmt test + verify; await Andrea website access
 next_action_owner: CJ
 next_action_due: ASAP
 changed: false
@@ -114,8 +114,8 @@ folder: Chris
 pm_row: 21
 gmail: hello@brickengine.co.uk
 last_update: 2026-06-22
-last_client_contact: 2026-06-22
-in_flight: Phase 1 snapshot build + Brooklands Glass Phase 2 estimate sent. All build work blocked until Chris provides data brief.
+last_client_contact: 2026-06-23
+in_flight: Phase 1 snapshot build + Brooklands Glass Phase 2 estimate sent. All build work blocked until Chris provides data brief. Chris replied Jun 23: glazing office still undecided.
 next_action: Await Chris data brief (real estate + glazing variants)
 next_action_owner: CJ
 next_action_due: ASAP
@@ -126,9 +126,9 @@ folder: Jared
 pm_row: 22
 gmail: jared@brickellwindowcleaners.com,academia@cheily-ochoa.com
 last_update: 2026-06-22
-last_client_contact: 2026-06-22
-in_flight: Transition from Nica begun. 1-week review period underway. ~30-40hrs scope unbuilt.
-next_action: Review Nica docs + Zoom recordings; get broken flows list from Jared; book intro call end of week
+last_client_contact: 2026-06-23
+in_flight: Jared sent Meta attribution + conversion tracking + reporting project brief (Jun 23). ZenMaid + ManyChat access credentials provided (unread in inbox). ~30-40hrs scope unbuilt.
+next_action: READ unread email from Jared (credentials + project brief); review shared notes; book intro call with Jared and Cheily
 next_action_owner: CJ
 next_action_due: 2026-06-27
 changed: false
@@ -137,12 +137,12 @@ changed: false
 folder: Harvey
 pm_row: 23
 gmail: harvey@dermanimedspa.com,admin@dermanimedspa.com
-last_update: 2026-06-23
-last_client_contact: 2026-06-23
-in_flight: Woodstock sending domain (woodstock.dermanimedspa.co) verification. DNS call rescheduled to 3:30PM EST Jun 24 with Stephanie. GHL Location ID: Sx1pflmJdApprLCcpUXy. Deadline: Jul 22.
-next_action: Join/confirm DNS call at 3:30PM EST; verify sending domain live in GHL Woodstock sub-account after call
+last_update: 2026-06-24
+last_client_contact: 2026-06-24
+in_flight: DNS CNAME conflict resolved (Jun 24). GHL sending domain verification CONFIRMED GREEN. Deadline: Jul 22.
+next_action: Confirm pipeline-status regression (Apr) resolved; audit remaining franchise sub-accounts
 next_action_owner: CJ
-next_action_due: 2026-06-24
+next_action_due: ASAP
 changed: false
 
 [resolve-glenn]

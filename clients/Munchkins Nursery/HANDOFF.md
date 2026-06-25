@@ -8,7 +8,7 @@
 
 ## Current Status
 
-Active retainer, ~1h/week. No open complaints. Left a HL directory review September 2025. Healthy relationship — just needs a smooth intro.
+Active retainer, ~1h/week. No open complaints. Left a HL directory review September 2025. Healthy relationship. Intro email sent 2026-06-23 — awaiting Lottie/Kellie reply.
 
 ---
 
@@ -16,8 +16,10 @@ Active retainer, ~1h/week. No open complaints. Left a HL directory review Septem
 
 | Name | Role | Email | Phone |
 |---|---|---|---|
-| Lottie Hayward | Marketing | marketing@munchkins-nursery.co.uk | +44 7932 821055 |
+| Lottie Hayward | Head of Marketing | marketing@munchkins-nursery.co.uk | +44 7932 821055 |
 | Kellie Mulchinock | Accounts + day-to-day requests | enquiries@munchkins-nursery.co.uk | 07572 147087 |
+| Ethan | Marketing Assistant (Lottie's team) | — | — |
+| Kelly | GHL Top Admin (separate office) | — | — |
 
 **Timezone:** UK (BST/GMT) | **Rate:** $55/hr PAYG, billed weekly (since August 2025)
 
@@ -32,13 +34,31 @@ Active retainer, ~1h/week. No open complaints. Left a HL directory review Septem
 
 ---
 
+## How They Use GHL
+
+- **Event workflows:** WordPress form (GHL-embedded) → time-slot selection → contacts split into 4 outcomes → tailored email sequence per outcome. Each event handled in the relevant nursery sub-account (e.g. Billericay for current event).
+- **Parent liaison:** Staff use contact cards + opportunity funnels. Contacts moved manually into pipeline stages → automated emails triggered per stage.
+- **Sub-accounts:** ~8+ total (one per nursery location). Main active: **Wivenhoe**. Current event: **Billericay**.
+
+## Active Bug
+
+**Calendar/timezone conflict** — business timezone incorrectly set, affecting appointment booking across sub-accounts. Staff can't see all available time slots. Likely conflict between business calendar timezone, employee calendar, and sub-account timezone settings. CJ to audit once access is granted.
+
+## GHL Access Methods (documented for Kelly)
+
+1. **Agency-level (preferred):** Team panel → search Nica → reassign all sub-accounts to CJ at once (support@gosmarterflow.com)
+2. **Sub-account level (manual):** Settings → My Staff → Add User — must repeat for each of the ~8 sub-accounts
+
 ## Open Items
 
-| # | Task | Owner |
-|---|---|---|
-| 1 | Introduce CJ to Lottie and Kellie as new consultant | CJ |
-| 2 | Migrate GHL access from Nica to CJ | CJ |
-| 3 | Ask current priorities across sub-accounts | CJ (after intro) |
+| # | Task | Owner | Status |
+|---|---|---|---|
+| 1 | ~~Introduce CJ to Lottie and Kellie~~ | Done | 2026-06-23 |
+| 2 | Kelly grants CJ GHL access (support@gosmarterflow.com) | Kelly | Ethan following up Jun 26 |
+| 3 | Check inbox — Ethan forwarded last Nica email thread | CJ | ASAP |
+| 4 | Audit calendar/timezone conflict + send estimate | CJ | After access granted |
+| 5 | Fix timezone bug (est. 15-30 min) on approval | CJ | After estimate approved |
+| 6 | Ask current priorities across all sub-accounts | CJ | After access |
 
 ---
 
@@ -51,7 +71,10 @@ Active retainer, ~1h/week. No open complaints. Left a HL directory review Septem
 
 ## Session Log
 
+### 2026-06-23 — Intro email sent
+- Sent intro email to Lottie (marketing@) and Kellie (enquiries@) introducing CJ as new primary.
+- Awaiting reply before next steps.
+
 ### 2026-06-22 — Handoff received
 - CJ confirmed as Primary on Munchkins Nursery (replacing Nica).
 - Active retainer, healthy relationship. Files scaffolded.
-- Intro email to Lottie + Kellie needed.

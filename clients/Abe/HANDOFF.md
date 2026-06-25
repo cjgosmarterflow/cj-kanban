@@ -7,7 +7,7 @@
 
 ## Current Status
 
-Negotiation stalled. Abe turned combative. Jonathan sent a firm closer on 2026-06-19. No GHL access, no payment on file, nothing signed. Awaiting Abe's reply.
+**DROPPED — 2026-06-25.** Abe went silent after Jonathan's firm closer (Jun 19). Abe showed frustration; Jonathan stopped following up. Not a prospect. Do not contact.
 
 ---
 
@@ -49,11 +49,7 @@ Each campaign qualifies leads and either live-transfers to a broker or books a c
 
 ## Open Items
 
-| # | Task | Owner |
-|---|---|---|
-| 1 | Await Abe's reply to 2026-06-19 closer | — |
-| 2 | If silent: run standard open-lead follow-up cadence | CJ |
-| 3 | If re-engages: propose small fixed-price pilot (1 agent, 2-3 prompts → live transfer or booking) | CJ |
+None. Lead dropped 2026-06-25.
 
 ---
 

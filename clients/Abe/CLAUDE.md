@@ -8,7 +8,7 @@
 - Abe Hakawati (sole contact): abraham@securedhorizon.com | 305-891-6500
 
 ## Status
-Negotiation stalled. Abe rejected hourly model, demanded fixed pricing + sample. Turned combative. Jonathan sent firm closer June 19. Awaiting reply. No GHL access, no payment on file yet.
+DROPPED — 2026-06-25. Abe went silent after Jonathan's firm closer (Jun 19). Jonathan stopped following up. Abe showed frustration and is not a prospect. No GHL access, no payment, nothing signed. Do not follow up.
 
 ## Project Scope
 4-campaign outbound Voice AI build for mortgage lead gen:

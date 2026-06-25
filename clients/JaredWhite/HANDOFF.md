@@ -24,12 +24,25 @@
 - Whether Nica had Meta BM or ManyChat access
 - Full list of broken flows (waiting on Jared's reply)
 
-## Access Needed
-- [ ] GoHighLevel (sub-account)
-- [ ] ManyChat
-- [ ] Meta Business Manager
+## Access Status (as of 2026-06-24)
+- [x] GoHighLevel — access confirmed (workflow audit in progress)
+- [x] ZenMaid — credentials sent via email (2026-06-23)
+- [x] ManyChat — invite link sent via email (2026-06-23)
+- [x] Grasshopper — added via email (2026-06-23), set password needed
+- [x] Rosie (AI phone answering) — invite sent via email (2026-06-23)
+- [ ] Meta Business Manager — Jared asked Cheily to grant access, PENDING
+
+## Stack (updated)
+- GHL — CRM + automation
+- ZenMaid — scheduling/invoicing (syncs to GHL via Zapier)
+- ManyChat — Messenger/IG DM automations → GHL
+- Square — payments
+- Grasshopper — SMS + customer communication
+- Rosie — AI phone answering
+- Meta, Google, TikTok — ad platforms
 
 ## Key Risks
 - Follow-up Guard (WF #4): if broken, booked customers get spammed — check first
 - ZenMaid → GHL Zapier zap: confirm still live
 - No attribution data flowing to Meta: ads optimizing on messages, not revenue
+- ManyChat → GHL: unknown if UTM/fbclid fields are being passed

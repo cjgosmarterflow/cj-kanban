@@ -5,16 +5,21 @@
 - Confirmed Meta attribution/CAPI project is a FRESH BUILD — nothing exists in GHL for this
 - Received formal project brief from Jared: Meta campaign attribution → booked jobs → revenue → ROAS
 - Drafted and sent reply to Jared requesting: GHL access, ManyChat access, Meta BM access; asked if this is first priority and what Nica left behind
-- Beginning GHL workflow audit (screenshots incoming)
+- Jared replied: working on access, wants CJ to review system first then discuss on a call
+- Access granted: ZenMaid (credentials via email), ManyChat (invite link), Grasshopper (email invite), Rosie AI (email invite)
+- Meta BM access: Jared asked Cheily to grant — PENDING
+- Began GHL workflow audit via screenshots
 
 **What's next:**
-- Receive Jared's reply on access + priority order
-- Complete GHL workflow audit from screenshots
-- Begin audit report: current state → recommendations → implementation plan
+- Accept ManyChat, Rosie invites
+- Set Grasshopper password
+- Complete GHL workflow audit (screenshots in progress)
+- Review ManyChat → GHL integration for UTM/fbclid passthrough
+- Await Meta BM access from Cheily
+- Schedule intro call with Jared
 
 **Blockers:**
-- No ManyChat or Meta BM access yet
-- Waiting on Jared's reply re: priority and Nica's open items
+- Meta Business Manager access — pending Cheily
 
 ---
 
