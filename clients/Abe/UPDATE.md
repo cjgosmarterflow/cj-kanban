@@ -53,6 +53,19 @@
 
 ---
 
+## 2026-07-16
+
+**What was done:**
+- Removed from Vercel kanban board at CJ's request (5 cards deleted from Supabase `cards` table + client_status row removed) — consistent with dropped status above
+
+**What's next:**
+- None
+
+**Blockers:**
+- None
+
+---
+
 ## 2026-06-16
 
 **What was done:**

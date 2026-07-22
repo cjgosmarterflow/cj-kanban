@@ -4,6 +4,19 @@
 
 ---
 
+## 2026-06-27
+
+**What was done:**
+- 5th follow-up sent — changed approach. Dropped the document ask entirely. Simple yes/no: still interested? Letting her re-engage on her terms.
+
+**What's next:**
+- Await Gabby reply.
+
+**Blockers:**
+- No reply from Gabby across 5 emails.
+
+---
+
 ## 2026-06-24
 
 **What was done:**

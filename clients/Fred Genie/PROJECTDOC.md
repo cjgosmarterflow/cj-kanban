@@ -1,64 +1,81 @@
 # Fred Genie — Project Documentation
 
-**Last updated:** 2026-06-22
+**Last updated:** 2026-06-26
 
 ---
 
 ## System Overview
 
-Three active workstreams for Genie Receptionist Services (virtual receptionist business):
+Three workstreams for Genie Receptionist Services (virtual receptionist business). All three now complete. Open items are minor and pending Fred.
 
 ---
 
-## Workstream 1 — Voice AI (LIVE)
+## Workstream 1 — Voice AI (COMPLETE)
 
 After-hours AI receptionist named "Genie."
 
+**Active agent:** Genie – Updated (revised prompt by Johnica, Hard Rules applied)
+**Phone number:** +1 916-908-5085 assigned to Genie – Updated
+**Schedule:** 24/7 (12:00 AM–11:30 PM all days) — Fred changed from split schedule. Correct approach: phone system controls forwarding, Voice AI just needs to always be available.
+**Calendar:** Appointment Calendar – Outlook (Outlook-synced). Pending Fred confirming which calendar settings he prefers (see open items).
+
 **What was done:**
-- Hard Rules self-ID line updated (AI says it's fully trained to answer questions, make account changes, or schedule a call)
-- Call Flow Script #1 greeting reconciled (not a duplicate issue — intentional)
-- Caller ID root cause identified: Twilio masks original caller ID during forwarding
+- Hard Rules self-ID line updated
+- Call Flow Script #1 greeting reconciled (not a duplicate — intentional)
+- Switched active agent from Genie → Genie – Updated
+- After-hours schedule configured (later changed to 24/7 by Fred — correct)
+- Appointment Calendar – Outlook connected to Voice AI
 
 **Caller ID fix (pending Fred):**
 - Fred must buy a new LC phone number (Add Phone Number → Option 1)
 - Update Voice AI forwarding destination to the new LC number
-- GHL will then pass Contact's Phone Number through correctly
 - Caller name will NOT show — number only
-
-**GHL phone:** +1 916-545-9045
 
 ---
 
-## Workstream 2 — Reputation Management (IN PROGRESS — BROKEN)
+## Workstream 2 — Reputation Management (COMPLETE)
 
 Automated review request system via GBP (Google Business Profile).
 
-**What's built:**
-- GBP connected and ready
-- Review request Email + SMS templates (wording updated by Fred, reviewed by CJ)
-- Workflow "4. Review Request Survey Submitted" — exists but has broken parts
+**Trigger:** Contact marked Closed Won in Genie Receptionist Pipeline OR "Request Review" tag added.
 
-**Broken parts found:**
-1. Missing custom field — "How was your experience with us?" field needs to be created and mapped to survey
-2. Workflow conditional logic — needs updating to route Happy (4 stars) and Extremely Happy (5 stars) correctly
-3. Corrupted If/Else branch in workflow — needs backup + rebuild before activation
+**Flow:**
+1. Email review request sent → follow-up SMS (Yes/No)
+2. Yes → enrolled in review follow-up workflow → confirms Google review left → thank-you SMS. If no response after reminders → workflow ends.
+3. No → directed to negative feedback form (4. Review Survey funnel) → internal notification sent to team.
 
-**Fix proposed:** 2 hours @ $55/hr = $110. Proposal sent to Fred on June 16.
-**Status:** Awaiting Fred's approval. Do NOT activate until fixed and tested end-to-end.
+**What was fixed:**
+- Missing custom field created and mapped to survey
+- Workflow conditional logic updated for Happy (⭐⭐⭐⭐) and Extremely Happy (⭐⭐⭐⭐⭐) routing
+- Corrupted If/Else branch rebuilt
+- Billed: 2hrs @ $55 = $110 (approved by Fred June 23)
 
 ---
 
-## Workstream 3 — Website Chat Widget (BLOCKED)
+## Workstream 3 — Website (COMPLETE)
 
-**Status:** Waiting on website login credentials.
-- Fred's website person on vacation, back ~week of June 23
-- Chat widget type TBD — Fred to choose: Text only, Voice AI only, or All-in-One
-- Voice AI Chat Widget is in GHL Labs — confirm agency enablement before install
-- GHL doc: https://help.gohighlevel.com/support/solutions/articles/155000004779-how-to-use-the-all-in-one-chat-widget
+**Chat Widget:**
+- All-In-One Chat Widget installed on geniereceptionist.com via script embed (WPCode)
+- LeadConnector plugin removed (was faulty — duplicate widgets, inconsistent display)
+- Footer script from Neve theme removed
+
+**Contact Us Form:**
+- LeadConnector shortcode replaced with GHL iframe embed
+- Height set to 1200px — form displays in full, no scrolling
+- URL: geniereceptionist.com/contact-genie-receptionist
 
 ---
 
 ## GHL Sub-Account
 
 - Name: Genie Receptionist Services
+- GHL Phone: +1 916-908-5085
 - Location ID: TBD — pull from GHL URL on first login
+
+---
+
+## Open Items
+
+- Fred to confirm calendar preference: Appointment Calendar (4hr notice, 2-day window, unlimited/day) vs Appointment Calendar – Outlook (3hr notice, 5-day window, 3/day max)
+- Fred to review Reputation Management and send questions
+- Caller ID fix pending Fred buying new LC number

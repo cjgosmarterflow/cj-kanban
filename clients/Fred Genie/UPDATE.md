@@ -1,3 +1,53 @@
+## 2026-07-14
+
+**What was done:**
+- Weekly billing sent for week 07/06 - 07/10: 1:00 hrs, $55.00
+- Tasks billed: GHL Calendar reconfiguration, Test chat widget (0:08:03), WP Contact Us Page Fix (0:28:23)
+
+**What's next:**
+- Follow up for any new requests
+
+**Blockers:**
+- None
+
+---
+
+## 2026-06-30
+
+**What was done:**
+- Weekly billing sent for week 06/22 - 06/26: 3:00 hrs, $165.00, card charged
+- Tasks billed: Check Voice AI Settings (0:04:20), Reputation Mgmt – Enable & configure automated review request system (2:01:33), Voice AI – Updated Prompt + After Hours Setting + Audit (0:27:23), Add All-in-one Chat Widget to WordPress (0:20:19)
+- Sent to fred@geniereceptionist.com, CC jonathan@gosmarterflow.com
+
+**What's next:**
+- Confirm with Fred that chat widget is visible + working on geniereceptionist.com
+- Await Fred's reply or new tasks
+
+**Blockers:**
+- None
+
+---
+
+## 2026-06-26
+
+**What was done:**
+- Received WordPress admin access from Andrea
+- Installed LeadConnector plugin on Fred's WordPress site (geniereceptionist.com) — later found to be faulty (widget showing inconsistently, duplicate widgets)
+- Removed old footer script from Neve theme and removed LeadConnector plugin
+- Added All-In-One Chat Widget script cleanly — widget now stable and live on geniereceptionist.com
+- Fixed Contact Us form — replaced LeadConnector shortcode with GHL iframe embed (height:1200px); form now displays in full with no scrolling
+- Replied to Fred's email: confirmed Voice AI 24/7 change correct, updated calendar to Appointment Calendar – Outlook, asked which calendar settings he prefers, confirmed CJ as primary consultant
+- Kanban updated: fg-website-andrea, fg-website-widget, fg-website-form → done
+
+**What's next:**
+- Fred to confirm which calendar settings he prefers (Appointment Calendar vs Appointment Calendar – Outlook)
+- Fred to review Reputation Management and send questions
+
+**Blockers:**
+- None
+
+---
+
 ## 2026-06-25
 
 **What was done:**

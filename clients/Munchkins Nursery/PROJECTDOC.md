@@ -1,6 +1,6 @@
 # Munchkins Nursery — Project Documentation
 
-**Last synced from handoff:** 2026-06-22
+**Last synced from handoff:** 2026-06-26
 
 ---
 
@@ -12,7 +12,7 @@ Ongoing GHL maintenance retainer for a UK nursery group with ~7-8 locations.
 - Standardize email templates and branding across all nursery sub-accounts
 - Fix workflow and follow-up delivery issues
 - Set up + automate per-location dashboards (example: Brentwood dashboard)
-- Deliver a Loom doc with every fix for their records
+- Loom walkthroughs (Nica-era practice — not a standing CJ commitment)
 
 ---
 
@@ -20,9 +20,7 @@ Ongoing GHL maintenance retainer for a UK nursery group with ~7-8 locations.
 
 Multiple GHL sub-accounts — one per nursery location. All under Smarter Flow agency.
 
-Known example: Brentwood location dashboard.
-
-Full sub-account list: check GHL agency view or Project Doc.
+**Confirmed sub-accounts (9 total):** Dunton Fields, Dunton Park, Baddow, Billericay, Brightlingsea, Laindon, Wivenhoe, Recruitment, Discount Club. Plus Brentwood (referenced in earlier work).
 
 ---
 
@@ -40,12 +38,13 @@ Full sub-account list: check GHL agency view or Project Doc.
 - Sep 2025: Contact list email verification project (NeverBounce) with Jonathan.
 - Jan 2026: Rate increase $50 → $55/hr (effective Jan 12) + 1hr/week minimum.
 - June 2026: Handoff Nica → CJ. Nica's GHL access (nica@gosmarterflow.com) needs migrating to CJ.
+- Jun 26 2026: Full timezone audit complete. Agency-level timezone was blank (root cause of 7hr activity log offset) — set to GMT+01:00 Europe/London. Dunton Fields was on GMT-12:00 — corrected. Brentwood Stage 3 workflow fixed (invalid custom field in Find Opportunity causing pipeline not to update on bookings). All other sub-accounts were already correct. 1h 23m billed.
 
 ---
 
 ## Loom Approach
 
-Deliver a Loom walkthrough with every fix for their documentation records. This is expected by the client and builds trust.
+Nica's practice — not a commitment CJ made. Optional to continue.
 
 ---
 

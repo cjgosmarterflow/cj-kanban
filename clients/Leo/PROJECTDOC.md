@@ -5,7 +5,7 @@
 
 ## 1. Snapshot
 
-Souzet is a US-based company (Holliston, MA) running on HighLevel since ~Nov 2025. Consultant history: Moon → Nica → CJ (coverage). A third-party company called JOF (cold calls / marketing / lead capture) needed a fully separate pipeline and funnel setup inside the Souzet account. CJ completed the full JOF setup on 2026-06-12 after a scoping call with Thiaggo: JOF pipeline, duplicated funnel, cloned forms, recreated workflows, landing page and thank you page fixes. One open workstream: dedicated phone number ringing JOF staff only.
+Souzet is a US-based company (Holliston, MA) running on HighLevel since ~Nov 2025. Consultant history: Moon → Nica → CJ (coverage). A third-party company called JOF (cold calls / marketing / lead capture) needed a fully separate pipeline and funnel setup inside the Souzet account. CJ completed the full JOF setup on 2026-06-10 after a scoping call with Thiaggo: JOF pipeline, duplicated funnel, cloned forms, recreated workflows, landing page and thank you page fixes. One open workstream: dedicated phone number ringing JOF staff only.
 
 ## 2. Communication
 
@@ -21,15 +21,21 @@ Souzet is a US-based company (Holliston, MA) running on HighLevel since ~Nov 202
 - **support@gosmarterflow.com added to the sub-account?** YES (confirmed 2026-06-12)
 - **Secrets vault (1Password):** TO CREATE
 - **What is built:** JOF pipeline (separate from Souzet main pipeline). JOF folder in Funnels. Duplicated funnel with JOF pipeline routing. Cloned forms re-attached to Portuguese + English landing pages. Recreated workflows routing JOF leads to JOF pipeline. Updated tags to distinguish JOF leads. Portuguese landing page: FAQ #2 corrected, Verde → Eficiente translation fixed. Thank you page: email, phone number, and WhatsApp buttons removed (PT + EN).
-- **Billing:** Stripe wallet auto-recharge (LC credits — wallet credits, not consulting fees). Consulting billed through weekly billing flow.
+- **Billing:** Stripe wallet auto-recharge (LC credits — wallet credits, not consulting fees). Consulting billed through weekly billing flow. Last billed: 07/13-07/17, 1:00 hr, $55.00 (1h minimum, charged to Leo's card).
 
 ## 4. Current state and Next actions
 
-**Workstream A — Assign dedicated JOF phone number (TODO):** Assign a dedicated phone number that rings JOF staff only. Owner: CJ. Priority: High.
+**Workstream E — WhatsApp template messages failing (OPEN as of 2026-07-21):** Leo reported all WhatsApp template sends failing with error: "Message failed to send because there were one or more errors related to your payment method. Please reach out to your admin asap." Leo confirmed wallet balance OK ($24.03, auto-recharge on), Meta/WhatsApp status Approved + Green quality, template is approved Utility (pt_BR). Root cause likely at Meta Business billing level — not GHL wallet. Next step: check GHL agency WhatsApp settings payment method for Souzet sub-account; verify/re-add payment method in Meta Business Manager. Owner: CJ. Priority: High. Kanban: lv-018.
 
-**Workstream B — Zip code extraction from notes field (CONFIRM FIRST):** Mar 2026 request: extract customer zip code from lead info (lands in notes field). CC: it.istomin@gmail.com. Confirm with Thiaggo whether still needed or already resolved before doing any work. Owner: CJ.
+**Workstream A — Assign dedicated JOF phone number (TODO):** Assign a dedicated phone number that rings JOF staff only. Owner: CJ. Priority: High. Kanban: lv-009.
 
-**Completed (2026-06-12):** Full JOF setup — pipeline, folder, funnel duplication, form cloning with JOF pipeline routing, workflow recreation, tag updates. Portuguese LP: FAQ #2 text corrected, Verde → Eficiente fixed. Thank you page: email, phone, WhatsApp buttons removed (PT + EN). support@ access confirmed. Scoping call with Thiaggo completed.
+**Workstream B — Zip code extraction from notes field (CLOSED):** Mar 2026 request. Removed from scope. Confirm with Thiaggo only if they re-raise it.
+
+**Workstream C — +55 phone prefix on JOF form submissions (DONE 2026-07-15):** Call center in Brazil submitting leads via JOF landing page. Phone numbers arriving in CRM with +55 country code prefix. Root cause: GHL form had auto-country-detection enabled. Fix: turned off auto-timezone/country detection in JOF form settings. Thiaggo confirmed resolved. Kanban: lv-017.
+
+**Workstream D — Add user Julia Muniz to JOF pipeline (DONE 2026-06-17):** Thiaggo could not add jofcompanyagencia@gmail.com due to permissions error. CJ added directly.
+
+**Completed (2026-06-10):** Full JOF setup — pipeline, folder, funnel duplication, form cloning with JOF pipeline routing, workflow recreation, tag updates. Portuguese LP: FAQ #2 text corrected, Verde → Eficiente fixed. Thank you page: email, phone, WhatsApp buttons removed (PT + EN). support@ access confirmed. Scoping call with Thiaggo completed.
 
 ## 5. Risks and watch-outs
 

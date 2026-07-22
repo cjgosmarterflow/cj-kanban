@@ -1,8 +1,17 @@
 # Tate Smith — Claude Context
-**Client:** Tate Smith (also listed as Jonathan Smith — same company)
-**Company:** CLR WTR SOL
+**Client:** Tate Smith
+**Company:** CLR WTR Solutions
 **Consultant:** CJ Salamida
 **Started:** June 2026
+
+---
+
+## Billing Contact (updated 2026-06-30)
+
+- **To:** tsmith@clrwtrsol.com (Tate Smith)
+- **CC:** jonathan@gosmarterflow.com
+- **Note:** Kyle Staude (kstaude@clrwtrsol.com) no longer works at CLR WTR — confirmed by Tate 2026-06-29. Jonathan Smith (jsmith@clrwtrsol.com) was the original wrong contact. All future invoices go to Tate directly.
+- **Phone:** (615) 437-9664
 
 ---
 

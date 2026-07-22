@@ -18,3 +18,16 @@
 
 **Blockers:**
 - Need to check Nica's CSS fix progress — status unknown at handoff.
+
+---
+
+## 2026-07-16
+
+**What was done:**
+- Removed from Vercel kanban board at CJ's request (3 cards deleted from Supabase `cards` table + client_status row removed)
+
+**What's next:**
+- None logged — confirm with CJ whether this client is fully closed/inactive
+
+**Blockers:**
+- None

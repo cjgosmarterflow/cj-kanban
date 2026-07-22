@@ -10,11 +10,11 @@
 - Kelly (GHL top admin, separate office): no email yet — Ethan's point of contact for access
 
 ## Status
-Active. ~1hr/week. Healthy. Intro call done Jun 25 with Ethan. GHL access pending Kelly. Active bug: calendar/timezone conflict affecting appointment booking. Next: access granted → audit → fix.
+Active. ~1hr/week. Healthy. GHL access granted. Timezone audit + fix complete Jun 26 (1h 23m billed). Agency timezone + Dunton Fields corrected to GMT+01:00 Europe/London. Brentwood Stage 3 workflow fixed. Next: ask priorities across sub-accounts.
 
 ## Rules
-- Always deliver a Loom doc with each fix so they have a record
-- Multiple sub-accounts (one per nursery location, e.g. Brentwood)
+- Loom walkthroughs were Nica's practice — not promised by CJ, optional to continue
+- Multiple sub-accounts (one per nursery location) — 9 confirmed + Brentwood
 - UK timezone (BST) — they are several hours ahead
 
 ## Links

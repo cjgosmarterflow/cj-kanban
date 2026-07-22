@@ -4,6 +4,60 @@
 
 ---
 
+## 2026-07-21
+
+**What was done:**
+- Received WhatsApp template message failure report from Leo (lv-018 added to Kanban, high priority)
+  - Error: "Message failed to send because there were one or more errors related to your payment method."
+  - Leo confirmed: GHL wallet balance $24.03 (auto-recharge on), WhatsApp Approved/Meta verified, both numbers Green quality, template is approved Utility (pt_BR)
+  - Root cause likely at Meta/WhatsApp Business billing level — not GHL wallet
+  - Task added to Kanban; investigation pending
+- Weekly billing sent for week 07/13 - 07/17: 1:00 hrs, $55.00 (1h minimum)
+- Tasks billed: Check form submission - timezone (0:44:51)
+- Billing email: thiaggo@souzet.com, CC leo@souzet.com, jonathan@gosmarterflow.com
+
+**What's next:**
+- lv-018: Investigate WhatsApp payment method error — check GHL agency WhatsApp settings + Meta Business Manager payment method for Souzet sub-account
+- lv-009: Assign dedicated phone number ringing JOF staff only
+- lv-008: Confirm workflows fully tested → move to done
+
+**Blockers:**
+- None
+
+---
+
+## 2026-07-15
+
+**What was done:**
+- Fixed +55 phone prefix issue on JOF form submissions (lv-017 — done)
+  - Root cause: GHL form had auto-country-detection enabled, prepending +55 for Brazil-based submitters
+  - Fix: turned off auto-timezone/country detection in JOF form settings
+  - Thiaggo reported → CJ investigated → Thiaggo found interim workaround → CJ applied proper fix (12:48–5:54 AM)
+
+**What's next:**
+- lv-009: Assign dedicated phone number ringing JOF staff only
+- lv-003: Confirm with Thiaggo whether Workstream B (zip code extraction) still needed
+
+**Blockers:**
+- None
+
+---
+
+## 2026-07-14
+
+**What was done:**
+- Weekly billing sent for week 07/06 - 07/10: 1:30 hrs, $82.50
+- Tasks billed: Eagle Vision landing page (0:45:14), WhatsApp greeting workflow - JOF Company pipeline routing (0:31:24)
+
+**What's next:**
+- Follow up on Eagle Vision landing page delivery
+- Await new requests from Thiaggo
+
+**Blockers:**
+- None
+
+---
+
 <!-- TEMPLATE
 ## [Date]
 

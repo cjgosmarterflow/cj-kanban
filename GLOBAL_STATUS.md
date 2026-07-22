@@ -1,17 +1,17 @@
 # Global Client Status
-<!-- last_reset: 2026-06-23 | last_synced: 2026-06-24 -->
+<!-- last_reset: 2026-06-23 | last_synced: 2026-07-01 -->
 
 [rodrigo]
 folder: Rodrigo
 pm_row: 2
 gmail: rodrigoclarkbjj@gmail.com
-last_update: 2026-06-22
-last_client_contact: 2026-06-22
-in_flight: Chatbot removal from gbsantabarbara.com pending CMS confirmation. Lead flow + notifications confirmed working (Jun 13 audit).
-next_action: Await Rodrigo reply confirming CMS type (WordPress or other)
+last_update: 2026-07-01
+last_client_contact: 2026-07-01
+in_flight: Rodrigo replied Jul 1 (UNREAD) — calendar issue, bookings between 1pm-6pm showing wrong availability as of Monday. New bug to investigate.
+next_action: Read Rodrigo's Jul 1 email and respond with fix or investigation plan
 next_action_owner: CJ
 next_action_due: ASAP
-changed: false
+changed: true
 
 [david-giraldo]
 folder: David Giraldo
@@ -40,23 +40,23 @@ changed: false
 [tate-smith]
 folder: Tate Smith
 pm_row: 13
-gmail: jsmith@clrwtrsol.com,kstaude@clrwtrsol.com,tsmith@clrwtrsol.com
-last_update: 2026-06-25
-last_client_contact: 2026-06-25
-in_flight: Maintenance tracking system COMPLETE. Invoice sent 2026-06-25: 3h 45min / $206.25. Board cleared.
-next_action: Await Tate reply to completion update / invoice
+gmail: jsmith@clrwtrsol.com,tsmith@clrwtrsol.com
+last_update: 2026-07-01
+last_client_contact: 2026-07-01
+in_flight: All invoices paid Jun 30 ($316.25). Kyle Staude departed — billing to tsmith@ only. Maintenance tracking system ALREADY COMPLETE (Jun 25). Two small tasks open: (1) Loom walkthrough, (2) contact section rearrangement (delete Ops Closer, Maintenance Tracker to top).
+next_action: Record Loom + do section cleanup in GHL sub-account
 next_action_owner: CJ
 next_action_due: ASAP
-changed: false
+changed: true
 
 [munchkins]
 folder: Munchkins Nursery
 pm_row: 14
 gmail: marketing@munchkins-nursery.co.uk,enquiries@munchkins-nursery.co.uk
-last_update: 2026-06-23
-last_client_contact: 2026-06-23
-in_flight: Intro call done Jun 25 with Ethan (marketing assistant). Bug identified: calendar/timezone conflict breaking appointment booking across sub-accounts. GHL access pending Kelly (top admin) — Ethan following up Jun 26.
-next_action: Check inbox for Ethan's forwarded Nica email; await Kelly granting GHL access; then audit timezone bug + send estimate
+last_update: 2026-06-26
+last_client_contact: 2026-06-26
+in_flight: Timezone audit + fixes complete (1h 23min). Agency blank timezone set to BST, Dunton Fields corrected from GMT-12, Brentwood Stage 3 workflow fixed. Summary email sent to Ethan + Lottie.
+next_action: Await Ethan/Lottie reply; ask for next priorities across sub-accounts
 next_action_owner: CJ
 next_action_due: ASAP
 changed: false
@@ -77,22 +77,22 @@ changed: false
 folder: Renato
 pm_row: 17
 gmail: renato@sarahk.com.au,renatogerger@gmail.com
-last_update: 2026-06-22
-last_client_contact: 2026-06-22
-in_flight: EOFY SMS campaign complete (663 contacts drip-enrolled 250/day, Jun 15-17). All tasks done.
-next_action: Await Renato reply to 2026-06-22 check-in for new tasks
+last_update: 2026-07-01
+last_client_contact: 2026-07-01
+in_flight: EOFY SMS campaign complete. Renato replied Jul 1 — no new tasks yet, will reach out when ready.
+next_action: Await Renato reply with next project
 next_action_owner: CJ
 next_action_due: ASAP
-changed: false
+changed: true
 
 [fred]
 folder: Fred Genie
 pm_row: 19
 gmail: Fred@geniereceptionist.com
-last_update: 2026-06-25
+last_update: 2026-06-26
 last_client_contact: 2026-06-23
-in_flight: Rep mgmt enabled + configured (~2hrs, $110). Voice AI schedule confirmed (Mon-Fri 8AM-5PM live; after hours + weekends to Voice AI via phone system forwarding — GHL hours control not needed). Remove BPN from profile. All-In-One chat widget pending Andrea website access.
-next_action: Remove BPN; configure Voice AI (always-on); complete rep mgmt test + verify; await Andrea website access
+in_flight: All tasks complete. Rep mgmt live. Voice AI after-hours schedule set (30-min GHL limit). LeadConnector plugin installed on WordPress — All-In-One chat widget live (Jun 26).
+next_action: Confirm with Fred chat widget is visible + working
 next_action_owner: CJ
 next_action_due: ASAP
 changed: false
@@ -122,16 +122,28 @@ next_action_due: ASAP
 changed: false
 
 [jared]
-folder: Jared
+folder: JaredWhite
 pm_row: 22
 gmail: jared@brickellwindowcleaners.com,academia@cheily-ochoa.com
-last_update: 2026-06-22
-last_client_contact: 2026-06-23
-in_flight: Jared sent Meta attribution + conversion tracking + reporting project brief (Jun 23). ZenMaid + ManyChat access credentials provided (unread in inbox). ~30-40hrs scope unbuilt.
-next_action: READ unread email from Jared (credentials + project brief); review shared notes; book intro call with Jared and Cheily
+last_update: 2026-07-01
+last_client_contact: 2026-07-01
+in_flight: 10-day recovery LIVE. Meta Attribution architecture brainstorm underway — GHL Form First approach (swap ZenMaid form to GHL form, UTM auto-capture). Card 3142 ($178.75 week 06/22-06/26) PAID. DNS records for info.brickellwindowcleaners.com — Jared must forward to DNS provider (Jul 26 deadline).
+next_action: Continue Meta Attribution brainstorm Jul 2; charge card 3142; confirm DNS forwarded
 next_action_owner: CJ
-next_action_due: 2026-06-27
-changed: false
+next_action_due: 2026-07-02
+changed: true
+
+[aaron-fulton]
+folder: Aaron Fulton
+pm_row: 35
+gmail: af@theperfectpoolco.com,jg@theperfectpoolco.com
+last_update: 2026-06-29
+last_client_contact: 2026-06-26
+in_flight: PROSPECT. jg replied Jun 26 — appreciative, reviewing proposal. Jonathan followed up Jun 29, no reply yet. Awaiting payment + GHL access.
+next_action: Await Aaron/jg reply; follow up if silent by Jul 3
+next_action_owner: CJ
+next_action_due: 2026-07-03
+changed: true
 
 [harvey]
 folder: Harvey
@@ -195,12 +207,24 @@ changed: false
 
 [nacho]
 folder: Nacho
-pm_row: 35
+pm_row: 34
 gmail: aureomatic.ia@gmail.com
-last_update: 2026-06-22
-last_client_contact: 2026-06-22
-in_flight: All GHL voicemail options exhausted (platform limitation confirmed). Check-in email sent 2026-06-22.
-next_action: Await Nacho reply to 2026-06-22 check-in; no further voicemail action unless new direction provided
+last_update: 2026-06-29
+last_client_contact: 2026-06-29
+in_flight: Sending domain alert for Alberto de Blas sub-account (Jonathan flagged Jun 29). Nacho replied — says emails passing tests. Jonathan warned auto-delete risk if not properly verified in GHL.
+next_action: Verify Alberto de Blas sending domain status in GHL admin; confirm green before Jul deadline
 next_action_owner: CJ
 next_action_due: ASAP
-changed: false
+changed: true
+
+[john-stephens]
+folder: John Stephens
+pm_row: TBD
+gmail: jstephens2000@yahoo.com
+last_update: 2026-07-01
+last_client_contact: 2026-06-30
+in_flight: PROSPECT. FCC Jun 30. SOW received Jul 1. Proposal drafted: Phase 1 ISA Dialer + Salesforce Sync 17-27hrs ($935-$1,485); Phase 2 Marketing 10-17hrs ($550-$935). Jonathan engaged in thread. Awaiting John's greenlight + payment + GHL access.
+next_action: Send proposal draft; await John's approval; collect payment info + GHL access + Salesforce export sample
+next_action_owner: CJ
+next_action_due: ASAP
+changed: true

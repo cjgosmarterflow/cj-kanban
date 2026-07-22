@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-07-14
+
+**What was done:**
+- Weekly billing sent for week 07/06 - 07/10: 1:00 hrs, $55.00
+- Tasks billed: Remove Travis Brooks + Chris Lacerda from lead notifications (0:29:50)
+
+**What's next:**
+- Follow up for any new requests
+
+**Blockers:**
+- None
+
+---
+
 <!-- TEMPLATE
 ## [Date]
 
@@ -13,6 +27,63 @@
 
 **Blockers:**
 -->
+
+## 2026-07-09
+
+**What was done:**
+- URGENT request from Rodrigo (info@gbsantabarbara.com): Travis Brooks and Chris Lacerda no longer work for Gracie Barra Santa Barbara. Travis opened a competing gym nearby — both may still be receiving live lead notification emails.
+- CJ removed both Travis Brooks and Chris Lacerda from GHL lead notifications (Settings > My Staff + notification settings).
+- Kanban card added: rod001notif1
+
+**What's next:**
+- Confirm with Rodrigo that neither is receiving notifications anymore
+- Continue franchise sub-account audit
+
+**Blockers:**
+- None
+
+---
+
+## 2026-07-03
+
+**What was done:**
+- Diagnosed root cause of "7pm booking" bug — calendar settings are correct.
+- Root cause: contact's timezone field was set to CDT. GHL renders `{{appointment.startTime}}` in contact's timezone. 5pm PDT booking = 7pm CDT in notifications. Staff saw "7pm" and panicked — booking was valid.
+- Sent reply to Rodrigo explaining the issue + two fixes pending his confirmation:
+  1. Clear timezone field on all contacts (appointment times will render in PDT everywhere)
+  2. Remove timezone question from any lead forms (if present) to prevent recurrence
+- Asked Rodrigo whether any forms currently ask for timezone.
+
+**What's next:**
+- Await Rodrigo's reply confirming timezone form question exists (or not)
+- Clear contact timezone fields once confirmed
+- rc-008: Remove Friday/Saturday availability from Free Consultation calendar
+- rc-009: Delete 2 extra unnecessary calendars
+
+**Blockers:**
+- rc-010 (timezone fix) waiting on Rodrigo's reply
+
+---
+
+## 2026-07-02
+
+**What was done:**
+- Read Rodrigo's email (Jul 1) — 3 issues reported:
+  - Lead booked 7pm despite calendar set to 1pm-6pm (timezone or availability setting bug)
+  - 2 unnecessary calendars need to be deleted (keep only "Free Consultation")
+  - Friday availability must be removed for leads (staff shortage Fri/Sat); staff can still book anytime
+- Added 3 tasks to Kanban: rc-007 (calendar time overflow), rc-008 (remove Friday for leads), rc-009 (delete extra calendars)
+- CJ to go into GHL (Gracie Barra sub-account) and apply the fixes
+
+**What's next:**
+- Fix "Free Consultation" calendar: confirm 1pm-6pm hours + timezone, remove Friday from lead availability
+- Delete 2 unnecessary calendars
+- Send update to Rodrigo confirming fixes done
+
+**Blockers:**
+- GHL access needed to apply calendar fixes — pending CJ
+
+---
 
 ## 2026-06-22
 

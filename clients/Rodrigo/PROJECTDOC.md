@@ -5,7 +5,7 @@
 
 ## 1. Snapshot
 
-Gracie Barra Santa Barbara is a BJJ gym running on HighLevel. The account transitioned from Kyle (no longer with Smarter Flow, his email bounced) to CJ on 2026-06-09. Trust is being rebuilt through fast follow-through. Webhook integration with the outbound call center is complete. Pipeline automation audit is complete — automations confirmed working. One active workstream remains: removing the chatbot from the external website gbsantabarbara.com.
+Gracie Barra Santa Barbara is a BJJ gym running on HighLevel. Account transitioned from Kyle to CJ on 2026-06-09. Trust rebuilt through fast follow-through. Webhook, pipeline audit, and lead notifications are all done. Active workstreams: (1) Add GHL All-In-One Chat widget to gbsantabarbara.com — replacing old chatbot; (2) Remove Friday/Saturday availability from Free Consultation calendar; (3) Contact timezone field cleanup — pending Rodrigo's confirmation on whether forms collect timezone.
 
 ## 2. Communication
 
@@ -24,19 +24,28 @@ Gracie Barra Santa Barbara is a BJJ gym running on HighLevel. The account transi
 
 ## 4. Current state and Next actions
 
-**Workstream C — Remove chatbot from gbsantabarbara.com (IN PROGRESS):** Rodrigo wants chatbot removed — not performing. Focus shifting to web forms. Website is external, not in GHL — requires coordinating outside the platform. Owner: CJ.
+**rc-004 — Add GHL All-In-One Chat widget to gbsantabarbara.com (TODO):** Old chatbot removed/deprecated. Rodrigo now wants GHL chat widget added instead. Site is external — need to get embed code from GHL and give to Rodrigo/site admin to install before `</body>`. Owner: CJ.
 
-**Completed — Webhook integration:** Outbound call center fully connected. Webhook URL, JSON format, attribute list, and field name mapping delivered to call center vendor (1210008878@armailstnr.appspotmail.com | 805-324-7086).
+**rc-008 — Remove Fri/Sat availability from Free Consultation calendar (TODO):** Staff shortages on Fri/Sat — leads must not be able to book those days. Staff can still book manually inside GHL anytime. Owner: CJ.
 
-**Completed — Pipeline automation audit:** Audited all pipelines and funnels. Automations confirmed working as intended — leads now auto-progress per set timeframes.
+**rc-010 — Clear contact timezone fields + audit forms (WAITING ON RODRIGO):** Root cause of "7pm booking" confusion: a contact had timezone = CDT. GHL rendered appointment time in contact's timezone → showed 7pm to staff (was 5pm PDT, valid booking). Fix: clear timezone fields on contacts + remove timezone question from any lead forms. Rodrigo asked to confirm if forms collect timezone. Owner: CJ, blocked pending reply.
 
-**Completed — Lead notifications:** Lead notification emails fixed — Rodrigo now receives new lead emails. Call center email added to notification list.
+**Completed — Calendar bug diagnosis (Jul 3):** Diagnosed "7pm booking" — not a real bug. Contact timezone field (CDT) caused display mismatch. Calendar settings (1pm–6pm PDT) confirmed correct. Explained to Rodrigo.
+
+**Completed — Contact Us form fix (Jul 3):** Form on gbsantabarbara.com fixed.
+
+**Completed — Webhook integration:** Outbound call center fully connected. Call center email (1210008878@armailstnr.appspotmail.com | 805-324-7086) added to lead notifications.
+
+**Completed — Pipeline automation audit:** Automations confirmed working. Leads auto-progress per set timeframes.
+
+**Completed — Lead notifications:** Fixed Jun 12. Rodrigo receives new lead emails. Call center email on notification list.
 
 ## 5. Risks and watch-outs
 
 - **Trust gap:** Service lapsed when Kyle left (bounced email). Rodrigo flagged "urgent" twice. Needs visible follow-through — no more gaps.
 - **Review risk:** Marked "Not Likely" in old Clients Tracker. Handle with extra care before any review ask.
-- **Chatbot removal:** Website is not in GHL — requires coordinating outside the platform.
+- **External website:** gbsantabarbara.com is not in GHL. Chat widget install requires Rodrigo's site admin to paste embed code.
+- **Contact timezone field:** If leads fill out a form with timezone, it overrides appointment time display in notifications. Monitor for recurrence until rc-010 is resolved.
 
 ## 6. Handoff notes (read first if covering cold)
 

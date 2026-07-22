@@ -5,12 +5,13 @@
 
 ## 1. Snapshot
 
-CLR WTR SOL installs whole-home water filtration and reverse osmosis systems. Business partners Tate Smith and Jonathan Smith. Stripe surcharge fixed 2026-06-12 (credit card 2.9%, ACH excluded). Install Calendar custom fields added 2026-06-18 (backend-only, required for sales reps). Active build in progress: automated maintenance tracking system — 6 workflows + 9 custom fields + 25-contact migration + Smart List. Approved 2026-06-23 at $220 / 4 hrs.
+CLR WTR SOL installs whole-home water filtration and reverse osmosis systems. Business partners Tate Smith and Jonathan Smith. Kyle Staude (former COO) left CLR WTR as of ~Jun 2026 — do NOT CC kstaude@clrwtrsol.com. Billing now goes to Tate only (tsmith@clrwtrsol.com). Stripe surcharge fixed 2026-06-12. Install Calendar custom fields added 2026-06-18. Maintenance tracking system COMPLETE 2026-06-25 (6 workflows, 9 fields, 25 contacts, Smart List). All 3 outstanding invoices paid Jun 30 ($316.25 total). Two small tasks pending: Loom walkthrough + contact section rearrangement.
 
 ## 2. Communication
 
-- **Primary contacts:** Tate Smith — tsmith@clrwtrsol.com + Jonathan Smith — jsmith@clrwtrsol.com
-- **All associated emails + contacts:** Keep both partners on all correspondence.
+- **Primary contact:** Tate Smith — tsmith@clrwtrsol.com
+- **CC on all correspondence:** Jonathan Smith — jsmith@clrwtrsol.com
+- **DO NOT CC:** kstaude@clrwtrsol.com — Kyle Staude has left CLR WTR
 - **Preferred channel and format:** Email.
 - **Timezone / best times:** TBD — confirm with Tate or Jonathan.
 
@@ -19,12 +20,16 @@ CLR WTR SOL installs whole-home water filtration and reverse osmosis systems. Bu
 - **HighLevel sub-account(s):** CLR WTR SOL — location ID TBD
 - **support@gosmarterflow.com added to the sub-account?** TO CONFIRM
 - **Secrets vault (1Password):** TO CREATE
-- **What is built:** Stripe payment processing (credit card 2.9% surcharge, ACH excluded). Install Calendar custom fields (address/phone auto-populate, square footage, RO Faucet Type/Color, Install Type, RO System Type — backend only, required for sales reps).
-- **Billing:** TBD — confirm rate.
+- **What is built:** Stripe payment processing (credit card 2.9% surcharge, ACH excluded). Install Calendar custom fields (address/phone auto-populate, square footage, RO Faucet Type/Color, Install Type, RO System Type — backend only, required for sales reps). Maintenance tracking system (9 custom fields, 6 workflows, 25 contacts, Smart List "Maintenance Due (30 Days)").
+- **Billing:** $55/hr — invoices to tsmith@clrwtrsol.com, CC jsmith@clrwtrsol.com + jonathan@gosmarterflow.com
 
 ## 4. Current state and Next actions
 
-**Workstream A — Maintenance tracking system (COMPLETE 2026-06-25):** 9 custom fields + 6 workflows (package-type enrollment) + 25 contacts migrated + Smart List "Maintenance Due (30 Days)" + TWIST-LOC dropdown added. Billed 3h 45min @ $55 = $206.25. All workflows tested and live. Completion update sent to Tate 2026-06-25.
+**Pending — Loom walkthrough:** Tate requested video clicking through the maintenance system to share with team. CJ to record.
+
+**Pending — Contact section rearrangement:** Delete Ops Closer folder (custom — fields inside will move to Additional Info by default). Reorder: Maintenance Tracker Info to top, General Info + Additional Info pushed to bottom (standard GHL folders, cannot delete).
+
+**Workstream A — Maintenance tracking system (COMPLETE 2026-06-25):** 9 custom fields + 6 workflows (package-type enrollment) + 25 contacts migrated + Smart List "Maintenance Due (30 Days)" + TWIST-LOC dropdown added. Billed 3h 45min @ $55 = $206.25. All workflows tested and live.
 
 **Completed (2026-06-18):** Install Calendar custom fields — address/phone auto-populate, square footage, RO Faucet Type/Color, Install Type, RO System Type. Backend-only, required for sales reps when booking.
 
@@ -32,14 +37,18 @@ CLR WTR SOL installs whole-home water filtration and reverse osmosis systems. Bu
 
 ## 5. Risks and watch-outs
 
-- **Package-type enrollment:** Each contact must be enrolled only in workflows matching their package (Whole-Home Only / RO Only / Whole-Home+RO). Add condition-check safeguard inside each workflow.
+- **Kyle Staude departed:** kstaude@clrwtrsol.com is no longer active at CLR WTR. Billing and ops go to Tate only.
+- **Package-type enrollment:** Each contact enrolled only in workflows matching their package (Whole-Home Only / RO Only / Whole-Home+RO). Condition-check safeguard inside each workflow.
 - **GHL roadmap dependency:** Channel-specific processing fees not yet live in GHL. Don't commit to timeline.
-- **Two decision-makers:** Tate (primary) + Jonathan (partner). Keep both in loop.
 
 ## 6. Handoff notes (read first if covering cold)
 
-- Tate Smith (tsmith@clrwtrsol.com) + Jonathan Smith (jsmith@clrwtrsol.com) — business partners, both on correspondence.
-- Kyle Staude (kstaude@clrwtrsol.com) — COO, keep CC'd on operational threads.
+- **Primary:** Tate Smith (tsmith@clrwtrsol.com) — day-to-day contact + billing recipient
+- **CC:** Jonathan Smith (jsmith@clrwtrsol.com) — business partner/owner
+- **DO NOT CC:** Kyle Staude (kstaude@clrwtrsol.com) — left CLR WTR ~Jun 2026
+- Billing rate: $55/hr. Invoices go to tsmith@, CC jsmith@ + jonathan@gosmarterflow.com
 - Stripe surcharge: credit cards = 2.9%, ACH = $0. Fixed 2026-06-12.
-- Install Calendar fields: backend-only custom fields required for sales reps when booking installs. Done 2026-06-18.
-- Maintenance tracking build approved ($220/4hrs). 6 workflows, package-type-based enrollment. 25 contacts in GHL with pre-calculated Next service dates in their spreadsheet (Google Drive file ID: 1f1sTVvbm0aLF9o_xlP1biEkDl082EIP0).
+- Install Calendar fields done 2026-06-18.
+- Maintenance tracking COMPLETE 2026-06-25: 6 workflows (Salt/RO Filter/RO Membrane/Brine Tank/Carbon Media/Resin), package-type enrollment, 25 contacts migrated. Google Drive file ID: 1f1sTVvbm0aLF9o_xlP1biEkDl082EIP0
+- All 3 invoices paid Jun 30 ($316.25 total across 3 billing weeks)
+- Two open tasks: Loom walkthrough + contact section rearrangement (Ops Closer delete + reorder)

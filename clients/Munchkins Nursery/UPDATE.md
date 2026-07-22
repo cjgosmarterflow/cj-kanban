@@ -4,6 +4,42 @@
 
 ---
 
+## 2026-06-30
+
+**What was done:**
+- Weekly billing sent for week 06/22 - 06/26: 1:45 hrs, $96.25, card charged
+- Tasks billed: Meeting with Ethan (Munchkins) (0:20:03), GoHighLevel Calendar & Timezone Audit + Fixes (1:23:17)
+- Sent to accounts@munchkins-nursery.co.uk (Kelly), CC jonathan@gosmarterflow.com
+
+**What's next:**
+- Ask Ethan/Lottie for current priorities across other sub-accounts
+- Confirm GHL timezone fixes are holding across all sub-accounts
+
+**Blockers:**
+- None
+
+---
+
+## 2026-06-26
+
+**What was done:**
+- GHL access granted — completed full timezone audit across all sub-accounts.
+- Agency-level timezone was blank → set to GMT+01:00 Europe/London (BST). This was the root cause of the 7-hour time difference in activity logs.
+- Dunton Fields sub-account was set to GMT-12:00 (International Date Line) → corrected to GMT+01:00 Europe/London (BST). Was causing appointment records to show wrong timezone + dates off by a full day.
+- Brentwood Stage 3 workflow ("Booking an appointment") had a Find Opportunity action failing on an invalid custom field, which caused Update Opportunity to skip → pipeline not auto-updating on bookings. Removed invalid custom field. Workflow now functioning.
+- All other sub-accounts (Dunton Park, Baddow, Billericay, Brightlingsea, Laindon, Wivenhoe, Recruitment, Discount Club) were already on correct timezone. No changes needed.
+- Sent summary email to Ethan and Lottie with full breakdown of what was done.
+- Time logged: 1 hour 23 minutes.
+
+**What's next:**
+- Ask Ethan/Lottie for current priorities across other sub-accounts.
+- Loom walkthrough is a standing Nica-era practice (not promised by CJ) — optional to continue.
+
+**Blockers:**
+- None.
+
+---
+
 ## 2026-06-25
 
 **What was done:**

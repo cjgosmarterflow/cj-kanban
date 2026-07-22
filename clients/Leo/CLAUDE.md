@@ -24,24 +24,30 @@
 
 ---
 
-## Live Priority: New Sales Pipeline + Funnels
+## Live Priority (as of 2026-07-21)
 
-Thiaggo wants a new sales pipeline plus integrated funnels built ASAP.
-- Booking links sent 2026-06-09
-- First job: scoping call → plan → build fast
-- Always reply-all so both Leo and Thiaggo see responses
+**lv-018 — WhatsApp template messages failing (HIGH):** Error "Message failed to send... payment method." GHL wallet balance OK; issue at Meta Business billing level. Check GHL agency > WhatsApp settings > payment method for Souzet sub-account. Also check Meta Business Manager.
+
+**lv-009 — Assign dedicated JOF phone number (HIGH):** Phone that rings JOF staff only. Not yet done.
+
+**lv-008 — JOF workflows (INPROGRESS):** Workflows updated and tested. Confirm with Thiaggo fully live → move to done.
+
+JOF pipeline, funnels, forms, landing pages otherwise fully built and stable.
 
 ---
 
-## Workstream B (confirm open/closed)
+## Closed Workstreams
 
-Mar 2026: extract customer zip code from lead info (lands in notes field). Confirm with Thiaggo if still needed.
+- **Workstream B** (zip code extraction): Closed. Confirm with Thiaggo only if re-raised.
+- **+55 phone prefix** (lv-017): Fixed 2026-07-15 — turned off auto-country-detection in GHL form settings.
+- **Julia Muniz** (lv user add): Done 2026-06-17 — jofcompanyagencia@gmail.com added to JOF pipeline.
 
 ---
 
 ## Billing
 
 - Consulting: weekly, hourly, 1-hr/week minimum. Billed against Leo's card.
+- Last billed: 07/13-07/17, 1:00 hr, $55.00 (1h minimum).
 - Stripe wallet auto-recharges (~$25) for LC phone/email credits — separate from consulting fees.
 - Related account: ads@digitalfuelagency.com ("Digital Fuel") has agency-level access — relevant for user troubleshooting.
 
@@ -49,4 +55,4 @@ Mar 2026: extract customer zip code from lead info (lands in notes field). Confi
 
 ## Coverage Context
 
-Nica is OOO ~2 weeks from 2026-06-08. CJ covering. Hand back cleanly when Nica returns. Prior consultants: Moon → Nica → CJ (coverage).
+CJ is primary consultant. Prior consultants: Moon → Nica → CJ. Always reply-all — both Leo and Thiaggo must stay in loop. Thiaggo moves fast; respond same day.

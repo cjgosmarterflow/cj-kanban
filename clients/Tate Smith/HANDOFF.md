@@ -1,23 +1,25 @@
 # Tate Smith — Consultant Handoff
 **Client:** Clearwater Solutions (CLR WTR Solutions) — water treatment
 **Consultant:** CJ Salamida (Primary, replacing Nica) | Backup: Jed
-**Last updated:** 2026-06-25
+**Last updated:** 2026-07-02
 
 ---
 
 ## Current Status
 
-Active, long-running account (onboarded ~June 2025). Healthy relationship — they left a HL directory review and referred another agency. All known tasks complete. Check-in sent June 22.
+Active. Maintenance tracking system complete Jun 25. All 3 invoices paid Jun 30 ($316.25 total). Two small tasks pending: Loom walkthrough + contact section rearrangement. Healthy relationship.
 
 ---
 
 ## Contacts
 
-| Name | Role | Email | Phone |
-|---|---|---|---|
-| Tate Smith | Day-to-day contact | tsmith@clrwtrsol.com | — |
-| Jonathan "Jon" Smith | Owner / CEO | jsmith@clrwtrsol.com | 615-998-9155 |
-| Kyle Staude | Owner / COO | kstaude@clrwtrsol.com | 270-791-6796 |
+| Name | Role | Email | Phone | Active? |
+|---|---|---|---|---|
+| Tate Smith | Day-to-day contact + billing | tsmith@clrwtrsol.com | — | Primary |
+| Jonathan "Jon" Smith | Owner / CEO | jsmith@clrwtrsol.com | 615-998-9155 | CC |
+| Kyle Staude | Former COO | kstaude@clrwtrsol.com | 270-791-6796 | LEFT — do not CC |
+
+**DO NOT CC kstaude@clrwtrsol.com — Kyle Staude has left CLR WTR.**
 
 ---
 
@@ -43,7 +45,10 @@ Active, long-running account (onboarded ~June 2025). Healthy relationship — th
 
 ## What's Pending
 
-None — board cleared.
+| Task | Notes |
+|---|---|
+| Record Loom walkthrough | Tate wants video of maintenance system to share with his team |
+| Contact section rearrangement | Delete Ops Closer (custom — fields move to Additional Info). Maintenance Tracker to top; General Info + Additional Info to bottom (standard GHL, cannot delete) |
 
 ---
 
@@ -55,6 +60,23 @@ None — board cleared.
 ---
 
 ## Session Log
+
+### 2026-06-30 — Consolidated billing sent, all invoices paid
+- Billing consolidated to tsmith@clrwtrsol.com (Kyle Staude departed)
+- 3 invoices sent covering: Week 06/08-12 ($55), Week 06/16-20 ($55), Week 06/22-26 ($206.25) = $316.25 total
+- Tate confirmed all 3 paid Jun 30
+
+### 2026-06-27 — Invoice correction sent
+- Invoices were going to Jonathan Smith (jsmith@) instead of Kyle Staude (kstaude@) — CJ's error
+- Sent correction email to Tate (CC Kyle + Jonathan): offered to resend to Kyle or charge card on file
+- Awaiting reply
+
+### 2026-06-27 — New tasks confirmed, reply sent
+- Tate requested Loom walkthrough + contact section cleanup
+- Ops Closer folder: deletable — fields inside will default to Additional Info folder
+- General Info + Additional Info: standard GHL folders, can't delete — push to bottom
+- Maintenance Tracker Info: move to top
+- Replied to Tate confirming plan
 
 ### 2026-06-25 — Build complete, invoice sent
 - Maintenance tracking system fully complete and tested

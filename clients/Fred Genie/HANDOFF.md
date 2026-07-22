@@ -6,7 +6,7 @@
 
 ## 1. Snapshot
 
-Genie Receptionist Services is a virtual receptionist business. CJ onboarded this client in June 2026. Active work spans three areas: Voice AI (after-hours AI receptionist named "Genie"), Reputation Management (automated review request system via GBP), and a website chat widget install. The Voice AI is live and in use. The reputation management system is configured but has broken parts that need to be fixed before activation. The chat widget is pending website login credentials.
+Genie Receptionist Services is a virtual receptionist business. CJ onboarded this client in June 2026. All three workstreams are now complete: Voice AI (after-hours AI receptionist "Genie" — live, 24/7 schedule, Genie Updated prompt active), Reputation Management (fixed and active — triggers on Closed Won or "Request Review" tag), and Website (All-In-One chat widget live, Contact Us form fixed with GHL iframe embed). Awaiting Fred on calendar preference and rep mgmt review questions.
 
 ---
 
@@ -32,10 +32,12 @@ Genie Receptionist Services is a virtual receptionist business. CJ onboarded thi
 **Secrets vault (1Password):** [TBD]
 
 **What is built:**
-- Voice AI — after-hours receptionist named "Genie", with structured call flow script and hard rules
-- GBP (Google Business Profile) — connected and ready for reputation management
-- Review request Email + SMS templates — wording updated by Fred, reviewed by CJ
-- Reputation management workflow ("4. Review Request Survey Submitted") — exists but has broken parts (do not activate)
+- Voice AI — "Genie – Updated" agent active, 24/7 schedule, phone (916) 908-5085 assigned, Appointment Calendar – Outlook connected
+- GBP (Google Business Profile) — connected, reputation management workflow live
+- Review request Email + SMS templates — reviewed and wording finalized
+- Reputation management workflow — FIXED and active (corrupted branch rebuilt, custom field created, routing corrected)
+- All-In-One Chat Widget — live on geniereceptionist.com via WPCode script embed (LeadConnector plugin removed)
+- Contact Us form — GHL iframe embed (height:1200px), no scrolling, replacing old LeadConnector shortcode
 
 ---
 
@@ -57,30 +59,29 @@ Genie Receptionist Services is a virtual receptionist business. CJ onboarded thi
 - Owner: CJ | Billed: 2hrs @ $55 = $110
 
 **Workstream: Website Chat Widget**
-- Status: Pending website access — Fred chose All-In-One widget
-- Website designer: Andrea — andrea@appletreeadvertising.com
-- Access method: Andrea assigns cj@gosmarterflow.com as admin
-- Note: Voice AI Chat Widget is currently in GHL Labs — confirm agency enablement before install
-- Next action: Wait for Andrea to grant access, then install All-In-One widget
-- Owner: CJ | Pending: Andrea
+- Status: COMPLETE — June 26
+- Received WordPress admin access from Andrea
+- Installed LeadConnector plugin on geniereceptionist.com
+- All-In-One chat widget connected to GHL and live on site
+- Next action: Confirm with Fred widget is visible and working
+- Owner: CJ
 
 ---
 
 ## 5. Risks and Watch-outs
 
 - **Caller ID still broken** until Fred switches from Twilio to a Lead Connector number — do not close this item until confirmed.
-- **Voice AI Chat Widget is in Labs** — must verify it is enabled at the agency level before attempting install on Fred's website.
-- **Website access blocked** — Andrea must assign cj@gosmarterflow.com as admin before chat widget install can proceed. Nothing to do until access granted.
+- **Chat widget live** — pending Fred confirmation it's visible and working on geniereceptionist.com.
 
 ---
 
 ## 6. Handoff Notes (read first if covering cold)
 
-1. Voice AI is live and after-hours calls are routing. The AI is named "Genie."
-2. Caller ID fix requires Fred to take action (buy LC number) — it is not something CJ can do on his behalf.
-3. The reputation management workflow exists but is broken — do not activate under any circumstances before fixing the corrupted branch and running end-to-end tests.
-4. Fred is responsive but busy (small staff). Async email is the right channel. Don't push for quick replies.
-5. Chat widget install is completely blocked on Fred's website person — nothing to do until credentials arrive.
+1. Voice AI live. Active agent is "Genie – Updated." After-hours schedule configured. AI is named "Genie."
+2. Caller ID fix requires Fred to take action (buy LC number) — not something CJ can do on his behalf.
+3. Reputation management workflow fixed and active. Triggers on Closed Won or "Request Review" tag.
+4. Chat widget installed and live on geniereceptionist.com — pending Fred confirmation.
+5. Fred is responsive but busy (small staff). Async email is the right channel. Don't push for quick replies.
 6. GHL sub-account Location ID is still TBD — pull from GHL URL on first login.
 
 ---
@@ -108,3 +109,5 @@ Genie Receptionist Services is a virtual receptionist business. CJ onboarded thi
 2026-06-25 | Email | by Fred — Provided after-hours schedule. Business hours Mon-Fri 8 AM–5 PM (live). After hours Mon-Fri 5 PM to next business day 8 AM. Weekend Fri 5 PM to Mon 8 AM. GHL hours control NOT needed — phone system handles all forwarding. Voice AI stays always-on.
 
 2026-06-25 | Work | by CJ — Switched active Voice AI agent from "Genie" to "Genie – Updated" (revised prompt + Hard Rules applied). Reassigned phone number (916) 908-5085. Configured after-hours schedule in GHL. Verified Outlook calendar connected. Completed reputation management fix (corrupted branch rebuilt, custom field created, routing logic corrected). Sent detailed update email to Fred with screenshots covering both Voice AI and Rep Mgmt. Kanban updated.
+
+2026-06-26 | Work | by CJ — Received WordPress admin access from Andrea. Installed LeadConnector plugin — found faulty (widget inconsistent, duplicate widgets showing). Removed LeadConnector plugin and old footer script from Neve theme. Added All-In-One Chat Widget script directly — widget now stable and live on geniereceptionist.com. Fixed Contact Us form — replaced shortcode with GHL iframe embed (height:1200px), no scrolling. Replied to Fred covering Voice AI 24/7 confirmation, calendar update (Appointment Calendar – Outlook), rep mgmt follow-up, confirmed CJ as primary. Kanban: fg-website-andrea + fg-website-widget + fg-website-form → done.

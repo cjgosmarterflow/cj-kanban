@@ -1,21 +1,21 @@
 # Fred Genie — Quick Context
 
 **Client:** Fred Lowenstein | **Company:** Genie Receptionist Services
-**GHL Phone:** +1 916-545-9045 | **Rate:** $55/hr PAYG | **Consultant:** CJ Salamida
+**GHL Phone:** +1 916-908-5085 | **Rate:** $55/hr PAYG | **Consultant:** CJ Salamida (primary)
 
 ## Key Contacts
 - Fred Lowenstein (owner): Fred@geniereceptionist.com
+- Andrea (website designer): andrea@appletreeadvertising.com
 
 ## Status
-Active. 3 workstreams: Voice AI (live), Rep Mgmt (broken, fix pending approval), Chat Widget (blocked on website creds).
+Active. All 3 workstreams complete. Waiting on Fred for calendar preference and rep mgmt questions.
 
 ## Rules
-- Do NOT activate rep mgmt workflow — corrupted branch, not fixed yet
-- Voice AI Caller ID fix requires Fred to buy a new LC number (can't do on his behalf)
-- Chat widget: confirm Voice AI Chat Widget is enabled in agency Labs before install
+- Voice AI Caller ID fix requires Fred to buy a new LC number — cannot do on his behalf
 - Fred is responsive but busy (small staff). Async email only.
+- CJ is primary consultant. Johnica helped with Voice AI prompt only.
 
 ## Open Items
-- Rep mgmt fix: $110 proposal sent June 16 — awaiting Fred's approval
-- Fred's website person back ~week of June 23 (login credentials incoming)
-- Fred to buy LC number and update Voice AI forwarding destination
+- Fred to confirm calendar: Appointment Calendar vs Appointment Calendar – Outlook (settings differ)
+- Fred reviewing Reputation Management — questions incoming
+- Caller ID fix pending Fred buying new LC number
